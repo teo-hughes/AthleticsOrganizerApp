@@ -1,0 +1,585 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		257FF00B26F5FF33006C801D /* AthleticsOrganizerAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257FF00A26F5FF33006C801D /* AthleticsOrganizerAppApp.swift */; };
+		257FF00D26F5FF33006C801D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257FF00C26F5FF33006C801D /* ContentView.swift */; };
+		257FF00F26F5FF35006C801D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 257FF00E26F5FF35006C801D /* Assets.xcassets */; };
+		257FF01226F5FF35006C801D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 257FF01126F5FF35006C801D /* Preview Assets.xcassets */; };
+		257FF01D26F5FF35006C801D /* AthleticsOrganizerAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257FF01C26F5FF35006C801D /* AthleticsOrganizerAppTests.swift */; };
+		257FF02826F5FF35006C801D /* AthleticsOrganizerAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257FF02726F5FF35006C801D /* AthleticsOrganizerAppUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		257FF01926F5FF35006C801D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 257FEFFF26F5FF33006C801D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 257FF00626F5FF33006C801D;
+			remoteInfo = AthleticsOrganizerApp;
+		};
+		257FF02426F5FF35006C801D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 257FEFFF26F5FF33006C801D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 257FF00626F5FF33006C801D;
+			remoteInfo = AthleticsOrganizerApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		257FF00726F5FF33006C801D /* AthleticsOrganizerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AthleticsOrganizerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		257FF00A26F5FF33006C801D /* AthleticsOrganizerAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleticsOrganizerAppApp.swift; sourceTree = "<group>"; };
+		257FF00C26F5FF33006C801D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		257FF00E26F5FF35006C801D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		257FF01126F5FF35006C801D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		257FF01326F5FF35006C801D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		257FF01826F5FF35006C801D /* AthleticsOrganizerAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AthleticsOrganizerAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		257FF01C26F5FF35006C801D /* AthleticsOrganizerAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleticsOrganizerAppTests.swift; sourceTree = "<group>"; };
+		257FF01E26F5FF35006C801D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		257FF02326F5FF35006C801D /* AthleticsOrganizerAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AthleticsOrganizerAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		257FF02726F5FF35006C801D /* AthleticsOrganizerAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleticsOrganizerAppUITests.swift; sourceTree = "<group>"; };
+		257FF02926F5FF35006C801D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		257FF00426F5FF33006C801D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		257FF01526F5FF35006C801D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		257FF02026F5FF35006C801D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		257FEFFE26F5FF33006C801D = {
+			isa = PBXGroup;
+			children = (
+				257FF00926F5FF33006C801D /* AthleticsOrganizerApp */,
+				257FF01B26F5FF35006C801D /* AthleticsOrganizerAppTests */,
+				257FF02626F5FF35006C801D /* AthleticsOrganizerAppUITests */,
+				257FF00826F5FF33006C801D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		257FF00826F5FF33006C801D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				257FF00726F5FF33006C801D /* AthleticsOrganizerApp.app */,
+				257FF01826F5FF35006C801D /* AthleticsOrganizerAppTests.xctest */,
+				257FF02326F5FF35006C801D /* AthleticsOrganizerAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		257FF00926F5FF33006C801D /* AthleticsOrganizerApp */ = {
+			isa = PBXGroup;
+			children = (
+				257FF00A26F5FF33006C801D /* AthleticsOrganizerAppApp.swift */,
+				257FF00C26F5FF33006C801D /* ContentView.swift */,
+				257FF00E26F5FF35006C801D /* Assets.xcassets */,
+				257FF01326F5FF35006C801D /* Info.plist */,
+				257FF01026F5FF35006C801D /* Preview Content */,
+			);
+			path = AthleticsOrganizerApp;
+			sourceTree = "<group>";
+		};
+		257FF01026F5FF35006C801D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				257FF01126F5FF35006C801D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		257FF01B26F5FF35006C801D /* AthleticsOrganizerAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				257FF01C26F5FF35006C801D /* AthleticsOrganizerAppTests.swift */,
+				257FF01E26F5FF35006C801D /* Info.plist */,
+			);
+			path = AthleticsOrganizerAppTests;
+			sourceTree = "<group>";
+		};
+		257FF02626F5FF35006C801D /* AthleticsOrganizerAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				257FF02726F5FF35006C801D /* AthleticsOrganizerAppUITests.swift */,
+				257FF02926F5FF35006C801D /* Info.plist */,
+			);
+			path = AthleticsOrganizerAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		257FF00626F5FF33006C801D /* AthleticsOrganizerApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 257FF02C26F5FF35006C801D /* Build configuration list for PBXNativeTarget "AthleticsOrganizerApp" */;
+			buildPhases = (
+				257FF00326F5FF33006C801D /* Sources */,
+				257FF00426F5FF33006C801D /* Frameworks */,
+				257FF00526F5FF33006C801D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AthleticsOrganizerApp;
+			productName = AthleticsOrganizerApp;
+			productReference = 257FF00726F5FF33006C801D /* AthleticsOrganizerApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		257FF01726F5FF35006C801D /* AthleticsOrganizerAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 257FF02F26F5FF35006C801D /* Build configuration list for PBXNativeTarget "AthleticsOrganizerAppTests" */;
+			buildPhases = (
+				257FF01426F5FF35006C801D /* Sources */,
+				257FF01526F5FF35006C801D /* Frameworks */,
+				257FF01626F5FF35006C801D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				257FF01A26F5FF35006C801D /* PBXTargetDependency */,
+			);
+			name = AthleticsOrganizerAppTests;
+			productName = AthleticsOrganizerAppTests;
+			productReference = 257FF01826F5FF35006C801D /* AthleticsOrganizerAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		257FF02226F5FF35006C801D /* AthleticsOrganizerAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 257FF03226F5FF35006C801D /* Build configuration list for PBXNativeTarget "AthleticsOrganizerAppUITests" */;
+			buildPhases = (
+				257FF01F26F5FF35006C801D /* Sources */,
+				257FF02026F5FF35006C801D /* Frameworks */,
+				257FF02126F5FF35006C801D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				257FF02526F5FF35006C801D /* PBXTargetDependency */,
+			);
+			name = AthleticsOrganizerAppUITests;
+			productName = AthleticsOrganizerAppUITests;
+			productReference = 257FF02326F5FF35006C801D /* AthleticsOrganizerAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		257FEFFF26F5FF33006C801D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1210;
+				LastUpgradeCheck = 1210;
+				TargetAttributes = {
+					257FF00626F5FF33006C801D = {
+						CreatedOnToolsVersion = 12.1;
+					};
+					257FF01726F5FF35006C801D = {
+						CreatedOnToolsVersion = 12.1;
+						TestTargetID = 257FF00626F5FF33006C801D;
+					};
+					257FF02226F5FF35006C801D = {
+						CreatedOnToolsVersion = 12.1;
+						TestTargetID = 257FF00626F5FF33006C801D;
+					};
+				};
+			};
+			buildConfigurationList = 257FF00226F5FF33006C801D /* Build configuration list for PBXProject "AthleticsOrganizerApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 257FEFFE26F5FF33006C801D;
+			productRefGroup = 257FF00826F5FF33006C801D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				257FF00626F5FF33006C801D /* AthleticsOrganizerApp */,
+				257FF01726F5FF35006C801D /* AthleticsOrganizerAppTests */,
+				257FF02226F5FF35006C801D /* AthleticsOrganizerAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		257FF00526F5FF33006C801D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				257FF01226F5FF35006C801D /* Preview Assets.xcassets in Resources */,
+				257FF00F26F5FF35006C801D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		257FF01626F5FF35006C801D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		257FF02126F5FF35006C801D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		257FF00326F5FF33006C801D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				257FF00D26F5FF33006C801D /* ContentView.swift in Sources */,
+				257FF00B26F5FF33006C801D /* AthleticsOrganizerAppApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		257FF01426F5FF35006C801D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				257FF01D26F5FF35006C801D /* AthleticsOrganizerAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		257FF01F26F5FF35006C801D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				257FF02826F5FF35006C801D /* AthleticsOrganizerAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		257FF01A26F5FF35006C801D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 257FF00626F5FF33006C801D /* AthleticsOrganizerApp */;
+			targetProxy = 257FF01926F5FF35006C801D /* PBXContainerItemProxy */;
+		};
+		257FF02526F5FF35006C801D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 257FF00626F5FF33006C801D /* AthleticsOrganizerApp */;
+			targetProxy = 257FF02426F5FF35006C801D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		257FF02A26F5FF35006C801D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		257FF02B26F5FF35006C801D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		257FF02D26F5FF35006C801D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"AthleticsOrganizerApp/Preview Content\"";
+				DEVELOPMENT_TEAM = W65T7XHLQZ;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = AthleticsOrganizerApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Teo-Hughes.AthleticsOrganizerApp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		257FF02E26F5FF35006C801D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"AthleticsOrganizerApp/Preview Content\"";
+				DEVELOPMENT_TEAM = W65T7XHLQZ;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = AthleticsOrganizerApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Teo-Hughes.AthleticsOrganizerApp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		257FF03026F5FF35006C801D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W65T7XHLQZ;
+				INFOPLIST_FILE = AthleticsOrganizerAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Teo-Hughes.AthleticsOrganizerAppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AthleticsOrganizerApp.app/AthleticsOrganizerApp";
+			};
+			name = Debug;
+		};
+		257FF03126F5FF35006C801D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W65T7XHLQZ;
+				INFOPLIST_FILE = AthleticsOrganizerAppTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Teo-Hughes.AthleticsOrganizerAppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AthleticsOrganizerApp.app/AthleticsOrganizerApp";
+			};
+			name = Release;
+		};
+		257FF03326F5FF35006C801D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W65T7XHLQZ;
+				INFOPLIST_FILE = AthleticsOrganizerAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Teo-Hughes.AthleticsOrganizerAppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AthleticsOrganizerApp;
+			};
+			name = Debug;
+		};
+		257FF03426F5FF35006C801D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W65T7XHLQZ;
+				INFOPLIST_FILE = AthleticsOrganizerAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Teo-Hughes.AthleticsOrganizerAppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AthleticsOrganizerApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		257FF00226F5FF33006C801D /* Build configuration list for PBXProject "AthleticsOrganizerApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				257FF02A26F5FF35006C801D /* Debug */,
+				257FF02B26F5FF35006C801D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		257FF02C26F5FF35006C801D /* Build configuration list for PBXNativeTarget "AthleticsOrganizerApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				257FF02D26F5FF35006C801D /* Debug */,
+				257FF02E26F5FF35006C801D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		257FF02F26F5FF35006C801D /* Build configuration list for PBXNativeTarget "AthleticsOrganizerAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				257FF03026F5FF35006C801D /* Debug */,
+				257FF03126F5FF35006C801D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		257FF03226F5FF35006C801D /* Build configuration list for PBXNativeTarget "AthleticsOrganizerAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				257FF03326F5FF35006C801D /* Debug */,
+				257FF03426F5FF35006C801D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 257FEFFF26F5FF33006C801D /* Project object */;
+}
