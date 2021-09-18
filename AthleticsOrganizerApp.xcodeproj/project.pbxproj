@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		257FF00B26F5FF33006C801D /* AthleticsOrganizerAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257FF00A26F5FF33006C801D /* AthleticsOrganizerAppApp.swift */; };
-		257FF00D26F5FF33006C801D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257FF00C26F5FF33006C801D /* ContentView.swift */; };
 		257FF00F26F5FF35006C801D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 257FF00E26F5FF35006C801D /* Assets.xcassets */; };
 		257FF01226F5FF35006C801D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 257FF01126F5FF35006C801D /* Preview Assets.xcassets */; };
 		257FF01D26F5FF35006C801D /* AthleticsOrganizerAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257FF01C26F5FF35006C801D /* AthleticsOrganizerAppTests.swift */; };
@@ -36,7 +35,6 @@
 /* Begin PBXFileReference section */
 		257FF00726F5FF33006C801D /* AthleticsOrganizerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AthleticsOrganizerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		257FF00A26F5FF33006C801D /* AthleticsOrganizerAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleticsOrganizerAppApp.swift; sourceTree = "<group>"; };
-		257FF00C26F5FF33006C801D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		257FF00E26F5FF35006C801D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		257FF01126F5FF35006C801D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		257FF01326F5FF35006C801D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -98,7 +96,6 @@
 			isa = PBXGroup;
 			children = (
 				257FF00A26F5FF33006C801D /* AthleticsOrganizerAppApp.swift */,
-				257FF00C26F5FF33006C801D /* ContentView.swift */,
 				257FF00E26F5FF35006C801D /* Assets.xcassets */,
 				257FF01326F5FF35006C801D /* Info.plist */,
 				257FF04926F602B3006C801D /* MenuView.swift */,
@@ -262,7 +259,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				257FF00D26F5FF33006C801D /* ContentView.swift in Sources */,
 				257FF04A26F602B3006C801D /* MenuView.swift in Sources */,
 				257FF00B26F5FF33006C801D /* AthleticsOrganizerAppApp.swift in Sources */,
 			);
