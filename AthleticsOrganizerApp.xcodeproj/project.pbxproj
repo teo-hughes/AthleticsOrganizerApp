@@ -13,6 +13,7 @@
 		257FF01226F5FF35006C801D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 257FF01126F5FF35006C801D /* Preview Assets.xcassets */; };
 		257FF01D26F5FF35006C801D /* AthleticsOrganizerAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257FF01C26F5FF35006C801D /* AthleticsOrganizerAppTests.swift */; };
 		257FF02826F5FF35006C801D /* AthleticsOrganizerAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257FF02726F5FF35006C801D /* AthleticsOrganizerAppUITests.swift */; };
+		257FF04A26F602B3006C801D /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257FF04926F602B3006C801D /* MenuView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		257FF02326F5FF35006C801D /* AthleticsOrganizerAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AthleticsOrganizerAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		257FF02726F5FF35006C801D /* AthleticsOrganizerAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleticsOrganizerAppUITests.swift; sourceTree = "<group>"; };
 		257FF02926F5FF35006C801D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		257FF04926F602B3006C801D /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				257FF00C26F5FF33006C801D /* ContentView.swift */,
 				257FF00E26F5FF35006C801D /* Assets.xcassets */,
 				257FF01326F5FF35006C801D /* Info.plist */,
+				257FF04926F602B3006C801D /* MenuView.swift */,
 				257FF01026F5FF35006C801D /* Preview Content */,
 			);
 			path = AthleticsOrganizerApp;
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				257FF00D26F5FF33006C801D /* ContentView.swift in Sources */,
+				257FF04A26F602B3006C801D /* MenuView.swift in Sources */,
 				257FF00B26F5FF33006C801D /* AthleticsOrganizerAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
