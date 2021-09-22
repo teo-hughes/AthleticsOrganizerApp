@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MenuView.swift
 //  AthleticsOrganizerApp
 //
 //  Created by Teo Hughes on 18/09/2021.
@@ -9,8 +9,10 @@ import SwiftUI
 
 struct MenuView: View {
     var body: some View {
-        Text("Menu View")
-            .padding()
+        TabView {
+            MenuView()
+            AnalysisView()
+        }
     }
 }
 
