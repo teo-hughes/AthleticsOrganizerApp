@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  AthleticsOrganizerApp
 //
-//  Created by Hughes, Teo (BJH) on 18/09/2021.
+//  Created by Teo Hughes on 18/09/2021.
 //
 
 import SwiftUI
