@@ -7,3 +7,16 @@
 
 import SwiftUI
 
+class ViewOrganizer: ObservableObject {
+    
+    @Published var currentView: WhichView = .home
+    
+}
+
+
+enum WhichView {
+    case home
+    case tournaments
+    case analysis
+    case info
+}

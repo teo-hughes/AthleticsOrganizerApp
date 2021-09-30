@@ -8,23 +8,35 @@
 import SwiftUI
 
 struct MenuView: View {
+    
+    @StateObject var viewOrganizer = ViewOrganizer()
+    
     var body: some View {
         
         GeometryReader { geometry in
             VStack{
                 HStack {
-                    TabBarIcon(width: geometry.size.width/2, height: geometry.size.height/32, systemIconName: "house", tabName: "Home")
-                    TabBarIcon(width: geometry.size.width/2, height: geometry.size.height/32, systemIconName: "info.circle", tabName: "Info")
+                    TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .home, width: geometry.size.width/2, height: geometry.size.height/32, systemIconName: "house", tabName: "Home")
+                    TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .info, width: geometry.size.width/2, height: geometry.size.height/32, systemIconName: "info.circle", tabName: "Info")
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height/8)
                 .background(Color.gray)
 
                 Spacer()
-                Text("Tournaments")
+                switch viewOrganizer.currentView {
+                case .home:
+                    Text("Home")
+                case .tournaments:
+                    Text("Tournaments")
+                case .analysis:
+                    Text("Analysis")
+                case .info:
+                    Text("Info")
+                }
                 Spacer()
                 HStack {
-                    TabBarIcon(width: geometry.size.width/2, height: geometry.size.height/32, systemIconName: "list.bullet.indent", tabName: "Tournaments")
-                    TabBarIcon(width: geometry.size.width/2, height: geometry.size.height/32, systemIconName: "person.crop.circle", tabName: "Your Analysis")
+                    TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .tournaments, width: geometry.size.width/2, height: geometry.size.height/32, systemIconName: "list.bullet.indent", tabName: "Tournaments")
+                    TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .analysis, width: geometry.size.width/2, height: geometry.size.height/32, systemIconName: "person.crop.circle", tabName: "Your Analysis")
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height/8)
                 .background(Color.gray)
@@ -36,11 +48,14 @@ struct MenuView: View {
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuView()
+        MenuView(viewOrganizer: ViewOrganizer())
     }
 }
 
 struct TabBarIcon: View {
+    
+    @StateObject var viewOrganizer: ViewOrganizer
+    let assignedView: WhichView
     
     let width, height: CGFloat
     let systemIconName, tabName: String
@@ -58,5 +73,9 @@ struct TabBarIcon: View {
 
         }
         .padding(.horizontal, -10)
+        .foregroundColor(viewOrganizer.currentView == assignedView ? .blue : .black)
+        .onTapGesture {
+            viewOrganizer.currentView = assignedView
+        }
     }
 }
