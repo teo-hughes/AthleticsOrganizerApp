@@ -9,10 +9,12 @@ import SwiftUI
 
 struct MenuView: View {
     
+    // Accessing the data from the ViewOrganizer class
     @StateObject var viewOrganizer = ViewOrganizer()
     
     var body: some View {
         
+        // To do (comments)
         GeometryReader { geometry in
             VStack{
                 HStack {
@@ -20,7 +22,7 @@ struct MenuView: View {
                     TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .info, width: geometry.size.width/2, height: geometry.size.height/32, systemIconName: "info.circle", tabName: "Info")
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height/8)
-                .background(Color.gray)
+                .background(Color.gray).shadow(radius: 10)
 
                 Spacer()
                 switch viewOrganizer.currentView {
@@ -39,7 +41,7 @@ struct MenuView: View {
                     TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .analysis, width: geometry.size.width/2, height: geometry.size.height/32, systemIconName: "person.crop.circle", tabName: "Your Analysis")
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height/8)
-                .background(Color.gray)
+                .background(Color.gray).shadow(radius: 2)
             }
             .edgesIgnoringSafeArea(.vertical)
         }
