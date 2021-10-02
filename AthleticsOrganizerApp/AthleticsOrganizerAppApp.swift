@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct AthleticsOrganizerAppApp: App {
     
-    
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     // Menu View is the opening View so I need its parameters
     //@StateObject var viewOrganizer = ViewOrganizer()
     
@@ -21,5 +22,14 @@ struct AthleticsOrganizerAppApp: App {
             //MenuView(viewOrganizer: viewOrganizer)
             LoginView()
         }
+    }
+}
+
+class AppDelegate: NSObject, UIApplicationDelegate {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        
+        FirebaseApp.configure()
+        
+        return true
     }
 }
