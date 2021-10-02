@@ -10,8 +10,6 @@
 		251AF601270872D900C8168E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251AF600270872D900C8168E /* LoginView.swift */; };
 		257FF00B26F5FF33006C801D /* AthleticsOrganizerAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257FF00A26F5FF33006C801D /* AthleticsOrganizerAppApp.swift */; };
 		257FF00F26F5FF35006C801D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 257FF00E26F5FF35006C801D /* Assets.xcassets */; };
-		257FF01D26F5FF35006C801D /* AthleticsOrganizerAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257FF01C26F5FF35006C801D /* AthleticsOrganizerAppTests.swift */; };
-		257FF02826F5FF35006C801D /* AthleticsOrganizerAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257FF02726F5FF35006C801D /* AthleticsOrganizerAppUITests.swift */; };
 		257FF04A26F602B3006C801D /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257FF04926F602B3006C801D /* MenuView.swift */; };
 		25B96F1026FBA5190076D4E9 /* AnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B96F0F26FBA5190076D4E9 /* AnalysisView.swift */; };
 		25B96F1826FBA6610076D4E9 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B96F1726FBA6610076D4E9 /* MainView.swift */; };
@@ -38,16 +36,12 @@
 
 /* Begin PBXFileReference section */
 		251AF600270872D900C8168E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		257FF00726F5FF33006C801D /* AthleticsOrganizerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AthleticsOrganizerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		257FF00726F5FF33006C801D /* AthleticsOrganizerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = AthleticsOrganizerApp.app; path = "/Users/hughes.t/Desktop/AthleticsOrganizerApp/build/Debug-iphoneos/AthleticsOrganizerApp.app"; sourceTree = "<absolute>"; };
 		257FF00A26F5FF33006C801D /* AthleticsOrganizerAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleticsOrganizerAppApp.swift; sourceTree = "<group>"; };
 		257FF00E26F5FF35006C801D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		257FF01326F5FF35006C801D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		257FF01826F5FF35006C801D /* AthleticsOrganizerAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AthleticsOrganizerAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		257FF01C26F5FF35006C801D /* AthleticsOrganizerAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleticsOrganizerAppTests.swift; sourceTree = "<group>"; };
-		257FF01E26F5FF35006C801D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		257FF02326F5FF35006C801D /* AthleticsOrganizerAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AthleticsOrganizerAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		257FF02726F5FF35006C801D /* AthleticsOrganizerAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleticsOrganizerAppUITests.swift; sourceTree = "<group>"; };
-		257FF02926F5FF35006C801D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		257FF01826F5FF35006C801D /* AthleticsOrganizerAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = AthleticsOrganizerAppTests.xctest; path = "/Users/hughes.t/Desktop/AthleticsOrganizerApp/build/Debug-iphoneos/AthleticsOrganizerAppTests.xctest"; sourceTree = "<absolute>"; };
+		257FF02326F5FF35006C801D /* AthleticsOrganizerAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = AthleticsOrganizerAppUITests.xctest; path = "/Users/hughes.t/Desktop/AthleticsOrganizerApp/build/Debug-iphoneos/AthleticsOrganizerAppUITests.xctest"; sourceTree = "<absolute>"; };
 		257FF04926F602B3006C801D /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		25B96F0F26FBA5190076D4E9 /* AnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisView.swift; sourceTree = "<group>"; };
 		25B96F1726FBA6610076D4E9 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -84,20 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				257FF00926F5FF33006C801D /* AthleticsOrganizerApp */,
-				257FF01B26F5FF35006C801D /* AthleticsOrganizerAppTests */,
-				257FF02626F5FF35006C801D /* AthleticsOrganizerAppUITests */,
-				257FF00826F5FF33006C801D /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		257FF00826F5FF33006C801D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				257FF00726F5FF33006C801D /* AthleticsOrganizerApp.app */,
-				257FF01826F5FF35006C801D /* AthleticsOrganizerAppTests.xctest */,
-				257FF02326F5FF35006C801D /* AthleticsOrganizerAppUITests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		257FF00926F5FF33006C801D /* AthleticsOrganizerApp */ = {
@@ -114,24 +95,6 @@
 				251AF600270872D900C8168E /* LoginView.swift */,
 			);
 			path = AthleticsOrganizerApp;
-			sourceTree = "<group>";
-		};
-		257FF01B26F5FF35006C801D /* AthleticsOrganizerAppTests */ = {
-			isa = PBXGroup;
-			children = (
-				257FF01C26F5FF35006C801D /* AthleticsOrganizerAppTests.swift */,
-				257FF01E26F5FF35006C801D /* Info.plist */,
-			);
-			path = AthleticsOrganizerAppTests;
-			sourceTree = "<group>";
-		};
-		257FF02626F5FF35006C801D /* AthleticsOrganizerAppUITests */ = {
-			isa = PBXGroup;
-			children = (
-				257FF02726F5FF35006C801D /* AthleticsOrganizerAppUITests.swift */,
-				257FF02926F5FF35006C801D /* Info.plist */,
-			);
-			path = AthleticsOrganizerAppUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,7 +184,7 @@
 				Base,
 			);
 			mainGroup = 257FEFFE26F5FF33006C801D;
-			productRefGroup = 257FF00826F5FF33006C801D /* Products */;
+			productRefGroup = 257FEFFE26F5FF33006C801D;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -276,7 +239,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				257FF01D26F5FF35006C801D /* AthleticsOrganizerAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +246,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				257FF02826F5FF35006C801D /* AthleticsOrganizerAppUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
