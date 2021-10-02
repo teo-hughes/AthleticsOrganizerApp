@@ -17,10 +17,11 @@ struct AthleticsOrganizerAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            
+            let viewModel = AppViewModel()
             // Opens Menu View First
             //MenuView(viewOrganizer: viewOrganizer)
             LoginView()
+                .environmentObject(viewModel)
         }
     }
 }
