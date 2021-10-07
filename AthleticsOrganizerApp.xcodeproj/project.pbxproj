@@ -108,19 +108,51 @@
 		257FF00926F5FF33006C801D /* AthleticsOrganizerApp */ = {
 			isa = PBXGroup;
 			children = (
-				257FF00A26F5FF33006C801D /* AthleticsOrganizerAppApp.swift */,
-				257FF00E26F5FF35006C801D /* Assets.xcassets */,
 				257FF01326F5FF35006C801D /* Info.plist */,
-				257FF04926F602B3006C801D /* MenuView.swift */,
-				25ED2F402708BA9300664BDB /* GoogleService-Info.plist */,
-				25B96F0F26FBA5190076D4E9 /* AnalysisView.swift */,
-				25B96F1726FBA6610076D4E9 /* MainView.swift */,
-				25ED594D2705BC800057E9F8 /* InfoView.swift */,
-				25ED59522705BDB80057E9F8 /* ViewOrganizer.swift */,
-				251AF600270872D900C8168E /* LoginView.swift */,
-				2552E3CC270F706900C36848 /* AuthenticationViewModel.swift */,
+				25E9C3BB270F7B6A00E4A658 /* Other Files */,
+				25E9C3BA270F7B5800E4A658 /* Models */,
+				25E9C3B9270F7B3C00E4A658 /* ViewModels */,
+				25E9C3B8270F7B3500E4A658 /* Views */,
 			);
 			path = AthleticsOrganizerApp;
+			sourceTree = "<group>";
+		};
+		25E9C3B8270F7B3500E4A658 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				257FF04926F602B3006C801D /* MenuView.swift */,
+				25B96F1726FBA6610076D4E9 /* MainView.swift */,
+				25B96F0F26FBA5190076D4E9 /* AnalysisView.swift */,
+				25ED594D2705BC800057E9F8 /* InfoView.swift */,
+				251AF600270872D900C8168E /* LoginView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		25E9C3B9270F7B3C00E4A658 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				2552E3CC270F706900C36848 /* AuthenticationViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		25E9C3BA270F7B5800E4A658 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				257FF00A26F5FF33006C801D /* AthleticsOrganizerAppApp.swift */,
+				25ED59522705BDB80057E9F8 /* ViewOrganizer.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		25E9C3BB270F7B6A00E4A658 /* Other Files */ = {
+			isa = PBXGroup;
+			children = (
+				25ED2F402708BA9300664BDB /* GoogleService-Info.plist */,
+				257FF00E26F5FF35006C801D /* Assets.xcassets */,
+			);
+			path = "Other Files";
 			sourceTree = "<group>";
 		};
 		811CB2355C2346A7FF3A0874 /* Pods */ = {

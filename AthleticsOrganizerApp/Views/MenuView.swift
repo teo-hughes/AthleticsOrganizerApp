@@ -12,7 +12,7 @@ struct MenuView: View {
     // Accessing the data from the ViewOrganizer class
     @StateObject var viewOrganizer = ViewOrganizer()
     
-    @EnvironmentObject var viewModel: AuthenticationViewModel
+
     
     var body: some View {
         
@@ -28,24 +28,10 @@ struct MenuView: View {
                 case .info:
                     InfoView()
                 case .signOut:
+                    //viewModel.signOut()
                     LoginView()
                 }
-                
-                /*
-                HStack {
-                    TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .home, width: geometry.size.width/5, height: geometry.size.height/32, systemIconName: "house", tabName: "Home")
-                    TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .info, width: geometry.size.width/5, height: geometry.size.height/32, systemIconName: "info.circle", tabName: "Info")
-                    TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .tournaments, width: geometry.size.width/5, height: geometry.size.height/32, systemIconName: "list.bullet.indent", tabName: "Tournaments")
-                    TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .analysis, width: geometry.size.width/5, height: geometry.size.height/32, systemIconName: "person.crop.circle", tabName: "Your Analysis")
-                    TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .signOut, width: geometry.size.width/5, height: geometry.size.height/32, systemIconName: "info.circle", tabName: "Sign Out")
-                    
-                }
-                .frame(width: geometry.size.width, height: geometry.size.height/8)
-                .background(Color.gray).shadow(radius: 2)
-
-                Spacer()
-                */
-                
+                                
                 Spacer()
                 HStack {
                     TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .home, width: geometry.size.width/4, height: geometry.size.height/24, systemIconName: "house", tabName: "Home")
@@ -70,6 +56,8 @@ struct MenuView_Previews: PreviewProvider {
 
 struct TabBarIcon: View {
     
+    @EnvironmentObject var viewModel: AuthenticationViewModel
+    
     @StateObject var viewOrganizer: ViewOrganizer
     let assignedView: WhichView
     
@@ -92,6 +80,9 @@ struct TabBarIcon: View {
         .foregroundColor(viewOrganizer.currentView == assignedView ? .blue : .black)
         .onTapGesture {
             viewOrganizer.currentView = assignedView
+            if tabName == "Sign Out" {
+                viewModel.signOut()
+            }
         }
     }
 }

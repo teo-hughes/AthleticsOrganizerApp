@@ -21,22 +21,6 @@
                 
                 MenuView()
                 
-                /*
-                VStack {
-                    Text("You are signed in")
-                    
-                    Button(action: {
-                        viewModel.signOut()
-                    }, label: {
-                        Text("Sign Out")
-                            .foregroundColor(Color.white)
-                            .frame(width: 200, height: 50)
-                            .cornerRadius(8)
-                            .background(Color.blue)
-                    })
-                    
-                }*/
-                
             } else {
                 SignInView()
             }
