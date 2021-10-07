@@ -8,56 +8,12 @@
  import SwiftUI
  import FirebaseAuth
 
- class AppViewModel: ObservableObject {
-    
-    let auth = Auth.auth()
-    
-    @Published var signedIn = false
-    
-    var isSignedIn: Bool {
-        return auth.currentUser != nil
-    }
-    
-    func signIn(email: String, password: String) {
-        auth.signIn(withEmail: email, password: password) { [weak self] result, error in
-            guard result != nil, error == nil else {
-                return
-            }
-            
-            DispatchQueue.main.async {
-                self?.signedIn = true
-            }
-            
-        }
-        
-    }
-    
-    func signUp(email: String, password: String) {
-        auth.createUser(withEmail: email, password: password) { [weak self] result, error in
-            guard result != nil, error == nil else {
-                return
-            }
-            
-            DispatchQueue.main.async {
-                self?.signedIn = true
-            }
-        }
-    }
-    
-    func signOut() {
-        try? auth.signOut()
-        
-        self.signedIn = false
-    }
 
-    
- }
- 
  
  struct LoginView: View {
 
     
-    @EnvironmentObject var viewModel: AppViewModel
+    @EnvironmentObject var viewModel: AuthenticationViewModel
     
      var body: some View {
         NavigationView {
@@ -95,7 +51,7 @@
     @State var email = ""
     @State var password = ""
     
-    @EnvironmentObject var viewModel: AppViewModel
+    @EnvironmentObject var viewModel: AuthenticationViewModel
     
      var body: some View {
         VStack {
@@ -150,7 +106,7 @@
     @State var email = ""
     @State var password = ""
     
-    @EnvironmentObject var viewModel: AppViewModel
+    @EnvironmentObject var viewModel: AuthenticationViewModel
     
      var body: some View {
         VStack {

@@ -17,7 +17,7 @@ struct AthleticsOrganizerAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            let viewModel = AppViewModel()
+            let viewModel = AuthenticationViewModel()
             // Opens Menu View First
             //MenuView(viewOrganizer: viewOrganizer)
             LoginView()
