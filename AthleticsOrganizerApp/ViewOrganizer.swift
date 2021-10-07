@@ -16,7 +16,6 @@ class ViewOrganizer: ObservableObject {
 
 enum WhichView {
     case home
-    case tournaments
     case analysis
     case info
     case signOut

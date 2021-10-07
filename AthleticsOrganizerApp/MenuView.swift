@@ -22,15 +22,13 @@ struct MenuView: View {
                 
                 switch viewOrganizer.currentView {
                 case .home:
-                    Text("Home")
-                case .tournaments:
-                    Text("Tournaments")
+                    MainView()
                 case .analysis:
-                    Text("Analysis")
+                    AnalysisView()
                 case .info:
-                    Text("Info")
+                    InfoView()
                 case .signOut:
-                    Text("Sign Out")
+                    LoginView()
                 }
                 
                 /*
@@ -50,13 +48,12 @@ struct MenuView: View {
                 
                 Spacer()
                 HStack {
-                    TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .home, width: geometry.size.width/5, height: geometry.size.height/32, systemIconName: "house", tabName: "Home")
-                    TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .info, width: geometry.size.width/5, height: geometry.size.height/32, systemIconName: "info.circle", tabName: "Info")
-                    TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .tournaments, width: geometry.size.width/5, height: geometry.size.height/32, systemIconName: "list.bullet.indent", tabName: "Tournaments")
-                    TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .analysis, width: geometry.size.width/5, height: geometry.size.height/32, systemIconName: "person.crop.circle", tabName: "Your Analysis")
-                    TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .signOut, width: geometry.size.width/5, height: geometry.size.height/32, systemIconName: "info.circle", tabName: "Sign Out")
+                    TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .home, width: geometry.size.width/4, height: geometry.size.height/24, systemIconName: "house", tabName: "Home")
+                    TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .info, width: geometry.size.width/4, height: geometry.size.height/24, systemIconName: "info.circle", tabName: "Info")
+                    TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .analysis, width: geometry.size.width/4, height: geometry.size.height/24, systemIconName: "person.crop.circle", tabName: "Your Analysis")
+                    TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .signOut, width: geometry.size.width/4, height: geometry.size.height/24, systemIconName: "info.circle", tabName: "Sign Out")
                 }
-                .frame(width: geometry.size.width, height: geometry.size.height/8)
+                .frame(width: geometry.size.width, height: geometry.size.height/10)
                 .background(Color.gray).shadow(radius: 2)
  
             }
