@@ -108,11 +108,11 @@
 		257FF00926F5FF33006C801D /* AthleticsOrganizerApp */ = {
 			isa = PBXGroup;
 			children = (
-				257FF01326F5FF35006C801D /* Info.plist */,
-				25E9C3BB270F7B6A00E4A658 /* Other Files */,
-				25E9C3BA270F7B5800E4A658 /* Models */,
-				25E9C3B9270F7B3C00E4A658 /* ViewModels */,
 				25E9C3B8270F7B3500E4A658 /* Views */,
+				25E9C3B9270F7B3C00E4A658 /* ViewModels */,
+				25E9C3BA270F7B5800E4A658 /* Models */,
+				25E9C3BB270F7B6A00E4A658 /* Other Files */,
+				257FF01326F5FF35006C801D /* Info.plist */,
 			);
 			path = AthleticsOrganizerApp;
 			sourceTree = "<group>";
@@ -120,11 +120,11 @@
 		25E9C3B8270F7B3500E4A658 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				251AF600270872D900C8168E /* LoginView.swift */,
 				257FF04926F602B3006C801D /* MenuView.swift */,
 				25B96F1726FBA6610076D4E9 /* MainView.swift */,
 				25B96F0F26FBA5190076D4E9 /* AnalysisView.swift */,
 				25ED594D2705BC800057E9F8 /* InfoView.swift */,
-				251AF600270872D900C8168E /* LoginView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

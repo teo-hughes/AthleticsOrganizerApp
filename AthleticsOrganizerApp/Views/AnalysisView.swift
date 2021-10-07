@@ -7,7 +7,10 @@
 
 import SwiftUI
 
+// This View will show the athlete's personal analysis
 struct AnalysisView: View {
+    
+    // The body of the AnalysisView
     var body: some View {
         Text("Analysis View")
             .padding()

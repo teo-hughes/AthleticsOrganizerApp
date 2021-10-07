@@ -7,7 +7,10 @@
 
 import SwiftUI
 
+// This view will be where you can choose a tournament etc.
 struct MainView: View {
+    
+    // The body of the MainView
     var body: some View {
         Text("Main View")
             .padding()

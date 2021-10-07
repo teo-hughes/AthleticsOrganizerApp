@@ -7,7 +7,10 @@
 
 import SwiftUI
 
+// This view will provide info surrounding the app's functions
 struct InfoView: View {
+    
+    // The body of the InfoView
     var body: some View {
         Text("Info View")
             .padding()
