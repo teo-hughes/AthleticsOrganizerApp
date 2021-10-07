@@ -18,6 +18,10 @@
      var body: some View {
         NavigationView {
             if viewModel.signedIn {
+                
+                MenuView()
+                
+                /*
                 VStack {
                     Text("You are signed in")
                     
@@ -31,7 +35,7 @@
                             .background(Color.blue)
                     })
                     
-                }
+                }*/
                 
             } else {
                 SignInView()

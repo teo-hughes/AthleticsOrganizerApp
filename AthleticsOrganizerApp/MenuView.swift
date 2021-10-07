@@ -12,19 +12,14 @@ struct MenuView: View {
     // Accessing the data from the ViewOrganizer class
     @StateObject var viewOrganizer = ViewOrganizer()
     
+    @EnvironmentObject var viewModel: AuthenticationViewModel
+    
     var body: some View {
         
         // To do (comments)
         GeometryReader { geometry in
             VStack{
-                HStack {
-                    TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .home, width: geometry.size.width/2, height: geometry.size.height/32, systemIconName: "house", tabName: "Home")
-                    TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .info, width: geometry.size.width/2, height: geometry.size.height/32, systemIconName: "info.circle", tabName: "Info")
-                }
-                .frame(width: geometry.size.width, height: geometry.size.height/8)
-                .background(Color.gray).shadow(radius: 10)
-
-                Spacer()
+                
                 switch viewOrganizer.currentView {
                 case .home:
                     Text("Home")
@@ -34,14 +29,36 @@ struct MenuView: View {
                     Text("Analysis")
                 case .info:
                     Text("Info")
+                case .signOut:
+                    Text("Sign Out")
                 }
-                Spacer()
+                
+                /*
                 HStack {
-                    TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .tournaments, width: geometry.size.width/2, height: geometry.size.height/32, systemIconName: "list.bullet.indent", tabName: "Tournaments")
-                    TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .analysis, width: geometry.size.width/2, height: geometry.size.height/32, systemIconName: "person.crop.circle", tabName: "Your Analysis")
+                    TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .home, width: geometry.size.width/5, height: geometry.size.height/32, systemIconName: "house", tabName: "Home")
+                    TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .info, width: geometry.size.width/5, height: geometry.size.height/32, systemIconName: "info.circle", tabName: "Info")
+                    TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .tournaments, width: geometry.size.width/5, height: geometry.size.height/32, systemIconName: "list.bullet.indent", tabName: "Tournaments")
+                    TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .analysis, width: geometry.size.width/5, height: geometry.size.height/32, systemIconName: "person.crop.circle", tabName: "Your Analysis")
+                    TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .signOut, width: geometry.size.width/5, height: geometry.size.height/32, systemIconName: "info.circle", tabName: "Sign Out")
+                    
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height/8)
                 .background(Color.gray).shadow(radius: 2)
+
+                Spacer()
+                */
+                
+                Spacer()
+                HStack {
+                    TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .home, width: geometry.size.width/5, height: geometry.size.height/32, systemIconName: "house", tabName: "Home")
+                    TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .info, width: geometry.size.width/5, height: geometry.size.height/32, systemIconName: "info.circle", tabName: "Info")
+                    TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .tournaments, width: geometry.size.width/5, height: geometry.size.height/32, systemIconName: "list.bullet.indent", tabName: "Tournaments")
+                    TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .analysis, width: geometry.size.width/5, height: geometry.size.height/32, systemIconName: "person.crop.circle", tabName: "Your Analysis")
+                    TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .signOut, width: geometry.size.width/5, height: geometry.size.height/32, systemIconName: "info.circle", tabName: "Sign Out")
+                }
+                .frame(width: geometry.size.width, height: geometry.size.height/8)
+                .background(Color.gray).shadow(radius: 2)
+ 
             }
             .edgesIgnoringSafeArea(.vertical)
         }

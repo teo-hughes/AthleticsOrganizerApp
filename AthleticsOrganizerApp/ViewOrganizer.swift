@@ -19,4 +19,5 @@ enum WhichView {
     case tournaments
     case analysis
     case info
+    case signOut
 }
