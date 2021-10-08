@@ -13,6 +13,7 @@
 		257FF00B26F5FF33006C801D /* AthleticsOrganizerAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257FF00A26F5FF33006C801D /* AthleticsOrganizerAppApp.swift */; };
 		257FF00F26F5FF35006C801D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 257FF00E26F5FF35006C801D /* Assets.xcassets */; };
 		257FF04A26F602B3006C801D /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257FF04926F602B3006C801D /* MenuView.swift */; };
+		258E261327103919006C1D9A /* TournamentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258E261227103919006C1D9A /* TournamentViewModel.swift */; };
 		25B96F1026FBA5190076D4E9 /* AnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B96F0F26FBA5190076D4E9 /* AnalysisView.swift */; };
 		25B96F1826FBA6610076D4E9 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B96F1726FBA6610076D4E9 /* MainView.swift */; };
 		25ED2F412708BA9300664BDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 25ED2F402708BA9300664BDB /* GoogleService-Info.plist */; };
@@ -49,6 +50,7 @@
 		257FF00E26F5FF35006C801D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		257FF01326F5FF35006C801D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		257FF04926F602B3006C801D /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		258E261227103919006C1D9A /* TournamentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentViewModel.swift; sourceTree = "<group>"; };
 		25B96F0F26FBA5190076D4E9 /* AnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisView.swift; sourceTree = "<group>"; };
 		25B96F1726FBA6610076D4E9 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		25ED2F2B2708BA5A00664BDB /* AthleticsOrganizerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AthleticsOrganizerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				2552E3CC270F706900C36848 /* AuthenticationViewModel.swift */,
+				258E261227103919006C1D9A /* TournamentViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				25ED59532705BDB80057E9F8 /* ViewOrganizer.swift in Sources */,
 				2552E3CD270F706900C36848 /* AuthenticationViewModel.swift in Sources */,
 				25B96F1026FBA5190076D4E9 /* AnalysisView.swift in Sources */,
+				258E261327103919006C1D9A /* TournamentViewModel.swift in Sources */,
 				25ED594E2705BC800057E9F8 /* InfoView.swift in Sources */,
 				257FF00B26F5FF33006C801D /* AthleticsOrganizerAppApp.swift in Sources */,
 			);
