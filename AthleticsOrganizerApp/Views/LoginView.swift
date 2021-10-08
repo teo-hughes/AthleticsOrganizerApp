@@ -88,7 +88,7 @@
                 // The button which will sign you in
                 Button(action: {
                         
-                    // If the textfields are not empty
+                    // If both textfields aren't empty
                     guard !email.isEmpty, !password.isEmpty else {
                         return
                     }
@@ -182,7 +182,6 @@
                         .background(Color.blue)
                             
                 })
-                        
             }
             .padding()
             
