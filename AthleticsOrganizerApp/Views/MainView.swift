@@ -10,7 +10,7 @@ import SwiftUI
 // This view will be where you can choose a tournament etc.
 struct MainView: View {
     
-    @ObservedObject var tournamentViewModel: TournamentViewModel
+    //@ObservedObject var tournamentViewModel: TournamentViewModel
     
     // The body of the MainView
     var body: some View {
@@ -18,12 +18,12 @@ struct MainView: View {
         VStack {
             
             ScrollView {
-                TournamentCardView(tournamentViewModel: TournamentViewModel())
-                TournamentCardView(tournamentViewModel: TournamentViewModel())
-                TournamentCardView(tournamentViewModel: TournamentViewModel())
-                TournamentCardView(tournamentViewModel: TournamentViewModel())
-                TournamentCardView(tournamentViewModel: TournamentViewModel())
-                TournamentCardView(tournamentViewModel: TournamentViewModel())
+                TournamentCardView()
+                TournamentCardView()
+                TournamentCardView()
+                TournamentCardView()
+                TournamentCardView()
+                TournamentCardView()
             }
         }
     }

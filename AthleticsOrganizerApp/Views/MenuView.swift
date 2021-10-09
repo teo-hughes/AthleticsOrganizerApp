@@ -13,7 +13,6 @@ struct MenuView: View {
     // Accessing the data from the ViewOrganizer class
     @StateObject var viewOrganizer = ViewOrganizer()
     
-    @ObservedObject var tournamentViewModel: TournamentViewModel
     
     // The body of the MenuView
     var body: some View {
@@ -29,7 +28,7 @@ struct MenuView: View {
                 
                 // Shows the MainView if the home icon is selected
                 case .home:
-                    MainView(tournamentViewModel: TournamentViewModel())
+                    MainView()
                     
                 // Shows the AnalysisView if the analysis icon is selcted
                 case .analysis:
@@ -41,7 +40,7 @@ struct MenuView: View {
                     
                 // Shows the LoginView if the sign out icon is selected
                 case .signOut:
-                    LoginView(tournamentViewModel: TournamentViewModel())
+                    LoginView()
                 }
                      
                 

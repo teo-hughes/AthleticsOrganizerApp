@@ -11,7 +11,7 @@ import SwiftUI
 struct TournamentCardView: View {
     
     @State private var clicked = false
-    var tournamentViewModel: TournamentViewModel
+    @StateObject var tournamentViewModel = TournamentViewModel()
     
     // The body of the AnalysisView
     var body: some View {
