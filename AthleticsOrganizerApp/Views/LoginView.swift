@@ -14,6 +14,8 @@
     // Accesses the AuthenticationViewModel
     @EnvironmentObject var viewModel: AuthenticationViewModel
     
+    @ObservedObject var tournamentViewModel: TournamentViewModel
+    
      // The body of the LoginView
      var body: some View {
         
@@ -24,7 +26,7 @@
             if viewModel.signedIn {
                 
                 // Display the MenuView
-                MenuView()
+                MenuView(tournamentViewModel: TournamentViewModel())
             
             // If you still have to sign in
             } else {
@@ -191,8 +193,3 @@
      }
  }
 
- struct LoginView_Previews: PreviewProvider {
-     static var previews: some View {
-         LoginView()
-     }
- }

@@ -23,7 +23,7 @@ struct AthleticsOrganizerAppApp: App {
             let viewModel = AuthenticationViewModel()
             
             // The LoginView will be the view which is opened when the app is launched
-            LoginView()
+            LoginView(tournamentViewModel: TournamentViewModel())
                 .environmentObject(viewModel)
         }
     }

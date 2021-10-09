@@ -17,8 +17,3 @@ struct AnalysisView: View {
     }
 }
 
-struct AnalysisView_Previews: PreviewProvider {
-    static var previews: some View {
-        AnalysisView()
-    }
-}

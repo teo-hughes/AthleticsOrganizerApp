@@ -10,15 +10,21 @@ import SwiftUI
 // This view will be where you can choose a tournament etc.
 struct MainView: View {
     
+    @ObservedObject var tournamentViewModel: TournamentViewModel
+    
     // The body of the MainView
     var body: some View {
-        Text("Main View")
-            .padding()
-    }
-}
-
-struct MainView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
+        Spacer()
+        VStack {
+            
+            ScrollView {
+                TournamentCardView(tournamentViewModel: TournamentViewModel())
+                TournamentCardView(tournamentViewModel: TournamentViewModel())
+                TournamentCardView(tournamentViewModel: TournamentViewModel())
+                TournamentCardView(tournamentViewModel: TournamentViewModel())
+                TournamentCardView(tournamentViewModel: TournamentViewModel())
+                TournamentCardView(tournamentViewModel: TournamentViewModel())
+            }
+        }
     }
 }

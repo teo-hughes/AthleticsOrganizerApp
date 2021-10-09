@@ -8,5 +8,5 @@
 import Foundation
 
 class TournamentViewModel: ObservableObject {
-    
+    var text = "Another Test"
 }

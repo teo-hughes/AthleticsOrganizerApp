@@ -13,6 +13,8 @@ struct MenuView: View {
     // Accessing the data from the ViewOrganizer class
     @StateObject var viewOrganizer = ViewOrganizer()
     
+    @ObservedObject var tournamentViewModel: TournamentViewModel
+    
     // The body of the MenuView
     var body: some View {
         
@@ -27,7 +29,7 @@ struct MenuView: View {
                 
                 // Shows the MainView if the home icon is selected
                 case .home:
-                    MainView()
+                    MainView(tournamentViewModel: TournamentViewModel())
                     
                 // Shows the AnalysisView if the analysis icon is selcted
                 case .analysis:
@@ -39,7 +41,7 @@ struct MenuView: View {
                     
                 // Shows the LoginView if the sign out icon is selected
                 case .signOut:
-                    LoginView()
+                    LoginView(tournamentViewModel: TournamentViewModel())
                 }
                      
                 
@@ -59,7 +61,7 @@ struct MenuView: View {
                     TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .analysis, width: geometry.size.width/4, height: geometry.size.height/24, systemIconName: "person.crop.circle", tabName: "Your Analysis")
                     
                     // Icon to sign out
-                    TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .signOut, width: geometry.size.width/4, height: geometry.size.height/24, systemIconName: "info.circle", tabName: "Sign Out")
+                    TabBarIcon(viewOrganizer: viewOrganizer, assignedView: .signOut, width: geometry.size.width/4, height: geometry.size.height/24, systemIconName: "delete.left.fill", tabName: "Sign Out")
                 }
                 // Sets the UI of the tab bar
                 .frame(width: geometry.size.width, height: geometry.size.height/10)
@@ -124,10 +126,5 @@ struct TabBarIcon: View {
 }
 
 
-struct MenuView_Previews: PreviewProvider {
-    static var previews: some View {
-        MenuView(viewOrganizer: ViewOrganizer())
-    }
-}
 
 
