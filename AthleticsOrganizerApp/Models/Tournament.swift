@@ -16,12 +16,14 @@ struct Tournament: Identifiable, Codable {
     @DocumentID var id: String?
     var location: String
     var date: String
+    var allEvents: String
     var open: Bool = false
     
     enum CodingKeys: String, CodingKey {
         case id
         case location
         case date
+        case allEvents
         case open
     }
 }

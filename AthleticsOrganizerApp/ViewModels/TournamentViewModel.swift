@@ -14,13 +14,13 @@ class TournamentViewModel: ObservableObject {
     
     private var database = Firestore.firestore()
     
-    /*func addTournament(tournament: Tournament) {
+    func addTournament(tournament: Tournament) {
         
         do {
-            let _ = try database.collection("Tournaments").addDocument(data: tournament)
+            let _ = try database.collection("Tournaments").addDocument(from: tournament)
         }
         catch{
             print("ERROR")
         }
-    }*/
+    }
 }
