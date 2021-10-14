@@ -9,6 +9,7 @@ target 'AthleticsOrganizerApp' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift', '8.8.0-beta'
 
   target 'AthleticsOrganizerAppTests' do
     inherit! :search_paths

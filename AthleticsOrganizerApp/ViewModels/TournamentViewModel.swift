@@ -6,8 +6,21 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 // The View Model of the TournamentView
 class TournamentViewModel: ObservableObject {
-    var text = "Another Test"
+    @Published var tournament: Tournament = Tournament(location: "", date: "")
+    
+    private var database = Firestore.firestore()
+    
+    /*func addTournament(tournament: Tournament) {
+        
+        do {
+            let _ = try database.collection("Tournaments").addDocument(data: tournament)
+        }
+        catch{
+            print("ERROR")
+        }
+    }*/
 }

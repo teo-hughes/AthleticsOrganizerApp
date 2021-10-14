@@ -7,14 +7,22 @@
 
 
 // Installed Firebase
-import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 // Tournament with it's data
 struct Tournament: Identifiable, Codable {
     
     // ID and its other variables
-    var id = UUID()
+    @DocumentID var id: String?
     var location: String
-    var date: Date
+    var date: String
     var open: Bool = false
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case location
+        case date
+        case open
+    }
 }
+
