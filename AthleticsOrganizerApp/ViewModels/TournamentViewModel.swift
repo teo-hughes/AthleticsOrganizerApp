@@ -7,6 +7,7 @@
 
 import Foundation
 
+// The View Model of the TournamentView
 class TournamentViewModel: ObservableObject {
     var text = "Another Test"
 }

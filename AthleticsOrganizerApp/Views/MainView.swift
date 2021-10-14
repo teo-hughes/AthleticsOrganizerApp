@@ -17,6 +17,7 @@ struct MainView: View {
         Spacer()
         VStack {
             
+            // Scroll View to load the tournament cards
             ScrollView {
                 TournamentCardView()
                 TournamentCardView()
