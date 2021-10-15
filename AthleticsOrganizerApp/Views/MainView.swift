@@ -12,19 +12,35 @@ struct MainView: View {
     
     //@ObservedObject var tournamentViewModel: TournamentViewModel
     
+    @State private var presentAddNewTournamentScreen = false
+    
     // The body of the MainView
     var body: some View {
         Spacer()
         VStack {
             
-            // Scroll View to load the tournament cards
-            ScrollView {
-                TournamentCardView()
-                TournamentCardView()
-                TournamentCardView()
-                TournamentCardView()
-                TournamentCardView()
-                TournamentCardView()
+            NavigationView {// Scroll View to load the tournament cards
+                ScrollView {
+                    TournamentCardView()
+                    TournamentCardView()
+                    TournamentCardView()
+                    TournamentCardView()
+                    TournamentCardView()
+                    TournamentCardView()
+                    
+                    Button( action: { presentAddNewTournamentScreen.toggle() }, label: {
+                        Image(systemName: "plus")
+                    })
+                }
+                
+                
+                
+                Spacer()
+            }
+            .navigationViewStyle(StackNavigationViewStyle())
+            .navigationBarTitle("Tournaments")
+            .sheet(isPresented: $presentAddNewTournamentScreen) {
+                CreateTournamentView()
             }
         }
     }

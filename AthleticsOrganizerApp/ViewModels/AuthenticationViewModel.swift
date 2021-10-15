@@ -22,13 +22,16 @@ class AuthenticationViewModel: ObservableObject {
        return auth.currentUser != nil
    }
    
-   // Function to sign in which takes parameters email and password
+   // Function to sign in which takes parameters email and password, both as strings
    func signIn(email: String, password: String) {
     
        // Signs in using the firebase function
        auth.signIn(withEmail: email, password: password) { [weak self] result, error in
            guard result != nil, error == nil else {
-               return
+                // error while signing in, e.g. incorrect password
+                // TO DO - link to UI
+                print("Error signing in")
+                return
            }
            
            // Sets SignedIn to true

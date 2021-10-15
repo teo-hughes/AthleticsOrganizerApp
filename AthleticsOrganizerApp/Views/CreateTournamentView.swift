@@ -26,10 +26,10 @@ struct CreateTournamentView: View {
             }
             .navigationBarTitle("New Tournament", displayMode: .inline)
             .navigationBarItems(
-                leading: Button(action: {}, label: {
+                leading: Button(action: { handleCancelTapped() }, label: {
                     Text("Cancel")
                 }),
-                trailing: Button(action: {}, label: {
+                trailing: Button(action: { handleDoneTapped() }, label: {
                     Text("Done")
                 })
             )
@@ -41,6 +41,7 @@ struct CreateTournamentView: View {
     }
     
     func handleDoneTapped() {
+        viewModel.save()
         dismiss()
     }
     
