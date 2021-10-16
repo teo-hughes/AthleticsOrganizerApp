@@ -22,33 +22,30 @@ struct MainView: View {
         VStack {
             
             NavigationView {// Scroll View to load the tournament cards
-                ScrollView {
-                    /*List(viewModel.tournaments) { tournament in
-                        VStack(alignment: .leading) {
-                            Text(tournament.name)
-                                .font(.headline)
-                            Text(tournament.location)
-                                .font(.headline)
-                            Text(tournament.date)
-                                .font(.headline)
-                            Text(tournament.allEvents)
-                                .font(.headline)
-                        }
-                    }*/
+                /*List(viewModel.tournaments) { tournament in
+                    VStack(alignment: .leading) {
+                        Text("Title")
+                        /*Text(tournament.name)
+                            .font(.headline)
+                        Text(tournament.location)
+                            .font(.headline)
+                        Text(tournament.date)
+                            .font(.headline)
+                        Text(tournament.allEvents)
+                            .font(.headline)*/
+                    }
+                }*/
                     
-                    Button( action: { presentAddNewTournamentScreen.toggle() }, label: {
-                        Image(systemName: "plus")
-                    })
-                }
-                
-                
+                Button( action: { presentAddNewTournamentScreen.toggle() }, label: {
+                    Image(systemName: "plus")
+                })
                 
                 Spacer()
             }
-            .navigationViewStyle(StackNavigationViewStyle())
             .onAppear() {
                 self.viewModel.fetchData()
             }
+            .navigationViewStyle(StackNavigationViewStyle())
             .navigationBarTitle("Tournaments")
             .sheet(isPresented: $presentAddNewTournamentScreen) {
                 CreateTournamentView()
