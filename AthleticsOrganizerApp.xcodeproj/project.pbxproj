@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E721AE0B1DCA2EDF19D5943 /* Pods_AthleticsOrganizerApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C4372077DDDAFEE28A7EDDB /* Pods_AthleticsOrganizerApp.framework */; };
 		251AF601270872D900C8168E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251AF600270872D900C8168E /* LoginView.swift */; };
 		2530394D27182C20009326BE /* Tournament.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2530394C27182C20009326BE /* Tournament.swift */; };
 		2539CCE52711AD3C00262387 /* TournamentCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2539CCE42711AD3C00262387 /* TournamentCardView.swift */; };
@@ -27,7 +26,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0C4372077DDDAFEE28A7EDDB /* Pods_AthleticsOrganizerApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AthleticsOrganizerApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		251AF600270872D900C8168E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		2530394C27182C20009326BE /* Tournament.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tournament.swift; sourceTree = "<group>"; };
 		2539CCE42711AD3C00262387 /* TournamentCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentCardView.swift; sourceTree = "<group>"; };
@@ -47,9 +45,7 @@
 		34945D8962FE70CE5CBEEDDA /* Pods-AthleticsOrganizerApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AthleticsOrganizerApp.debug.xcconfig"; path = "Target Support Files/Pods-AthleticsOrganizerApp/Pods-AthleticsOrganizerApp.debug.xcconfig"; sourceTree = "<group>"; };
 		4226A5BF271B223800374406 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		4226A5C1271B26F300374406 /* Athlete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Athlete.swift; sourceTree = "<group>"; };
-		4F67BC64787DFB5D2E615EB7 /* Pods_AthleticsOrganizerApp_AthleticsOrganizerAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AthleticsOrganizerApp_AthleticsOrganizerAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F7B8DEAEC7839A386BB79D5 /* Pods-AthleticsOrganizerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AthleticsOrganizerApp.release.xcconfig"; path = "Target Support Files/Pods-AthleticsOrganizerApp/Pods-AthleticsOrganizerApp.release.xcconfig"; sourceTree = "<group>"; };
-		684CD7ED94DB7364DA82F422 /* Pods_AthleticsOrganizerAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AthleticsOrganizerAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8FE88244BC07AA3831869E0 /* Pods-AthleticsOrganizerAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AthleticsOrganizerAppTests.release.xcconfig"; path = "Target Support Files/Pods-AthleticsOrganizerAppTests/Pods-AthleticsOrganizerAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		CA9127E7ADCB1883EC385661 /* Pods-AthleticsOrganizerApp-AthleticsOrganizerAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AthleticsOrganizerApp-AthleticsOrganizerAppUITests.release.xcconfig"; path = "Target Support Files/Pods-AthleticsOrganizerApp-AthleticsOrganizerAppUITests/Pods-AthleticsOrganizerApp-AthleticsOrganizerAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E54E7F04FE38005968C39C80 /* Pods-AthleticsOrganizerAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AthleticsOrganizerAppTests.debug.xcconfig"; path = "Target Support Files/Pods-AthleticsOrganizerAppTests/Pods-AthleticsOrganizerAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -61,7 +57,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E721AE0B1DCA2EDF19D5943 /* Pods_AthleticsOrganizerApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,7 +68,6 @@
 			children = (
 				257FF00926F5FF33006C801D /* AthleticsOrganizerApp */,
 				811CB2355C2346A7FF3A0874 /* Pods */,
-				EFDFDA44B2BB908125C30D57 /* Frameworks */,
 				25ED2F2B2708BA5A00664BDB /* AthleticsOrganizerApp.app */,
 			);
 			sourceTree = "<group>";
@@ -145,16 +139,6 @@
 				B8FE88244BC07AA3831869E0 /* Pods-AthleticsOrganizerAppTests.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		EFDFDA44B2BB908125C30D57 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				0C4372077DDDAFEE28A7EDDB /* Pods_AthleticsOrganizerApp.framework */,
-				4F67BC64787DFB5D2E615EB7 /* Pods_AthleticsOrganizerApp_AthleticsOrganizerAppUITests.framework */,
-				684CD7ED94DB7364DA82F422 /* Pods_AthleticsOrganizerAppTests.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
