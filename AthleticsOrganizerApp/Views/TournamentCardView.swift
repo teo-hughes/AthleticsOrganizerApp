@@ -26,7 +26,7 @@ struct TournamentCardView: View {
             .overlay(
                 // Information inside the card
                 ZStack {
-                    Text("TESTt")
+                    Text(tournamentViewModel.tournament.name)
                         .foregroundColor(Color.black)
                         .font(.custom("Avenir", size:25))
                 }.padding()

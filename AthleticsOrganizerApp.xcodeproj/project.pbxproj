@@ -23,6 +23,8 @@
 		25ED59532705BDB80057E9F8 /* ViewOrganizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25ED59522705BDB80057E9F8 /* ViewOrganizer.swift */; };
 		4226A5C0271B223800374406 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4226A5BF271B223800374406 /* Event.swift */; };
 		4226A5C2271B26F300374406 /* Athlete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4226A5C1271B26F300374406 /* Athlete.swift */; };
+		4226A5C4271B2E4100374406 /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4226A5C3271B2E4100374406 /* EventViewModel.swift */; };
+		4226A5C6271B30A800374406 /* TournamentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4226A5C5271B30A800374406 /* TournamentsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,8 @@
 		34945D8962FE70CE5CBEEDDA /* Pods-AthleticsOrganizerApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AthleticsOrganizerApp.debug.xcconfig"; path = "Target Support Files/Pods-AthleticsOrganizerApp/Pods-AthleticsOrganizerApp.debug.xcconfig"; sourceTree = "<group>"; };
 		4226A5BF271B223800374406 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		4226A5C1271B26F300374406 /* Athlete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Athlete.swift; sourceTree = "<group>"; };
+		4226A5C3271B2E4100374406 /* EventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
+		4226A5C5271B30A800374406 /* TournamentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentsViewModel.swift; sourceTree = "<group>"; };
 		5F7B8DEAEC7839A386BB79D5 /* Pods-AthleticsOrganizerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AthleticsOrganizerApp.release.xcconfig"; path = "Target Support Files/Pods-AthleticsOrganizerApp/Pods-AthleticsOrganizerApp.release.xcconfig"; sourceTree = "<group>"; };
 		B8FE88244BC07AA3831869E0 /* Pods-AthleticsOrganizerAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AthleticsOrganizerAppTests.release.xcconfig"; path = "Target Support Files/Pods-AthleticsOrganizerAppTests/Pods-AthleticsOrganizerAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		CA9127E7ADCB1883EC385661 /* Pods-AthleticsOrganizerApp-AthleticsOrganizerAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AthleticsOrganizerApp-AthleticsOrganizerAppUITests.release.xcconfig"; path = "Target Support Files/Pods-AthleticsOrganizerApp-AthleticsOrganizerAppUITests/Pods-AthleticsOrganizerApp-AthleticsOrganizerAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -103,6 +107,8 @@
 			children = (
 				2552E3CC270F706900C36848 /* AuthenticationViewModel.swift */,
 				258E261227103919006C1D9A /* TournamentViewModel.swift */,
+				4226A5C3271B2E4100374406 /* EventViewModel.swift */,
+				4226A5C5271B30A800374406 /* TournamentsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -255,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				257FF04A26F602B3006C801D /* MenuView.swift in Sources */,
+				4226A5C6271B30A800374406 /* TournamentsViewModel.swift in Sources */,
 				251AF601270872D900C8168E /* LoginView.swift in Sources */,
 				25B96F1826FBA6610076D4E9 /* MainView.swift in Sources */,
 				2539CCE52711AD3C00262387 /* TournamentCardView.swift in Sources */,
@@ -267,6 +274,7 @@
 				25ED594E2705BC800057E9F8 /* InfoView.swift in Sources */,
 				257FF00B26F5FF33006C801D /* AthleticsOrganizerAppApp.swift in Sources */,
 				4226A5C0271B223800374406 /* Event.swift in Sources */,
+				4226A5C4271B2E4100374406 /* EventViewModel.swift in Sources */,
 				4226A5C2271B26F300374406 /* Athlete.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

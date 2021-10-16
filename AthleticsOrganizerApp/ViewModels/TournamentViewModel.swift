@@ -11,14 +11,14 @@ import FirebaseFirestore
 // The View Model of the TournamentView
 class TournamentViewModel: ObservableObject {
     
-    @Published var tournament: Tournament = Tournament(location: "", date: "", allEvents: "")
+    @Published var tournament: Tournament = Tournament(name: "", location: "", date: "", allEvents: "")
     
     private var database = Firestore.firestore()
     
     func addTournament(tournament: Tournament) {
         
         do {
-            let _ = try database.collection("Tournaments").addDocument(from: tournament)
+            let _ = try database.collection(tournament.name).addDocument(from: tournament)
         }
         catch{
             print("ERROR")

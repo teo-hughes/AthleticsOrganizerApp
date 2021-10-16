@@ -14,6 +14,7 @@ struct Tournament: Identifiable, Codable {
     
     // ID and its other variables
     @DocumentID var id: String?
+    var name: String
     var location: String
     var date: String
     var allEvents: String
@@ -21,6 +22,7 @@ struct Tournament: Identifiable, Codable {
     
     enum CodingKeys: String, CodingKey {
         case id
+        case name
         case location
         case date
         case allEvents

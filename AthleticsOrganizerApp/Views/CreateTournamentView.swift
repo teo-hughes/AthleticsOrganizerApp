@@ -18,7 +18,9 @@ struct CreateTournamentView: View {
         NavigationView {
             Form {
                 Section(header: Text("Tournament")) {
+                    TextField("Name", text: $viewModel.tournament.name)
                     TextField("Location", text: $viewModel.tournament.location)
+                    TextField("Date", text: $viewModel.tournament.date)
                 }
                 Section(header: Text("Events")) {
                     TextField("AllEvents", text: $viewModel.tournament.allEvents)
