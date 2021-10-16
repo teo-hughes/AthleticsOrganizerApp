@@ -14,6 +14,8 @@ struct MainView: View {
     
     @State private var presentAddNewTournamentScreen = false
     
+    @ObservedObject private var viewModel = TournamentsViewModel()
+    
     // The body of the MainView
     var body: some View {
         Spacer()
@@ -21,12 +23,18 @@ struct MainView: View {
             
             NavigationView {// Scroll View to load the tournament cards
                 ScrollView {
-                    TournamentCardView()
-                    TournamentCardView()
-                    TournamentCardView()
-                    TournamentCardView()
-                    TournamentCardView()
-                    TournamentCardView()
+                    /*List(viewModel.tournaments) { tournament in
+                        VStack(alignment: .leading) {
+                            Text(tournament.name)
+                                .font(.headline)
+                            Text(tournament.location)
+                                .font(.headline)
+                            Text(tournament.date)
+                                .font(.headline)
+                            Text(tournament.allEvents)
+                                .font(.headline)
+                        }
+                    }*/
                     
                     Button( action: { presentAddNewTournamentScreen.toggle() }, label: {
                         Image(systemName: "plus")
@@ -38,6 +46,9 @@ struct MainView: View {
                 Spacer()
             }
             .navigationViewStyle(StackNavigationViewStyle())
+            .onAppear() {
+                self.viewModel.fetchData()
+            }
             .navigationBarTitle("Tournaments")
             .sheet(isPresented: $presentAddNewTournamentScreen) {
                 CreateTournamentView()

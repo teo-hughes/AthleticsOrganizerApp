@@ -18,7 +18,7 @@ class TournamentViewModel: ObservableObject {
     func addTournament(tournament: Tournament) {
         
         do {
-            let _ = try database.collection(tournament.name).addDocument(from: tournament)
+            let _ = try database.collection("Tournaments").addDocument(from: tournament)
         }
         catch{
             print("ERROR")
