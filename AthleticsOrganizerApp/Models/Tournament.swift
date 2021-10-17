@@ -18,15 +18,13 @@ struct Tournament: Identifiable, Codable {
     var location: String
     var date: Date
     var Events: [Event]
-    var open: Bool = false
-    
+
     enum CodingKeys: String, CodingKey {
         case id
         case name
         case location
         case date
         case Events
-        case open
     }
 }
 
