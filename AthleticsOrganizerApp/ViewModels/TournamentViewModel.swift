@@ -11,7 +11,8 @@ import FirebaseFirestore
 // The View Model of the TournamentView
 class TournamentViewModel: ObservableObject {
     
-    @Published var tournament: Tournament = Tournament(name: "", location: "", date: "", allEvents: "")
+
+    @Published var tournament: Tournament = Tournament(name: "", location: "", date: Date(), allEvents: "", Events: [])
     
     private var database = Firestore.firestore()
     

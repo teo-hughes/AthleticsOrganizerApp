@@ -16,8 +16,9 @@ struct Tournament: Identifiable, Codable {
     @DocumentID var id: String?
     var name: String
     var location: String
-    var date: String
+    var date: Date
     var allEvents: String
+    var Events: [Event]
     var open: Bool = false
     
     enum CodingKeys: String, CodingKey {
@@ -26,6 +27,7 @@ struct Tournament: Identifiable, Codable {
         case location
         case date
         case allEvents
+        case Events
         case open
     }
 }

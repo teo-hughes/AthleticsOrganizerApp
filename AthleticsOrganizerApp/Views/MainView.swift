@@ -33,6 +33,7 @@ struct MainView: View {
                     }
                 }
                         
+                Text("Create Tournament")
                 Button( action: { presentAddNewTournamentScreen.toggle() }, label: {
                     Image(systemName: "plus")
                 })
