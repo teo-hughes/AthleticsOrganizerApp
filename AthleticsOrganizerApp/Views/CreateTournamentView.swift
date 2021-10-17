@@ -14,7 +14,7 @@ struct CreateTournamentView: View {
     @StateObject var viewModel = TournamentViewModel()
     @Environment(\.presentationMode) var presentationMode
     
-    @State var testEvents : [Event] = [Event(event: "100m", age_group: "U18", gender: "M"), Event(event: "200m", age_group: "U119", gender: "F"), Event(event: "1500m", age_group: "U15", gender: "M")]
+    @State var testEvents : [Event] = [Event(event_name: "100m", age_groups: [], genders: []), Event(event_name: "200m", age_groups: [], genders: []), Event(event_name: "1500m", age_groups: [], genders: [])]
     
     
     
@@ -25,14 +25,14 @@ struct CreateTournamentView: View {
                     TextField("Name", text: $viewModel.tournament.name)
                     TextField("Location", text: $viewModel.tournament.location)
                     DatePicker("Date", selection: $viewModel.tournament.date, displayedComponents: .date)
+                    
                 }
                 Section(header: Text("Events")) {
-                    TextField("AllEvents", text: $viewModel.tournament.allEvents)
                     
                     ForEach(0..<testEvents.count) { n in
                         HStack{
                             
-                            Text(testEvents[n].event)
+                            Text(testEvents[n].event_name)
                             
                             Spacer()
                             
@@ -70,7 +70,6 @@ struct CreateTournamentView: View {
                     
                     for n in 0...2 {
                         if testEvents[n].checked == true {
-                            print("Y")
                             viewModel.tournament.Events.append(testEvents[n])
                         }
                     }

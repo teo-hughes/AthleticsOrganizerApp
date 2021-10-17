@@ -12,7 +12,7 @@ import FirebaseFirestore
 class TournamentViewModel: ObservableObject {
     
 
-    @Published var tournament: Tournament = Tournament(name: "", location: "", date: Date(), allEvents: "", Events: [])
+    @Published var tournament: Tournament = Tournament(name: "", location: "", date: Date(), Events: [])
     
     private var database = Firestore.firestore()
     

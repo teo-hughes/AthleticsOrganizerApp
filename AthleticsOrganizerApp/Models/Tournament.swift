@@ -17,7 +17,6 @@ struct Tournament: Identifiable, Codable {
     var name: String
     var location: String
     var date: Date
-    var allEvents: String
     var Events: [Event]
     var open: Bool = false
     
@@ -26,7 +25,6 @@ struct Tournament: Identifiable, Codable {
         case name
         case location
         case date
-        case allEvents
         case Events
         case open
     }

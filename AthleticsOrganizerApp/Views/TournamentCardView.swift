@@ -38,10 +38,6 @@ struct TournamentCardView: View {
                             .foregroundColor(Color.black)
                             .font(.custom("Avenir", size:15))
                             .padding()
-                        Text("Events: \(tournament.allEvents)")
-                            .foregroundColor(Color.black)
-                            .font(.custom("Avenir", size:15))
-                            .padding()
                     }
                 }.padding()
             )

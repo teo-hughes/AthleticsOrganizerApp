@@ -12,16 +12,16 @@ struct Event: Identifiable, Codable {
     
     // ID and its other variables
     @DocumentID var id: String?
-    var event: String
-    var age_group: String
-    var gender: String
+    var event_name: String
+    var age_groups: [String]
+    var genders: [String]
     var checked: Bool = false
     
     enum CodingKeys: String, CodingKey {
         case id
-        case event
-        case age_group
-        case gender
+        case event_name
+        case age_groups
+        case genders
         case checked
     }
 }
