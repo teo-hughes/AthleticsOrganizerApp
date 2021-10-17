@@ -14,42 +14,47 @@ struct MainView: View {
     
     @State private var presentAddNewTournamentScreen = false
     
-    @ObservedObject private var viewModel = TournamentsViewModel()
+    @StateObject var viewModel = TournamentsViewModel()
+    
+
+
+    
     
     // The body of the MainView
     var body: some View {
         Spacer()
-        VStack {
             
-            NavigationView {// Scroll View to load the tournament cards
-                /*List(viewModel.tournaments) { tournament in
-                    VStack(alignment: .leading) {
-                        Text("Title")
-                        /*Text(tournament.name)
-                            .font(.headline)
-                        Text(tournament.location)
-                            .font(.headline)
-                        Text(tournament.date)
-                            .font(.headline)
-                        Text(tournament.allEvents)
-                            .font(.headline)*/
+        
+        NavigationView {// Scroll View to load the tournament cards
+            VStack {
+                List {
+                    ForEach(viewModel.tournaments) { tournament in
+                        VStack(alignment: .leading) {
+                            Text(tournament.name)
+                            Text(tournament.location)
+                            Text(tournament.date)
+                            Text(tournament.allEvents)
+                        }
                     }
-                }*/
-                    
+                }
+                        
                 Button( action: { presentAddNewTournamentScreen.toggle() }, label: {
                     Image(systemName: "plus")
                 })
-                
+                    
                 Spacer()
             }
-            .onAppear() {
-                self.viewModel.fetchData()
-            }
-            .navigationViewStyle(StackNavigationViewStyle())
-            .navigationBarTitle("Tournaments")
-            .sheet(isPresented: $presentAddNewTournamentScreen) {
-                CreateTournamentView()
-            }
+        }
+        .onAppear() {
+            self.viewModel.fetchData()
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
+        .navigationBarTitle("Tournaments")
+        .sheet(isPresented: $presentAddNewTournamentScreen) {
+            CreateTournamentView()
         }
     }
 }
+
+
+
