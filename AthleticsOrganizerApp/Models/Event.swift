@@ -14,7 +14,7 @@ struct Event: Identifiable, Codable {
     @DocumentID var id: String?
     var event_name: String
     var age_groups: [String]
-    var genders: [String]
+    var genders: [Bool]
     var checked: Bool = false
     
     enum CodingKeys: String, CodingKey {
