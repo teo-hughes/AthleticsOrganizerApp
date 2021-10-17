@@ -29,12 +29,7 @@ struct MainView: View {
             VStack {
                 List {
                     ForEach(viewModel.tournaments) { tournament in
-                        VStack(alignment: .leading) {
-                            Text(tournament.name)
-                            Text(tournament.location)
-                            Text(tournament.date)
-                            Text(tournament.allEvents)
-                        }
+                        TournamentCardView(tournament: tournament)
                     }
                 }
                         

@@ -14,7 +14,7 @@ struct TournamentCardView: View {
     @State private var clicked = false
     
     // Calling the viewModel for the tournamentViewModel
-    @StateObject var tournamentViewModel = TournamentViewModel()
+    @State var tournament: Tournament
     
     // The body of the TournamentCardView
     var body: some View {
@@ -25,10 +25,24 @@ struct TournamentCardView: View {
             .frame(height: 150)
             .overlay(
                 // Information inside the card
-                ZStack {
-                    Text(tournamentViewModel.tournament.name)
+                VStack {
+                    Text(tournament.name)
                         .foregroundColor(Color.black)
                         .font(.custom("Avenir", size:25))
+                    HStack {
+                        Text("Location: \(tournament.location)")
+                            .foregroundColor(Color.black)
+                            .font(.custom("Avenir", size:15))
+                            .padding()
+                        Text("Date: \(tournament.date)")
+                            .foregroundColor(Color.black)
+                            .font(.custom("Avenir", size:15))
+                            .padding()
+                        Text("Events: \(tournament.allEvents)")
+                            .foregroundColor(Color.black)
+                            .font(.custom("Avenir", size:15))
+                            .padding()
+                    }
                 }.padding()
             )
             // What happens when tapped
