@@ -15,11 +15,13 @@ struct Event: Identifiable, Codable {
     var event: String
     var age_group: String
     var gender: String
+    var checked: Bool = false
     
     enum CodingKeys: String, CodingKey {
         case id
         case event
         case age_group
         case gender
+        case checked
     }
 }

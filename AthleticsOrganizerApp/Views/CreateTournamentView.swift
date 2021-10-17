@@ -14,9 +14,8 @@ struct CreateTournamentView: View {
     @StateObject var viewModel = TournamentViewModel()
     @Environment(\.presentationMode) var presentationMode
     
-    @State private var testEvents = [Event(event: "100m", age_group: "U18", gender: "M"), Event(event: "200m", age_group: "U119", gender: "F"), Event(event: "1500m", age_group: "U15", gender: "M")]
+    @State var testEvents = [Event(event: "100m", age_group: "U18", gender: "M"), Event(event: "200m", age_group: "U119", gender: "F"), Event(event: "1500m", age_group: "U15", gender: "M")]
     
-    @State private var testEvent: Event = Event(event: "100m", age_group: "U18", gender: "M")
     
     
     var body: some View {
@@ -29,10 +28,11 @@ struct CreateTournamentView: View {
                 }
                 Section(header: Text("Events")) {
                     TextField("AllEvents", text: $viewModel.tournament.allEvents)
-                    ForEach(testEvents) { event in
-                        EventPickerView(event: event)
-                    }
+                    EventPickerView(event: testEvents[0])
+                    EventPickerView(event: testEvents[1])
+                    EventPickerView(event: testEvents[2])
                 }
+                .padding(.bottom)
             }
             .navigationBarTitle("New Tournament", displayMode: .inline)
             .navigationBarItems(
@@ -51,7 +51,15 @@ struct CreateTournamentView: View {
     }
     
     func handleDoneTapped() {
-        viewModel.tournament.Events.append(testEvent)
+        if testEvents[0].checked {
+            viewModel.tournament.Events.append(testEvents[0])
+        }
+        if testEvents[1].checked {
+            viewModel.tournament.Events.append(testEvents[1])
+        }
+        if testEvents[2].checked {
+            viewModel.tournament.Events.append(testEvents[2])
+        }
         viewModel.save()
         dismiss()
     }
@@ -76,9 +84,22 @@ struct EventPickerView: View {
             
             ZStack {
                 Circle()
-                    .stroke(Color.gray, lineWidth: 1)
+                    .stroke(event.checked ? Color.green : Color.gray)
                     .frame(width: 25, height: 25)
+                
+                if event.checked {
+                    
+                    Image(systemName: "checkmark.circle.fill")
+                        .font(.system(size: 25))
+                        .foregroundColor(Color.green)
+                }
+                
             }
+        }
+        .padding()
+        .contentShape(Rectangle())
+        .onTapGesture {
+            event.checked.toggle()
         }
     }
 }
