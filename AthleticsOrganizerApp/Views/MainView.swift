@@ -22,33 +22,34 @@ struct MainView: View {
     
     // The body of the MainView
     var body: some View {
-        Spacer()
+
             
-        
-        NavigationView {// Scroll View to load the tournament cards
-            VStack {
-                List {
-                    ForEach(viewModel.tournaments) { tournament in
-                        TournamentCardView(tournament: tournament)
-                    }
+
+        NavigationView {
+            List(viewModel.tournaments) { tournament in
+                NavigationLink(destination: TournamentView(tournament: tournament, viewModel: viewModel)) {
+                    TournamentCardView(tournament: tournament)
                 }
-                        
-                Text("Create Tournament")
-                Button( action: { presentAddNewTournamentScreen.toggle() }, label: {
-                    Image(systemName: "plus")
-                })
-                    
-                Spacer()
             }
+            .navigationBarTitle("Tournaments")
         }
+        .ignoresSafeArea()
+        .navigationViewStyle(StackNavigationViewStyle())
         .onAppear() {
             self.viewModel.fetchData()
         }
-        .navigationViewStyle(StackNavigationViewStyle())
-        .navigationBarTitle("Tournaments")
         .sheet(isPresented: $presentAddNewTournamentScreen) {
             CreateTournamentView()
         }
+        VStack {
+            Text("Create Tournament")
+            Button( action: { presentAddNewTournamentScreen.toggle() }, label: {
+                Image(systemName: "plus")
+                    .font(.system(size: 25))
+            })
+        }
+        Spacer()
+        
     }
 }
 

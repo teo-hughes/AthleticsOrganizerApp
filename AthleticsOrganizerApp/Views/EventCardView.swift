@@ -1,19 +1,19 @@
 //
-//  TournamentCardView.swift
+//  EventCardView.swift
 //  AthleticsOrganizerApp
 //
-//  Created by Hughes, Teo (BJH) on 09/10/2021.
+//  Created by Neil Hughes on 18/10/2021.
 //
 
 import SwiftUI
 
 // This View will show the tournament card
-struct TournamentCardView: View {
+struct EventCardView: View {
     
 
     
     // Calling the viewModel for the tournamentViewModel
-    @State var tournament: Tournament
+    @State var event: Event
     
     // The body of the TournamentCardView
     var body: some View {
@@ -26,19 +26,19 @@ struct TournamentCardView: View {
                     .overlay(
                         // Information inside the card
                         VStack {
-                            Text(tournament.name)
+                            Text(event.event_name)
                                 .foregroundColor(Color.black)
                                 .font(.custom("Avenir", size:25))
-                            HStack {
-                                Text("Location: \(tournament.location)")
+                            /*HStack {
+                                Text("Location: \(event.age_groups)")
                                     .foregroundColor(Color.black)
                                     .font(.custom("Avenir", size:15))
                                     .padding()
-                                Text("Date: \(tournament.date)")
+                                Text("Date: \(event.genders)")
                                     .foregroundColor(Color.black)
                                     .font(.custom("Avenir", size:15))
                                     .padding()
-                            }
+                            }*/
                         }.padding()
                     )
         }
