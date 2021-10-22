@@ -25,24 +25,25 @@ struct MenuView: View {
                 
                 // Shows a view depending on which tab is selected
                 switch viewOrganizer.currentView {
-                
-                // Shows the MainView if the home icon is selected
+                    
+                    // Shows the MainView if the home icon is selected
                 case .home:
                     MainView()
                     
-                // Shows the AnalysisView if the analysis icon is selcted
+                    // Shows the AnalysisView if the analysis icon is selcted
                 case .analysis:
                     AnalysisView()
                     
-                // Shows the InfoView if the info icon is selected
+                    // Shows the InfoView if the info icon is selected
                 case .info:
                     InfoView()
                     
-                // Shows the LoginView if the sign out icon is selected
+                    // Shows the LoginView if the sign out icon is selected
                 case .signOut:
                     LoginView()
                 }
-                     
+                
+                
                 
                 // Pushes the tab bar to the bottom
                 Spacer()
@@ -67,7 +68,7 @@ struct MenuView: View {
                 .background(Color.gray).shadow(radius: 2)
             }
             // Makes it such that the tab bar goes right to the bottom
-            .edgesIgnoringSafeArea(.vertical)
+            .edgesIgnoringSafeArea(.all)
         }
     }
 }
@@ -97,12 +98,12 @@ struct TabBarIcon: View {
             
             // The icon image
             Image(systemName: systemIconName)
-                // The UI of the image
+            // The UI of the image
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: width, height: height)
                 .padding(.top, 10)
-
+            
             // The text that goes below the image
             Text(tabName)
                 .font(.footnote)

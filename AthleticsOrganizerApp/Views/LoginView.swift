@@ -5,19 +5,19 @@
  //  Created by Teo Hughes on 18/09/2021.
  //
 
- import SwiftUI
- import FirebaseAuth
+import SwiftUI
+import FirebaseAuth
 
- // This View is what is loaded when the app is launched and allows individuals to log in or not
- struct LoginView: View {
-
+// This View is what is loaded when the app is launched and allows individuals to log in or not
+struct LoginView: View {
+    
     // Accesses the AuthenticationViewModel
     @EnvironmentObject var viewModel: AuthenticationViewModel
     
-
     
-     // The body of the LoginView
-     var body: some View {
+    
+    // The body of the LoginView
+    var body: some View {
         
         // A NavigationView allows us to alternate between signing in and creating an account
         NavigationView {
@@ -27,26 +27,27 @@
                 
                 // Display the MenuView
                 MenuView()
-            
-            // If you still have to sign in
+                
+                // If you still have to sign in
             } else {
                 
                 // Display the SignInView
                 SignInView()
             }
         }
+        .edgesIgnoringSafeArea(.top)
         // UI of the NavigationView (allows it to work on an iPad)
         .navigationViewStyle(StackNavigationViewStyle())
         // When the app is launched the value of signedIn is set to false
         .onAppear {
             viewModel.signedIn = viewModel.isSignedIn
         }
-     }
- }
- 
- 
- // This is the view which allows users to sign in
- struct SignInView: View {
+    }
+}
+
+
+// This is the view which allows users to sign in
+struct SignInView: View {
     
     // Variables to hold the email and password
     @State var email = ""
@@ -55,15 +56,15 @@
     // Accesses the AuthenticationViewModel
     @EnvironmentObject var viewModel: AuthenticationViewModel
     
-     // The body of the SignInView
-     var body: some View {
+    // The body of the SignInView
+    var body: some View {
         
         // A VStack allows you to display the image and then the textfields
         VStack {
             
             // Image displayed
             Image("TempLoginImage")
-                // UI of image
+            // UI of image
                 .resizable()
                 .scaledToFit()
                 .frame(width: 150, height: 150)
@@ -73,15 +74,15 @@
                 
                 // Text field to input your email
                 TextField("Email Address", text: $email)
-                    // Disable autocorrect and autocapitalize
+                // Disable autocorrect and autocapitalize
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
                     .padding()
                     .background(Color(.secondarySystemBackground))
-                    
+                
                 // SecureField means the password is not visible when typed in
                 SecureField("Password", text: $password)
-                    // Disable autocorrect and autocapitalize
+                // Disable autocorrect and autocapitalize
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
                     .padding()
@@ -89,15 +90,15 @@
                 
                 // The button which will sign you in
                 Button(action: {
-                        
+                    
                     // If both textfields aren't empty
                     guard !email.isEmpty, !password.isEmpty else {
                         return
                     }
-                        
+                    
                     // Sign in using the viewModel
                     viewModel.signIn(email: email, password: password)
-                        
+                    
                 }, label: {
                     
                     // UI of button
@@ -106,7 +107,7 @@
                         .frame(width: 200, height: 50)
                         .cornerRadius(8)
                         .background(Color.blue)
-                            
+                    
                 })
                 
                 // Seperate button to send you to the SignUpView
@@ -119,11 +120,11 @@
             Spacer()
         }
         .navigationTitle("Sign In")
-     }
- }
+    }
+}
 
- // This is the view which allows users to create an account
- struct SignUpView: View {
+// This is the view which allows users to create an account
+struct SignUpView: View {
     
     // Variables to hold the email and password
     @State var email = ""
@@ -132,8 +133,8 @@
     // Accesses the AuthenticationViewModel
     @EnvironmentObject var viewModel: AuthenticationViewModel
     
-     // The body of the SignUpView
-     var body: some View {
+    // The body of the SignUpView
+    var body: some View {
         
         // A VStack allows you to display the image and then the textfields
         VStack {
@@ -148,31 +149,31 @@
                 
                 // Textfield to input your email
                 TextField("Email Address", text: $email)
-                    // Disable autocorrect and autocapitalize
+                // Disable autocorrect and autocapitalize
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
                     .padding()
                     .background(Color(.secondarySystemBackground))
-                       
+                
                 // SecureField means the password is not visible when typed in
                 SecureField("Password", text: $password)
-                    // Disable autocorrect and autocapitalize
+                // Disable autocorrect and autocapitalize
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
                     .padding()
                     .background(Color(.secondarySystemBackground))
-                    
+                
                 // The button which will create the account
                 Button(action: {
-                        
+                    
                     // If both textfields aren't empty
                     guard !email.isEmpty, !password.isEmpty else {
                         return
                     }
-                        
+                    
                     // Sign up using the viewModel
                     viewModel.signUp(email: email, password: password)
-                        
+                    
                 }, label: {
                     
                     // The UI of the button
@@ -181,7 +182,7 @@
                         .frame(width: 200, height: 50)
                         .cornerRadius(8)
                         .background(Color.blue)
-                            
+                    
                 })
             }
             .padding()
@@ -190,6 +191,6 @@
             Spacer()
         }
         .navigationTitle("Create Account")
-     }
- }
+    }
+}
 

@@ -29,16 +29,7 @@ struct EventCardView: View {
                             Text(event.event_name)
                                 .foregroundColor(Color.black)
                                 .font(.custom("Avenir", size:25))
-                            /*HStack {
-                                Text("Location: \(event.age_groups)")
-                                    .foregroundColor(Color.black)
-                                    .font(.custom("Avenir", size:15))
-                                    .padding()
-                                Text("Date: \(event.genders)")
-                                    .foregroundColor(Color.black)
-                                    .font(.custom("Avenir", size:15))
-                                    .padding()
-                            }*/
+
                         }.padding()
                     )
         }

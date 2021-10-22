@@ -32,7 +32,9 @@ struct MainView: View {
                         TournamentCardView(tournament: tournament)
                     })
                 }
-                .navigationBarTitle("Tournaments")
+                .refreshable {
+                    self.viewModel.fetchData()
+                }
                 
                 
                 Spacer()
@@ -45,10 +47,11 @@ struct MainView: View {
                 //Spacer()
                 
             }
+            .navigationBarTitle("Tournaments")
         
             
         }
-        .edgesIgnoringSafeArea(.vertical)
+        .edgesIgnoringSafeArea(.all)
         .navigationViewStyle(StackNavigationViewStyle())
         .onAppear() {
             self.viewModel.fetchData()
