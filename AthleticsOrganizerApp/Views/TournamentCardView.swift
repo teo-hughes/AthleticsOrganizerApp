@@ -10,7 +10,7 @@ import SwiftUI
 // This View will show the tournament card
 struct TournamentCardView: View {
     
-
+    
     
     // Calling the viewModel for the tournamentViewModel
     @State var tournament: Tournament
@@ -19,28 +19,28 @@ struct TournamentCardView: View {
     var body: some View {
         
         VStack {
-                // UI of card
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(Color.red)
-                    .frame(height: 150)
-                    .overlay(
-                        // Information inside the card
-                        VStack {
-                            Text(tournament.name)
+            // UI of card
+            RoundedRectangle(cornerRadius: 10)
+                .fill(Color.red)
+                .frame(height: 150)
+                .overlay(
+                    // Information inside the card
+                    VStack {
+                        Text(tournament.name)
+                            .foregroundColor(Color.black)
+                            .font(.custom("Avenir", size:25))
+                        HStack {
+                            Text("Location: \(tournament.location)")
                                 .foregroundColor(Color.black)
-                                .font(.custom("Avenir", size:25))
-                            HStack {
-                                Text("Location: \(tournament.location)")
-                                    .foregroundColor(Color.black)
-                                    .font(.custom("Avenir", size:15))
-                                    .padding()
-                                Text("Date: \(tournament.date)")
-                                    .foregroundColor(Color.black)
-                                    .font(.custom("Avenir", size:15))
-                                    .padding()
-                            }
-                        }.padding()
-                    )
+                                .font(.custom("Avenir", size:15))
+                                .padding()
+                            Text("Date: \(tournament.date)")
+                                .foregroundColor(Color.black)
+                                .font(.custom("Avenir", size:15))
+                                .padding()
+                        }
+                    }.padding()
+                )
         }
         
     }

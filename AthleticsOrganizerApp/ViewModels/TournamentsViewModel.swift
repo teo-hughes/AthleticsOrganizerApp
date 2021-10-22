@@ -15,7 +15,7 @@ class TournamentsViewModel: ObservableObject {
     
     func fetchData() {
         
-
+        
         database.collection("Tournaments").addSnapshotListener { querySnapshot, error in
             guard let documents = querySnapshot?.documents else {
                 print("No documents")

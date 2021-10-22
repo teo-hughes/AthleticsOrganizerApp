@@ -53,7 +53,7 @@ struct CreateTournamentView: View {
                     
                     if expand {
                         List {
-                        ForEach(ChosenAgeGroups, id: \.self) { ageGroup in
+                            ForEach(ChosenAgeGroups, id: \.self) { ageGroup in
                                 Text(ageGroup)
                             }
                         }

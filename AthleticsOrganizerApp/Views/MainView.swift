@@ -48,7 +48,7 @@ struct MainView: View {
                 
             }
             .navigationBarTitle("Tournaments")
-        
+            
             
         }
         .edgesIgnoringSafeArea(.all)
