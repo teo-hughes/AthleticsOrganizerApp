@@ -16,24 +16,39 @@ struct MainView: View {
     
     @StateObject var viewModel = TournamentsViewModel()
     
-
-
+    
+    
     
     
     // The body of the MainView
     var body: some View {
-
-            
-
+        
+        
+        
         NavigationView {
-            List(viewModel.tournaments) { tournament in
-                NavigationLink(destination: TournamentView(tournament: tournament, viewModel: viewModel)) {
-                    TournamentCardView(tournament: tournament)
+            VStack {
+                List(viewModel.tournaments) { tournament in
+                    NavigationLink(destination: TournamentView(tournament: tournament, viewModel: viewModel), label: {
+                        TournamentCardView(tournament: tournament)
+                    })
                 }
+                .navigationBarTitle("Tournaments")
+                
+                
+                Spacer()
+                Text("Create Tournament")
+                Button( action: { presentAddNewTournamentScreen.toggle() }, label: {
+                    Image(systemName: "plus")
+                        .font(.system(size: 25))
+                })
+                
+                //Spacer()
+                
             }
-            .navigationBarTitle("Tournaments")
+        
+            
         }
-        .ignoresSafeArea()
+        .edgesIgnoringSafeArea(.vertical)
         .navigationViewStyle(StackNavigationViewStyle())
         .onAppear() {
             self.viewModel.fetchData()
@@ -41,17 +56,7 @@ struct MainView: View {
         .sheet(isPresented: $presentAddNewTournamentScreen) {
             CreateTournamentView()
         }
-        VStack {
-            Text("Create Tournament")
-            Button( action: { presentAddNewTournamentScreen.toggle() }, label: {
-                Image(systemName: "plus")
-                    .font(.system(size: 25))
-            })
-        }
-        Spacer()
-        
     }
 }
-
 
 

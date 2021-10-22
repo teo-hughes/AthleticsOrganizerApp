@@ -15,22 +15,20 @@ struct TournamentView: View {
     
     // The body of the InfoView
     var body: some View {
-        Text(tournament.name)
-            .padding()
+        //Text(tournament.name)
+          //  .padding()
         
-        NavigationView {
-            List {
-                ForEach(tournament.Events) { event in
-                    NavigationLink(destination: EventView(event: event)) {
-                        EventCardView(event: event)
-                    }
-                }
+        List {
+            ForEach(tournament.Events) { event in
+                NavigationLink(destination: EventView(event: event), label: {
+                    EventCardView(event: event)
+                })
             }
-            .navigationBarTitle("Events")
         }
-        .ignoresSafeArea()
+
+        /*}
         .navigationViewStyle(StackNavigationViewStyle())
-        /*.onAppear() {
+        .onAppear() {
             self.viewModel.fetchData()
         }*/
     }
