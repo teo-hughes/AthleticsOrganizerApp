@@ -20,9 +20,12 @@ struct AddAthletesView: View {
     @State private var teamExpand = false
     @State private var AthleteTeam: String = ""
     @State private var AthleteName: String = ""
-    @State private var AthleteGender: String = ""
+    @State private var AthleteMale = true
+    @State private var AthleteFemale = false
+    @State private var AthleteGender: String = "Male"
     @State private var AthleteAgeGroup: String = ""
-    
+    @State private var ChosenAthletes: [Athlete] = []
+
     
     var body: some View {
         NavigationView {
@@ -67,9 +70,74 @@ struct AddAthletesView: View {
                             Text(team)
                         }
                     }
+                    Picker("Choose an AgeGroup", selection: $AthleteAgeGroup) {
+                        ForEach(events[0].age_groups, id: \.self) { ageGroup in
+                            Text(ageGroup)
+                        }
+                    }
+
+                    HStack {
+                        Text("Gender")
+                        Spacer()
+                        
+                        Text("Male:")
+                        ZStack {
+                            
+                            Image(systemName: "circle")
+                                .font(.system(size: 25))
+                            
+                            if AthleteMale {
+                                
+                                Image(systemName: "checkmark.circle.fill")
+                                    .font(.system(size: 25))
+                                    .foregroundColor(Color.blue)
+                            }
+                        }
+                        .onTapGesture {
+
+                            self.AthleteMale.toggle()
+                            self.AthleteFemale.toggle()
+                            AthleteGender = "Male"
+                            
+                        }
+                        Spacer()
+                        Text("Female:")
+                        ZStack {
+                            
+                            Image(systemName: "circle")
+                                .font(.system(size: 25))
+                            
+                            if AthleteFemale {
+                                
+                                Image(systemName: "checkmark.circle.fill")
+                                    .font(.system(size: 25))
+                                    .foregroundColor(Color.red)
+                            }
+                        }
+                        .onTapGesture {
+
+                            self.AthleteFemale.toggle()
+                            self.AthleteMale.toggle()
+                            AthleteGender = "Female"
+                            
+                        }
+                        
+                    }
+                    
+                    TextField("Athlete's Name", text: $AthleteName)
+                    
+                    Button(action: {
+                        viewModel.athletes.append(Athlete(name: AthleteName, age_group: AthleteAgeGroup, gender: AthleteGender, team: AthleteTeam))
+                        ChosenAthletes.append(Athlete(name: AthleteName, age_group: AthleteAgeGroup, gender: AthleteGender, team: AthleteTeam))
+                        
+                        AthleteName = ""
+                    }, label: {
+                        Text("Add Athlete")
+                    })
+                    
                 }
                 Section(header: Text("Athletes Added")) {
-                    
+
                 }
             }
             .navigationBarTitle("Add Teams", displayMode: .inline)
