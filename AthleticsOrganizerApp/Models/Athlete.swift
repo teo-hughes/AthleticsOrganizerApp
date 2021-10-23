@@ -15,13 +15,21 @@ struct Athlete: Identifiable, Codable {
     var name: String
     var age_group: String
     var gender: String
-    var open: Bool = false
+    var team: String
+    var positions: [String] = []
+    var events: [String] = []
+    var times: [Double] = []
     
     enum CodingKeys: String, CodingKey {
         case id
         case name
         case age_group
         case gender
-        case open
+        case team
+        case positions
+        case events
+        case times
     }
+    
+    
 }

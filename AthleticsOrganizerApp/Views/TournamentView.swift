@@ -13,19 +13,35 @@ struct TournamentView: View {
     @State var tournament: Tournament
     @StateObject var viewModel: TournamentsViewModel
     
+    @State private var presentAddNewAthletesScreen = false
+    
     // The body of the InfoView
     var body: some View {
         
-        List {
-            ForEach(0..<tournament.Events.count) { n in
-                NavigationLink(destination: EventView(event: tournament.Events[n]), label: {
-                    EventCardView(event: tournament.Events[n])
-                })
+        VStack {
+            List {
+                ForEach(0..<tournament.Events.count) { n in
+                    NavigationLink(destination: EventView(event: tournament.Events[n]), label: {
+                        EventCardView(event: tournament.Events[n])
+                    })
+                }
             }
+            .refreshable {
+                self.viewModel.fetchData()
+            }
+            
+            Spacer()
+            Text("Add Teams and Athletes")
+            Button( action: { presentAddNewAthletesScreen.toggle() }, label: {
+                Image(systemName: "plus")
+                    .font(.system(size: 25))
+            })
         }
-        .refreshable {
-            self.viewModel.fetchData()
+        .sheet(isPresented: $presentAddNewAthletesScreen) {
+            AddAthletesView()
         }
     }
+    
+
 }
 
