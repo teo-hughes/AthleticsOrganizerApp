@@ -11,24 +11,29 @@ import FirebaseFirestore
 class AthleteViewModel: ObservableObject {
     
     
+    
     @Published var athletes: [Athlete] = []
     
     private var database = Firestore.firestore()
     
-    func addAthlete(athlete: Athlete) {
+    func addAthlete(athlete: Athlete, tournamentName: String) {
         
         
         do {
-            let _ = try database.collection("Athletes").addDocument(from: athlete)
+            let ref = try database.collection(tournamentName).document("TournamentAthletes")
+            
+            ref.updateData([
+                "Athletestest": FieldValue.arrayUnion(["Tests"])
+            ])
         }
         catch{
             print("ERROR")
         }
     }
     
-    func save() {
+    func save(tournamentName: String) {
         for athlete in athletes {
-            addAthlete(athlete: athlete)
+            addAthlete(athlete: athlete, tournamentName: tournamentName)
         }
     }
 }

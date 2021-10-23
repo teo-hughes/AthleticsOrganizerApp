@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddAthletesView: View {
     
-    
+    @State var tournamentName: String
     @State var events: [Event]
     @StateObject var viewModel = AthleteViewModel()
     @Environment(\.presentationMode) var presentationMode
@@ -163,7 +163,7 @@ struct AddAthletesView: View {
     }
     
     func handleDoneTapped() {
-        viewModel.save()
+        viewModel.save(tournamentName: tournamentName)
         dismiss()
     }
     

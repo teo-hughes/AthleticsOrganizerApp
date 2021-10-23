@@ -16,8 +16,8 @@ struct Event: Identifiable, Codable {
     var age_groups: [String]
     var genders: [Bool]
     var positions: [Int] = []
-    var athletes: [String] = []
     var times: [Double] = []
+    var Athletes: [Athlete] = []
     var checked: Bool = false
     
     enum CodingKeys: String, CodingKey {
@@ -26,8 +26,8 @@ struct Event: Identifiable, Codable {
         case age_groups
         case genders
         case positions
-        case athletes
         case times
+        case Athletes
         case checked
     }
 }
