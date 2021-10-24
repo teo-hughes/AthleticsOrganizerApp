@@ -18,42 +18,37 @@ class TournamentViewModel: ObservableObject {
     
     func addTournament(tournament: Tournament) {
         
-        do {
-            let _ = try database.collection(tournament.name).document("Details").setData([
-                "tournamentName" : tournament.name,
-                "tournamentLocation": tournament.location,
-                "tournamentdate": tournament.date
+        
+        let _ = database.collection(tournament.name).document("Details").setData([
+            "tournamentName" : tournament.name,
+            "tournamentLocation": tournament.location,
+            "tournamentdate": tournament.date
+        ])
+        
+        for event in tournament.Events {
+            let _ = database.collection(tournament.name).document("\(event.event_name)").setData([
+                "Name" : event.event_name,
+                "Age Groups": event.age_groups,
+                "Genders": event.genders,
+                "Positions": event.positions,
+                "times": event.times,
+                "checked": event.checked,
+                "Athletes": event.Athletes
             ])
-            
-            for event in tournament.Events {
-                let _ = try database.collection(tournament.name).document("\(event.event_name)").setData([
-                    "Name" : event.event_name,
-                    "Age Groups": event.age_groups,
-                    "Genders": event.genders,
-                    "Positions": event.positions,
-                    "times": event.times,
-                    "checked": event.checked,
-                    "Athletes": event.Athletes
-                ])
-            }
         }
-        catch{
-            print("ERROR")
-        }
+        
         
     }
     
     func addTournamentNames(tournament: Tournament) {
         
         
-        do {
-            let _ = try database.collection("Current Tournaments").document("\(tournament.name)").setData([
-                "tournamentName" : tournament.name
-            ])
-        }
-        catch{
-            print("ERROR")
-        }
+        
+        let _ = database.collection("Current Tournaments").document("\(tournament.name)").setData([
+            "tournamentName" : tournament.name
+        ])
+        
+        
     }
     
     func save() {

@@ -19,16 +19,13 @@ class AthleteViewModel: ObservableObject {
     func addAthlete(athlete: Athlete, tournamentName: String) {
         
         
-        do {
-            let ref = try database.collection(tournamentName).document("TournamentAthletes")
+        
+        let ref = database.collection(tournamentName).document("TournamentAthletes")
             
-            ref.updateData([
-                "Athletestest": FieldValue.arrayUnion(["Tests"])
-            ])
-        }
-        catch{
-            print("ERROR")
-        }
+        ref.updateData([
+            "Athletestest": FieldValue.arrayUnion(["Tests"])
+        ])
+
     }
     
     func save(tournamentName: String) {
