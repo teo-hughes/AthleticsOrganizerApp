@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Foundation
 
 // This view will be where you can choose a tournament etc.
 struct MainView: View {
@@ -27,13 +28,19 @@ struct MainView: View {
         
         NavigationView {
             VStack {
-                List(viewModel.tournaments) { tournament in
-                    NavigationLink(destination: TournamentView(tournament: tournament, viewModel: viewModel), label: {
-                        TournamentCardView(tournament: tournament)
-                    })
+                List{
+                    ForEach(0..<viewModel.tournaments.count, id: \.self) { n in
+                        NavigationLink(destination: TournamentView(tournament: viewModel.tournaments[n], viewModel: viewModel), label: {
+                            TournamentCardView(tournament: viewModel.tournaments[n])
+                        })
+                    }
                 }
                 .refreshable {
-                    self.viewModel.fetchData()
+                    //viewModel.names = []
+                    self.viewModel.fetchTournamentNames()
+                    for name in viewModel.names {
+                        self.viewModel.fetchData(tournamentCollectionName: name)
+                    }
                 }
                 
                 
@@ -46,6 +53,7 @@ struct MainView: View {
                 
                 //Spacer()
                 
+            
             }
             .navigationBarTitle("Tournaments")
             
@@ -53,9 +61,14 @@ struct MainView: View {
         }
         .edgesIgnoringSafeArea(.all)
         .navigationViewStyle(StackNavigationViewStyle())
-        .onAppear() {
-            self.viewModel.fetchData()
-        }
+        .onAppear(perform: {
+            //viewModel.names = []
+            self.viewModel.fetchTournamentNames()
+            for name in viewModel.names {
+                self.viewModel.fetchData(tournamentCollectionName: name)
+            }
+            
+        })
         .sheet(isPresented: $presentAddNewTournamentScreen) {
             CreateTournamentView()
         }

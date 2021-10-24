@@ -27,7 +27,10 @@ struct TournamentView: View {
                 }
             }
             .refreshable {
-                self.viewModel.fetchData()
+                self.viewModel.fetchTournamentNames()
+                for name in viewModel.names {
+                    self.viewModel.fetchData(tournamentCollectionName: name)
+                }
             }
             
             Spacer()
