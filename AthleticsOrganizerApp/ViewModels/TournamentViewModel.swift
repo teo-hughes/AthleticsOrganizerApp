@@ -25,6 +25,8 @@ class TournamentViewModel: ObservableObject {
             "tournamentdate": tournament.date
         ])
         
+        let _ = database.collection(tournament.name).document("TournamentAthletes").setData([:])
+        
         for event in tournament.Events {
             let _ = database.collection(tournament.name).document("\(event.event_name)").setData([
                 "Name" : event.event_name,

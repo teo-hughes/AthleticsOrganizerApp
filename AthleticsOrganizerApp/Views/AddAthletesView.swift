@@ -137,7 +137,7 @@ struct AddAthletesView: View {
                     })
                     
                 }
-                Section(header: Text("Athletes Added")) {
+                Section(header: Text("Athletes Already Added")) {
                     List {
                         ForEach(0..<athletes.count) { n in
                             Text(athletes[n].name)
