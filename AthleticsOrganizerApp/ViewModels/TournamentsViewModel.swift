@@ -58,7 +58,7 @@ class TournamentsViewModel: ObservableObject {
                         name = documentData["tournamentName"] as? String ?? ""
                         location = documentData["tournamentLocation"] as? String ?? ""
                         date = documentData["tournamentdate"] as? Date ?? Date.now
-                    } else {
+                    } else if document.documentID != "TournamentAthletes" {
                         let tempEvent = Event(event_name: documentData["Name"] as? String ?? "", age_groups: documentData["Age Groups"] as? [String] ?? [""], genders: documentData["Genders"] as? [Bool] ?? [true, true])
                         //print(tempEvent.event_name)
                         events.append(tempEvent)
