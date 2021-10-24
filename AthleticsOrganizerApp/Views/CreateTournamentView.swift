@@ -12,6 +12,8 @@ import SwiftUI
 struct CreateTournamentView: View {
     
     @StateObject var viewModel = TournamentViewModel()
+    @StateObject var eventViewModel = EventViewModel()
+    
     @Environment(\.presentationMode) var presentationMode
     
     @State private var ChosenAgeGroups: [String] = []
@@ -21,7 +23,7 @@ struct CreateTournamentView: View {
     @State private var male = false
     @State private var female = false
     
-    @State var testEvents : [Event] = [Event(event_name: "100m", age_groups: [], genders: []), Event(event_name: "200m", age_groups: [], genders: []), Event(event_name: "1500m", age_groups: [], genders: [])]
+    //@State var testEvents : [Event] = [Event(event_name: "100m", age_groups: [], genders: []), Event(event_name: "200m", age_groups: [], genders: []), Event(event_name: "1500m", age_groups: [], genders: [])]
     
     
     
@@ -107,10 +109,12 @@ struct CreateTournamentView: View {
                 }
                 Section(header: Text("Events")) {
                     
-                    ForEach(0..<testEvents.count) { n in
+                    
+                    
+                    ForEach(0..<eventViewModel.possibleEvents.count) { n in
                         HStack{
                             
-                            Text(testEvents[n].event_name)
+                            Text(eventViewModel.possibleEvents[n].event_name)
                             
                             Spacer()
                             
@@ -119,7 +123,7 @@ struct CreateTournamentView: View {
                                 Image(systemName: "circle")
                                     .font(.system(size: 25))
                                 
-                                if testEvents[n].checked {
+                                if eventViewModel.possibleEvents[n].checked {
                                     
                                     Image(systemName: "checkmark.circle.fill")
                                         .font(.system(size: 25))
@@ -131,7 +135,7 @@ struct CreateTournamentView: View {
                         .padding()
                         .contentShape(Rectangle())
                         .onTapGesture {
-                            testEvents[n].checked.toggle()
+                            eventViewModel.possibleEvents[n].checked.toggle()
                         }
                     }
                 }
@@ -148,14 +152,14 @@ struct CreateTournamentView: View {
                     
                     
                     
-                    for n in 0...2 {
+                    for n in 0..<eventViewModel.possibleEvents.count {
                         
                         
-                        if testEvents[n].checked == true {
+                        if eventViewModel.possibleEvents[n].checked == true {
                             
-                            testEvents[n].age_groups = ChosenAgeGroups
-                            testEvents[n].genders = [male, female]
-                            viewModel.tournament.Events.append(testEvents[n])
+                            eventViewModel.possibleEvents[n].age_groups = ChosenAgeGroups
+                            eventViewModel.possibleEvents[n].genders = [male, female]
+                            viewModel.tournament.Events.append(eventViewModel.possibleEvents[n])
                         }
                     }
                     handleDoneTapped()
