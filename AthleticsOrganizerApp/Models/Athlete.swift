@@ -2,15 +2,19 @@
 //  Athlete.swift
 //  AthleticsOrganizerApp
 //
-//  Created by Neil Hughes on 16/10/2021.
+//  Created by Teo Hughes on 16/10/2021.
 //
 
+
+// Imported to access attributes such as DocumentID
 import FirebaseFirestoreSwift
 
 
+// A model for an athlete which is identifiable and codable
 struct Athlete: Identifiable, Codable {
     
-    // ID and its other variables
+    
+    // The variables which the athlete will have
     @DocumentID var id: String?
     var name: String
     var age_group: String
@@ -20,6 +24,8 @@ struct Athlete: Identifiable, Codable {
     var events: [String] = []
     var times: [Double] = []
     
+    
+    // Necessary to allow the athlete to be codable
     enum CodingKeys: String, CodingKey {
         case id
         case name
@@ -30,6 +36,4 @@ struct Athlete: Identifiable, Codable {
         case events
         case times
     }
-    
-    
 }
