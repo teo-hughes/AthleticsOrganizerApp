@@ -18,6 +18,7 @@ struct Tournament: Identifiable, Codable {
     var location: String
     var date: Date
     var Events: [Event]
+    var Athletes: [Athlete] = []
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -25,6 +26,7 @@ struct Tournament: Identifiable, Codable {
         case location
         case date
         case Events
+        case Athletes
     }
 }
 

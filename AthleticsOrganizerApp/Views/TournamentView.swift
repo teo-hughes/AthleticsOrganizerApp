@@ -41,7 +41,7 @@ struct TournamentView: View {
             })
         }
         .sheet(isPresented: $presentAddNewAthletesScreen) {
-            AddAthletesView(tournamentName: tournament.name, events: tournament.Events)
+            AddAthletesView(tournamentName: tournament.name, events: tournament.Events, athletes: tournament.Athletes)
         }
     }
     

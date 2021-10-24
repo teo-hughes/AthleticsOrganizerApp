@@ -40,6 +40,7 @@ class TournamentsViewModel: ObservableObject {
     func fetchDataFromTournament(tournamentCollectionName: String) {
         
         var events: [Event] = []
+        var athletes: [Athlete] = []
         var name: String = ""
         var location: String = ""
         var date: Date = Date.now
@@ -55,10 +56,21 @@ class TournamentsViewModel: ObservableObject {
                     //events = []
 
                     if document.documentID == "Details" {
+                        //print(documentData)
                         name = documentData["tournamentName"] as? String ?? ""
                         location = documentData["tournamentLocation"] as? String ?? ""
                         date = documentData["tournamentdate"] as? Date ?? Date.now
-                    } else if document.documentID != "TournamentAthletes" {
+                    } else if document.documentID == "TournamentAthletes" {
+                        for key in documentData.keys {
+                            if let idData = documentData[key] as? [String: Any] {
+                                let athleteName = idData["Name"] as? String ?? ""
+                                let athleteTeam = idData["Team"] as? String ?? ""
+                                let athleteAgeGroup = idData["Age Group"] as? String ?? ""
+                                let athleteGender = idData["Gender"] as? String ?? ""
+                                athletes.append(Athlete(name: athleteName, age_group: athleteAgeGroup, gender: athleteGender, team: athleteTeam))
+                            }
+                        }
+                    } else {
                         let tempEvent = Event(event_name: documentData["Name"] as? String ?? "", age_groups: documentData["Age Groups"] as? [String] ?? [""], genders: documentData["Genders"] as? [Bool] ?? [true, true])
                         //print(tempEvent.event_name)
                         events.append(tempEvent)
@@ -68,7 +80,7 @@ class TournamentsViewModel: ObservableObject {
                 
                 
                 
-                let tempTournament = Tournament(name: name, location: location, date: date, Events: events)
+                let tempTournament = Tournament(name: name, location: location, date: date, Events: events, Athletes: athletes)
                 var insideAlready = false
                 
                 for tournament in self.tournaments {

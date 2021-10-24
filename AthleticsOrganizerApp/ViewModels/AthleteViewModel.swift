@@ -29,8 +29,10 @@ class AthleteViewModel: ObservableObject {
         
         let _ = database.collection(tournamentName).document("TournamentAthletes").updateData([
             //"Tournament Athletes": FieldValue.arrayUnion(["Name": athlete.name, "Team": athlete.team, "Age Group": athlete.age_group, "Gender": athlete.gender])
-            "Tournament Athletes": FieldValue.arrayUnion([athlete.name])
-        ])
+            athlete.name: ["Name": athlete.name, "Team": athlete.team, "Age Group": athlete.age_group, "Gender": athlete.gender]
+            
+            ])
+            
     }
     
     func save(tournamentName: String) {

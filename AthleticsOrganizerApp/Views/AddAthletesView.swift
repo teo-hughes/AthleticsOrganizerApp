@@ -11,6 +11,7 @@ struct AddAthletesView: View {
     
     @State var tournamentName: String
     @State var events: [Event]
+    @State var athletes: [Athlete]
     @StateObject var viewModel = AthleteViewModel()
     @Environment(\.presentationMode) var presentationMode
     
@@ -137,7 +138,11 @@ struct AddAthletesView: View {
                     
                 }
                 Section(header: Text("Athletes Added")) {
-
+                    List {
+                        ForEach(0..<athletes.count) { n in
+                            Text(athletes[n].name)
+                        }
+                    }
                 }
             }
             .navigationBarTitle("Add Teams", displayMode: .inline)
