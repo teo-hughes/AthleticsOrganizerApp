@@ -14,7 +14,8 @@ struct EventView: View {
     @State var tournamentAthletes: [Athlete]
     
     @State private var presentAddNewAthletesScreen = false
-    @State private var chosenGender: String = "Male"
+    @State private var presentAddTimesScreen = false
+    @State private var chosenGender: String = "Female"
     @State private var chosenAgeGroup: String = ""
     @State private var genderExpand: Bool = false
     @State private var ageGroupExpand: Bool = false
@@ -39,22 +40,27 @@ struct EventView: View {
                         self.genderExpand.toggle()
                     }
                     if genderExpand {
-                        Button(action: {
-                            self.genderExpand.toggle()
-                            chosenGender = "Male"
-                        }, label: {
-                            Text("Male")
-                                .padding()
-                                .foregroundColor(.black)
-                        })
-                        Button(action: {
-                            self.genderExpand.toggle()
-                            chosenGender = "Female"
-                        }, label: {
-                            Text("Female")
-                                .padding()
-                                .foregroundColor(.black)
-                        })
+                        
+                        if event.genders[0] {
+                            Button(action: {
+                                self.genderExpand.toggle()
+                                chosenGender = "Male"
+                            }, label: {
+                                Text("Male")
+                                    .padding()
+                                    .foregroundColor(.black)
+                            })
+                        }
+                        if event.genders[1] {
+                            Button(action: {
+                                self.genderExpand.toggle()
+                                chosenGender = "Female"
+                            }, label: {
+                                Text("Female")
+                                    .padding()
+                                    .foregroundColor(.black)
+                            })
+                        }
                     }
                 }
                 .padding()
@@ -91,19 +97,33 @@ struct EventView: View {
 
             }
             .padding()
+            
+            Text("Add Athletes For Event")
+            Button(action: {
+                presentAddNewAthletesScreen.toggle()
+            }, label: {
+                Image(systemName: "plus")
+                    .font(.system(size: 25))
+            })
 
             Spacer()
             Text("Add Times")
-            Button( action: { presentAddNewAthletesScreen.toggle() }, label: {
+            Button( action: { presentAddTimesScreen.toggle() }, label: {
                 Image(systemName: "plus")
                     .font(.system(size: 25))
             })
         }
+        .sheet(isPresented: $presentAddTimesScreen) {
+            AddTimesView(event: event, tournamentAthletes: tournamentAthletes)
+        }
         .sheet(isPresented: $presentAddNewAthletesScreen) {
-            AddTimesView()
+            SearchAthletesView(event: event, tournamentAthletes: tournamentAthletes, chosenAgeGroup: chosenAgeGroup, chosenGender: chosenGender)
         }
         .onAppear(perform: {
             chosenAgeGroup = event.age_groups[0]
+            if event.genders[0] {
+                chosenGender = "Male"
+            }
         })
     }
 }
