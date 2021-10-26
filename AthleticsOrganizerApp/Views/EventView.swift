@@ -12,6 +12,7 @@ struct EventView: View {
     
     @State var event: Event
     @State var tournamentAthletes: [Athlete]
+    @State var tournamentName: String
     
     @State private var presentAddNewAthletesScreen = false
     @State private var presentAddTimesScreen = false
@@ -105,7 +106,12 @@ struct EventView: View {
                 Image(systemName: "plus")
                     .font(.system(size: 25))
             })
-
+            
+            Spacer()
+            Text(event.event_name)
+            ForEach(0..<event.Athletes.count, id: \.self) { n in
+                Text(event.Athletes[n].name)
+            }
             Spacer()
             Text("Add Times")
             Button( action: { presentAddTimesScreen.toggle() }, label: {
@@ -117,7 +123,7 @@ struct EventView: View {
             AddTimesView(event: event, tournamentAthletes: tournamentAthletes)
         }
         .sheet(isPresented: $presentAddNewAthletesScreen) {
-            SearchAthletesView(event: event, tournamentAthletes: tournamentAthletes, chosenAgeGroup: chosenAgeGroup, chosenGender: chosenGender)
+            SearchAthletesView(event: event, tournamentAthletes: tournamentAthletes, chosenAgeGroup: chosenAgeGroup, chosenGender: chosenGender, tournamentName: tournamentName)
         }
         .onAppear(perform: {
             chosenAgeGroup = event.age_groups[0]

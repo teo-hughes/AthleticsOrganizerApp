@@ -6,9 +6,12 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 class EventViewModel: ObservableObject {
     @Published var possibleEvents = [Event]()
+    
+    private var database = Firestore.firestore()
     
     private var EventNames : [String] = [
         "60 metres",
@@ -46,6 +49,14 @@ class EventViewModel: ObservableObject {
         "Decathlon"
     ]
     
+    func saveEvent(tournamentName: String, event: Event) {
+        
+        for athlete in event.Athletes {
+            let _ = database.collection(tournamentName).document("\(event.event_name)").updateData([
+                athlete.name: ["Name": athlete.name, "Age Group": athlete.age_group, "Gender": athlete.gender, "Team": athlete.team]
+            ])
+        }
+    }
     
     init() {
         for eventName in EventNames {

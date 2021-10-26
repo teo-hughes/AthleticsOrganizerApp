@@ -21,6 +21,10 @@ struct SearchAthletesView: View {
     @State var tournamentAthletes: [Athlete]
     @State var chosenAgeGroup: String
     @State var chosenGender: String
+    @State var tournamentName: String
+    
+    
+    @StateObject var viewModel = EventViewModel()
     
     @Environment(\.presentationMode) var presentationMode
     
@@ -62,8 +66,9 @@ struct SearchAthletesView: View {
                     }
                 }
             }
-            .searchable(text: $searchingFor)
+            .searchable(text: $searchingFor, placement: SearchFieldPlacement.automatic, prompt: "Searching athletes...")
             .navigationTitle("Add Athletes")
+            
             .navigationBarItems(
                 leading: Button(action: {
                     handleCancelTapped()
@@ -107,6 +112,7 @@ struct SearchAthletesView: View {
     }
     
     func handleDoneTapped() {
+        viewModel.saveEvent(tournamentName: tournamentName, event: event)
         dismiss()
     }
     

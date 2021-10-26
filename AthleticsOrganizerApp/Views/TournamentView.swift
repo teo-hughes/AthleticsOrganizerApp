@@ -21,7 +21,7 @@ struct TournamentView: View {
         VStack {
             List {
                 ForEach(0..<tournament.Events.count) { n in
-                    NavigationLink(destination: EventView(event: tournament.Events[n], tournamentAthletes: tournament.Athletes), label: {
+                    NavigationLink(destination: EventView(event: tournament.Events[n], tournamentAthletes: tournament.Athletes, tournamentName: tournament.name), label: {
                         EventCardView(event: tournament.Events[n])
                     })
                 }

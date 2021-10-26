@@ -71,7 +71,19 @@ class TournamentsViewModel: ObservableObject {
                             }
                         }
                     } else {
-                        let tempEvent = Event(event_name: documentData["Name"] as? String ?? "", age_groups: documentData["Age Groups"] as? [String] ?? [""], genders: documentData["Genders"] as? [Bool] ?? [true, true])
+                        var eventAthletes: [Athlete] = []
+                        for key in documentData.keys {
+                            if key != "Age Groups" && key != "Athletes" && key != "Genders" && key != "Positions" && key != "Name" && key != "checked" && key != "times" {
+                                if let idData = documentData[key] as? [String: Any] {
+                                    let eventAthleteName = idData["Name"] as? String ?? ""
+                                    let eventAthleteTeam = idData["Team"] as? String ?? ""
+                                    let eventAthleteAgeGroup = idData["Age Group"] as? String ?? ""
+                                    let eventAthleteGender = idData["Gender"] as? String ?? ""
+                                    eventAthletes.append(Athlete(name: eventAthleteName, age_group: eventAthleteAgeGroup, gender: eventAthleteGender, team: eventAthleteTeam))
+                                }
+                            }
+                        }
+                        let tempEvent = Event(event_name: documentData["Name"] as? String ?? "", age_groups: documentData["Age Groups"] as? [String] ?? [""], genders: documentData["Genders"] as? [Bool] ?? [true, true], Athletes: eventAthletes)
                         //print(tempEvent.event_name)
                         events.append(tempEvent)
                         //print(events[0].event_name)

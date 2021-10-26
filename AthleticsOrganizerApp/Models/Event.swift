@@ -19,8 +19,6 @@ struct Event: Identifiable, Codable {
     var event_name: String
     var age_groups: [String]
     var genders: [Bool]
-    var positions: [Int] = []
-    var times: [Double] = []
     var Athletes: [Athlete] = []
     var checked: Bool = false
     
@@ -31,8 +29,6 @@ struct Event: Identifiable, Codable {
         case event_name
         case age_groups
         case genders
-        case positions
-        case times
         case Athletes
         case checked
     }

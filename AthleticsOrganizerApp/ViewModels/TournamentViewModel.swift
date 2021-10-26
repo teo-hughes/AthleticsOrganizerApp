@@ -32,10 +32,7 @@ class TournamentViewModel: ObservableObject {
                 "Name" : event.event_name,
                 "Age Groups": event.age_groups,
                 "Genders": event.genders,
-                "Positions": event.positions,
-                "times": event.times,
                 "checked": event.checked,
-                "Athletes": event.Athletes
             ])
         }
         
