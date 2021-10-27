@@ -11,32 +11,16 @@ import SwiftUI
 struct AddTimesView: View {
     
     @State var event: Event
-    @State var tournamentAthletes: [Athlete]
+
     
     
-    @State var searchingFor = ""
     
     // The body of the InfoView
     var body: some View {
-        Text("Add Times View")
-        /*NavigationView {
-            List {
-                ForEach(tournamentAthletes, id: \.self) { athlete in
-                    NavigationLink(destination: Text(athlete)) {
-                        Text(athlete)
-                    }
-                }
-            }
-            .searchable(text: $searchingFor)
-            .navigationTitle("Add Athletes")
-        }*/
+
+        ForEach(0..<event.Athletes.count, id: \.self) { n in
+            Text(event.Athletes[n].name)
+        }
     }
     
-   /* var results: [String] {
-        if searchingFor.isEmpty {
-            return tournamentAthletes
-        } else {
-            return tournamentAthletes.filter { $0.contains(searchingFor)}
-        }
-    }*/
 }

@@ -109,8 +109,11 @@ struct EventView: View {
             
             Spacer()
             Text(event.event_name)
+            athleteTimeView(position: "Position", name: "Name", team: "Team", time: "Time")
             ForEach(0..<event.Athletes.count, id: \.self) { n in
-                Text(event.Athletes[n].name)
+                
+                athleteTimeView(position: "\(n + 1).", name: event.Athletes[n].name, team: event.Athletes[n].team, time: "00:00")
+                
             }
             Spacer()
             Text("Add Times")
@@ -120,7 +123,7 @@ struct EventView: View {
             })
         }
         .sheet(isPresented: $presentAddTimesScreen) {
-            AddTimesView(event: event, tournamentAthletes: tournamentAthletes)
+            AddTimesView(event: event)
         }
         .sheet(isPresented: $presentAddNewAthletesScreen) {
             SearchAthletesView(event: event, tournamentAthletes: tournamentAthletes, chosenAgeGroup: chosenAgeGroup, chosenGender: chosenGender, tournamentName: tournamentName)
@@ -134,3 +137,22 @@ struct EventView: View {
     }
 }
 
+struct athleteTimeView: View {
+    
+    @State var position: String
+    @State var name: String
+    @State var team: String
+    @State var time: String
+    
+    
+    
+    var body: some View {
+        HStack {
+            Text(position)
+            Text(name)
+            Text(team)
+            Text(time)
+        }
+    }
+    
+}
