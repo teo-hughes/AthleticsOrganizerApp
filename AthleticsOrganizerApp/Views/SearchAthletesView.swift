@@ -66,7 +66,7 @@ struct SearchAthletesView: View {
                     }
                 }
             }
-            .searchable(text: $searchingFor, placement: SearchFieldPlacement.automatic, prompt: "Searching athletes...")
+            /*.searchable(text: $searchingFor, placement: SearchFieldPlacement.automatic, prompt: "Searching athletes...")*/
             .navigationTitle("Add Athletes")
             
             .navigationBarItems(

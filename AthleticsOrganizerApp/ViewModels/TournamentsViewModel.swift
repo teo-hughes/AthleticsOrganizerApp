@@ -43,7 +43,7 @@ class TournamentsViewModel: ObservableObject {
         var athletes: [Athlete] = []
         var name: String = ""
         var location: String = ""
-        var date: Date = Date.now
+        var date: Date = Date()
         
         database.collection(tournamentCollectionName).getDocuments() { (querySnapshot, err) in
             if let err = err {
@@ -59,7 +59,7 @@ class TournamentsViewModel: ObservableObject {
                         //print(documentData)
                         name = documentData["tournamentName"] as? String ?? ""
                         location = documentData["tournamentLocation"] as? String ?? ""
-                        date = documentData["tournamentdate"] as? Date ?? Date.now
+                        date = documentData["tournamentdate"] as? Date ?? Date()
                     } else if document.documentID == "TournamentAthletes" {
                         for key in documentData.keys {
                             if let idData = documentData[key] as? [String: Any] {

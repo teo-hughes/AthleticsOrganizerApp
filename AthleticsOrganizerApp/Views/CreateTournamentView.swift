@@ -59,9 +59,9 @@ struct CreateTournamentView: View {
                                 Text(ageGroup)
                             }
                         }
-                        .refreshable {
+                        /*.refreshable {
                             
-                        }
+                        }*/
                         
                     }
                     

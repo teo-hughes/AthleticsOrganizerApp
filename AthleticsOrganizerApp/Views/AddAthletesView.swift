@@ -58,9 +58,9 @@ struct AddAthletesView: View {
                                 Text(team)
                             }
                         }
-                        .refreshable {
+                        /*.refreshable {
                             
-                        }
+                        }*/
                         
                     }
                 }

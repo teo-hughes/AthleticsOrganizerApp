@@ -26,12 +26,12 @@ struct TournamentView: View {
                     })
                 }
             }
-            .refreshable {
+            /*.refreshable {
                 self.viewModel.fetchTournamentNames()
                 for name in viewModel.names {
                     self.viewModel.fetchData(tournamentCollectionName: name)
                 }
-            }
+            }*/
             
             Spacer()
             Text("Add Teams and Athletes")
