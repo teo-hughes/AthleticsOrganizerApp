@@ -45,15 +45,7 @@ struct MainView: View {
                     }
                 }*/
                 
-                Button( action: {
-                    self.viewModel.fetchTournamentNames()
-                    for name in viewModel.names {
-                        self.viewModel.fetchData(tournamentCollectionName: name)
-                    }
-                }, label: {
-                    Image(systemName: "lock.doc")
-                        .font(.system(size: 25))
-                })
+
                 Spacer()
                 Text("Create Tournament")
                 Button( action: { presentAddNewTournamentScreen.toggle() }, label: {
@@ -66,6 +58,19 @@ struct MainView: View {
             
             }
             .navigationBarTitle("Tournaments")
+            .toolbar {
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    Button( action: {
+                        self.viewModel.fetchTournamentNames()
+                        for name in viewModel.names {
+                            self.viewModel.fetchData(tournamentCollectionName: name)
+                        }
+                    }, label: {
+                        Image(systemName: "arrow.counterclockwise")
+                            .font(.system(size: 25))
+                    })
+                }
+            }
             
             
         }

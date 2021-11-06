@@ -106,6 +106,11 @@ struct EventView: View {
                 Image(systemName: "plus")
                     .font(.system(size: 25))
             })
+            .sheet(isPresented: $presentAddNewAthletesScreen) {
+                SearchAthletesView(event: event, tournamentAthletes: tournamentAthletes, chosenAgeGroup: chosenAgeGroup, chosenGender: chosenGender, tournamentName: tournamentName)
+            }
+            
+            
             
             Spacer()
             Text(event.event_name)
@@ -116,18 +121,19 @@ struct EventView: View {
                 
             }
             Spacer()
+            
             Text("Add Times")
             Button( action: { presentAddTimesScreen.toggle() }, label: {
                 Image(systemName: "plus")
                     .font(.system(size: 25))
             })
+            .sheet(isPresented: $presentAddTimesScreen) {
+                AddTimesView(event: event)
+            }
+            
         }
-        .sheet(isPresented: $presentAddTimesScreen) {
-            AddTimesView(event: event)
-        }
-        .sheet(isPresented: $presentAddNewAthletesScreen) {
-            SearchAthletesView(event: event, tournamentAthletes: tournamentAthletes, chosenAgeGroup: chosenAgeGroup, chosenGender: chosenGender, tournamentName: tournamentName)
-        }
+        
+        
         .onAppear(perform: {
             chosenAgeGroup = event.age_groups[0]
             if event.genders[0] {
