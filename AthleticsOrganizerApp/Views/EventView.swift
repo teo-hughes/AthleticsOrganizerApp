@@ -22,7 +22,6 @@ struct EventView: View {
     @State private var ageGroupExpand: Bool = false
     @State private var times : [Double] = []
     @State private var positions: [Int] = []
-    @State private var steps: Int = 1
     
     // The body of the InfoView
     var body: some View {
@@ -116,7 +115,10 @@ struct EventView: View {
             
             
             Spacer()
+
             Text(event.event_name)
+                
+
             
             HStack {
                 Text("Position")
@@ -125,7 +127,7 @@ struct EventView: View {
                 Text("Time")
             }
             
-            ForEach(0..<event.Athletes.count, id: \.self) { n in
+            ForEach(positions, id: \.self) { n in
                 
                 let index = event.Athletes[n].events.firstIndex(of: event.event_name) ?? 0
                 
@@ -137,7 +139,7 @@ struct EventView: View {
             Spacer()
             
             Text("Add Times")
-            Button( action: { presentAddTimesScreen.toggle() }, label: {
+            Button(action: { presentAddTimesScreen.toggle() }, label: {
                 Image(systemName: "plus")
                     .font(.system(size: 25))
             })
@@ -156,44 +158,26 @@ struct EventView: View {
             
             for n in 0..<event.Athletes.count {
                 event.Athletes[n].events.append(event.event_name)
-            }
-            
-            
-            // Calculate Positions
-
-            
-            for n in 0..<event.Athletes.count {
                 let ind = event.Athletes[n].events.firstIndex(of: event.event_name) ?? 0
                 times.append(event.Athletes[n].times[ind])
                 positions.append(n)
             }
-            
-            while steps != 0 {
-                steps = 0
-                for n in 0..<times.count - 1 {
-                    if times[n] > times[n + 1] {
-                        let temp = times[n]
-                        times[n] = times[n + 1]
-                        times[n + 1] = temp
-                        let posTemp = positions[n]
-                        positions[n] = positions[n + 1]
-                        positions[n + 1] = posTemp
-                        
-                        steps += 1
+
+            if times.count > 1 {
+                for i in 0..<times.count {
+                    for j in 0..<times.count - i - 1 {
+                        if times[j] > times[j + 1] {
+                            times.swapAt(j + 1, j)
+                            positions.swapAt(j + 1, j)
+                        }
                     }
-                    
-                    
                 }
-                
-                
-                
             }
             
             for n in 0..<positions.count {
                 let ind = event.Athletes[positions[n]].events.firstIndex(of: event.event_name) ?? 0
                 event.Athletes[positions[n]].positions[ind] = "\(n + 1)"
             }
-            
             
         })
     }

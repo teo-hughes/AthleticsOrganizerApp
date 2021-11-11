@@ -32,6 +32,7 @@
 		4259B8A72726BA9600346280 /* AddTimesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4259B8A62726BA9600346280 /* AddTimesView.swift */; };
 		427EC566271C97E500D26367 /* TournamentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427EC565271C97E500D26367 /* TournamentView.swift */; };
 		42B122F027284E35003A026C /* SearchAthletesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B122EF27284E34003A026C /* SearchAthletesView.swift */; };
+		82A0EA009C47CAD5E9CA8449 /* Pods_AthleticsOrganizerApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC921E46B623BCC7D2589DFB /* Pods_AthleticsOrganizerApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		5F7B8DEAEC7839A386BB79D5 /* Pods-AthleticsOrganizerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AthleticsOrganizerApp.release.xcconfig"; path = "Target Support Files/Pods-AthleticsOrganizerApp/Pods-AthleticsOrganizerApp.release.xcconfig"; sourceTree = "<group>"; };
 		B8FE88244BC07AA3831869E0 /* Pods-AthleticsOrganizerAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AthleticsOrganizerAppTests.release.xcconfig"; path = "Target Support Files/Pods-AthleticsOrganizerAppTests/Pods-AthleticsOrganizerAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		CA9127E7ADCB1883EC385661 /* Pods-AthleticsOrganizerApp-AthleticsOrganizerAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AthleticsOrganizerApp-AthleticsOrganizerAppUITests.release.xcconfig"; path = "Target Support Files/Pods-AthleticsOrganizerApp-AthleticsOrganizerAppUITests/Pods-AthleticsOrganizerApp-AthleticsOrganizerAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DC921E46B623BCC7D2589DFB /* Pods_AthleticsOrganizerApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AthleticsOrganizerApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E54E7F04FE38005968C39C80 /* Pods-AthleticsOrganizerAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AthleticsOrganizerAppTests.debug.xcconfig"; path = "Target Support Files/Pods-AthleticsOrganizerAppTests/Pods-AthleticsOrganizerAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E9D9D3846B530F84A522A610 /* Pods-AthleticsOrganizerApp-AthleticsOrganizerAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AthleticsOrganizerApp-AthleticsOrganizerAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-AthleticsOrganizerApp-AthleticsOrganizerAppUITests/Pods-AthleticsOrganizerApp-AthleticsOrganizerAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82A0EA009C47CAD5E9CA8449 /* Pods_AthleticsOrganizerApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +90,7 @@
 				257FF00926F5FF33006C801D /* AthleticsOrganizerApp */,
 				811CB2355C2346A7FF3A0874 /* Pods */,
 				25ED2F2B2708BA5A00664BDB /* AthleticsOrganizerApp.app */,
+				B2BEA66C96F1C537FF6C0488 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -166,6 +170,14 @@
 				B8FE88244BC07AA3831869E0 /* Pods-AthleticsOrganizerAppTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		B2BEA66C96F1C537FF6C0488 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC921E46B623BCC7D2589DFB /* Pods_AthleticsOrganizerApp.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,7 +373,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -416,7 +428,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -437,7 +449,7 @@
 				DEVELOPMENT_TEAM = W65T7XHLQZ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AthleticsOrganizerApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -460,7 +472,7 @@
 				DEVELOPMENT_TEAM = W65T7XHLQZ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AthleticsOrganizerApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
