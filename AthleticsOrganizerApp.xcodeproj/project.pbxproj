@@ -11,6 +11,7 @@
 		2530394D27182C20009326BE /* Tournament.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2530394C27182C20009326BE /* Tournament.swift */; };
 		2539CCE52711AD3C00262387 /* TournamentCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2539CCE42711AD3C00262387 /* TournamentCardView.swift */; };
 		2552E3CD270F706900C36848 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2552E3CC270F706900C36848 /* AuthenticationViewModel.swift */; };
+		25656F96273D7E1600C47926 /* TabBarIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25656F95273D7E1600C47926 /* TabBarIcon.swift */; };
 		257FF00B26F5FF33006C801D /* AthleticsOrganizerAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257FF00A26F5FF33006C801D /* AthleticsOrganizerAppApp.swift */; };
 		257FF00F26F5FF35006C801D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 257FF00E26F5FF35006C801D /* Assets.xcassets */; };
 		257FF04A26F602B3006C801D /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257FF04926F602B3006C801D /* MenuView.swift */; };
@@ -40,6 +41,7 @@
 		2530394C27182C20009326BE /* Tournament.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tournament.swift; sourceTree = "<group>"; };
 		2539CCE42711AD3C00262387 /* TournamentCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentCardView.swift; sourceTree = "<group>"; };
 		2552E3CC270F706900C36848 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		25656F95273D7E1600C47926 /* TabBarIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarIcon.swift; sourceTree = "<group>"; };
 		257FF00A26F5FF33006C801D /* AthleticsOrganizerAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleticsOrganizerAppApp.swift; sourceTree = "<group>"; };
 		257FF00E26F5FF35006C801D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		257FF01326F5FF35006C801D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				42249DC227243DB20061BAEE /* AddAthletesView.swift */,
 				4259B8A62726BA9600346280 /* AddTimesView.swift */,
 				42B122EF27284E34003A026C /* SearchAthletesView.swift */,
+				25656F95273D7E1600C47926 /* TabBarIcon.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25656F96273D7E1600C47926 /* TabBarIcon.swift in Sources */,
 				257FF04A26F602B3006C801D /* MenuView.swift in Sources */,
 				4226A5C6271B30A800374406 /* TournamentsViewModel.swift in Sources */,
 				251AF601270872D900C8168E /* LoginView.swift in Sources */,
