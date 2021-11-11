@@ -15,6 +15,7 @@
 		25656F99273D7E5F00C47926 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25656F98273D7E5F00C47926 /* SignInView.swift */; };
 		25656F9C273D7ECC00C47926 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25656F9B273D7ECC00C47926 /* SignUpView.swift */; };
 		25656F9F273D7FDF00C47926 /* AthleteTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25656F9E273D7FDF00C47926 /* AthleteTimeView.swift */; };
+		25656FA2273D807000C47926 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25656FA1273D807000C47926 /* TextFieldView.swift */; };
 		257FF00B26F5FF33006C801D /* AthleticsOrganizerAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257FF00A26F5FF33006C801D /* AthleticsOrganizerAppApp.swift */; };
 		257FF00F26F5FF35006C801D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 257FF00E26F5FF35006C801D /* Assets.xcassets */; };
 		257FF04A26F602B3006C801D /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257FF04926F602B3006C801D /* MenuView.swift */; };
@@ -48,6 +49,7 @@
 		25656F98273D7E5F00C47926 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		25656F9B273D7ECC00C47926 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		25656F9E273D7FDF00C47926 /* AthleteTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteTimeView.swift; sourceTree = "<group>"; };
+		25656FA1273D807000C47926 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
 		257FF00A26F5FF33006C801D /* AthleticsOrganizerAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleticsOrganizerAppApp.swift; sourceTree = "<group>"; };
 		257FF00E26F5FF35006C801D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		257FF01326F5FF35006C801D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				25656F98273D7E5F00C47926 /* SignInView.swift */,
 				25656F9B273D7ECC00C47926 /* SignUpView.swift */,
 				25656F9E273D7FDF00C47926 /* AthleteTimeView.swift */,
+				25656FA1273D807000C47926 /* TextFieldView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				258E261327103919006C1D9A /* TournamentViewModel.swift in Sources */,
 				42249DC327243DB20061BAEE /* AddAthletesView.swift in Sources */,
 				25C15E5B27183908000BD2B6 /* CreateTournamentView.swift in Sources */,
+				25656FA2273D807000C47926 /* TextFieldView.swift in Sources */,
 				25ED594E2705BC800057E9F8 /* InfoView.swift in Sources */,
 				257FF00B26F5FF33006C801D /* AthleticsOrganizerAppApp.swift in Sources */,
 				4226A5C0271B223800374406 /* Event.swift in Sources */,
