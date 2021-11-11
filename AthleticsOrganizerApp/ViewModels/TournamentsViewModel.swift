@@ -79,7 +79,10 @@ class TournamentsViewModel: ObservableObject {
                                     let eventAthleteTeam = idData["Team"] as? String ?? ""
                                     let eventAthleteAgeGroup = idData["Age Group"] as? String ?? ""
                                     let eventAthleteGender = idData["Gender"] as? String ?? ""
-                                    eventAthletes.append(Athlete(name: eventAthleteName, age_group: eventAthleteAgeGroup, gender: eventAthleteGender, team: eventAthleteTeam))
+                                    let eventAthleteTime = idData["Time"] as? Double ?? 0.0
+                                    let eventAthletePosition = idData["Position"] as? String ?? ""
+                                    let eventAthleteEvent = idData["Event"] as? String ?? ""
+                                    eventAthletes.append(Athlete(name: eventAthleteName, age_group: eventAthleteAgeGroup, gender: eventAthleteGender, team: eventAthleteTeam, positions: [eventAthletePosition], events: [eventAthleteEvent], times: [eventAthleteTime]))
                                 }
                             }
                         }

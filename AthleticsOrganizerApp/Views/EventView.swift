@@ -114,10 +114,21 @@ struct EventView: View {
             
             Spacer()
             Text(event.event_name)
-            athleteTimeView(position: "Position", name: "Name", team: "Team", time: "Time")
+            
+            HStack {
+                Text("Position")
+                Text("Name")
+                Text("Team")
+                Text("Time")
+            }
+            
             ForEach(0..<event.Athletes.count, id: \.self) { n in
                 
-                athleteTimeView(position: "\(n + 1).", name: event.Athletes[n].name, team: event.Athletes[n].team, time: "00:00")
+                let index = event.Athletes[n].events.firstIndex(of: event.event_name) ?? 0
+                
+                
+                athleteTimeView(position: "\(event.Athletes[n].positions[index]).", name: event.Athletes[n].name, team: event.Athletes[n].team, time: event.Athletes[n].times[index])
+                
                 
             }
             Spacer()
@@ -139,6 +150,9 @@ struct EventView: View {
             if event.genders[0] {
                 chosenGender = "Male"
             }
+            for n in 0..<event.Athletes.count {
+                event.Athletes[n].events.append(event.event_name)
+            }
         })
     }
 }
@@ -148,7 +162,7 @@ struct athleteTimeView: View {
     @State var position: String
     @State var name: String
     @State var team: String
-    @State var time: String
+    @State var time: Double
     
     
     
@@ -157,7 +171,7 @@ struct athleteTimeView: View {
             Text(position)
             Text(name)
             Text(team)
-            Text(time)
+            Text(time.description)
         }
     }
     

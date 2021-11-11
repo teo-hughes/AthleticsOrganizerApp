@@ -79,6 +79,9 @@ struct SearchAthletesView: View {
                     
                     for n in 0..<AthletesChecked.count {
                         if AthletesChecked[n] {
+                            tournamentAthletes[AthleteIndexes[n]].events.append(event.event_name)
+                            tournamentAthletes[AthleteIndexes[n]].positions.append("N/A")
+                            tournamentAthletes[AthleteIndexes[n]].times.append(0.0)
                             event.Athletes.append(tournamentAthletes[AthleteIndexes[n]])
                         }
                     }
