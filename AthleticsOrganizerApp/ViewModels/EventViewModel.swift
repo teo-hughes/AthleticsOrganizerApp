@@ -61,6 +61,15 @@ class EventViewModel: ObservableObject {
         }
     }
     
+    func saveAthlete(tournamentName: String, event: Event, athlete: Athlete) {
+        
+        let index = athlete.events.firstIndex(of: event.event_name) ?? 0
+        
+        let _ = database.collection(tournamentName).document("\(event.event_name)").updateData([
+            athlete.name: ["Name": athlete.name, "Age Group": athlete.age_group, "Gender": athlete.gender, "Team": athlete.team, "Event": athlete.events[index], "Position": athlete.positions[index], "Time": athlete.times[index]]
+        ])
+    }
+    
     init() {
         for eventName in EventNames {
             possibleEvents.append(Event(event_name: eventName, age_groups: [], genders: []))

@@ -25,8 +25,7 @@ struct AddTimesView: View {
                         ForEach(0..<event.Athletes.count, id: \.self) { n in
                             
                             let index = event.Athletes[n].events.firstIndex(of: event.event_name) ?? 0
-                            Text(event.Athletes[n].name)
-                            textFieldView(athlete: event.Athletes[n], n: n, index: index, viewModel: viewModel, tournamentName: tournamentName, event: event)
+                            textFieldView(n: n, index: index, event: event, tournamentName: tournamentName, viewModel: viewModel)
                         }
                     }
                 }
@@ -65,18 +64,17 @@ struct AddTimesView: View {
 
 struct textFieldView: View {
     
-    @State var athlete: Athlete
     @State var n: Int
     @State var index: Int
-    @StateObject var viewModel: EventViewModel
-    @State var tournamentName: String
     @State var event: Event
+    @State var tournamentName: String
+    @State var viewModel: EventViewModel
     
-    @State var time: String = "Time"
+    @State var time: String = ""
     
     var body: some View {
         HStack {
-            TextField("\(athlete.name) time: ", text: $time)
+            TextField("\(event.Athletes[n].name) time: ", text: $time)
          
             Button(action: {
                 
@@ -84,7 +82,7 @@ struct textFieldView: View {
                 
                 event.Athletes[n].times[index] = doubleTime
                 
-                viewModel.saveEvent(tournamentName: tournamentName, event: event)
+                viewModel.saveAthlete(tournamentName: tournamentName, event: event, athlete: event.Athletes[n])
                 time = "Time Submitted"
                 
             }, label: {
