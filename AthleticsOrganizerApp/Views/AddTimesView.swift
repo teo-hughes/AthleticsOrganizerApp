@@ -11,7 +11,8 @@ import SwiftUI
 struct AddTimesView: View {
     
     @State var event: Event
-    @State var event_times: [Double] = []
+    @State var tournamentName: String
+    @StateObject var viewModel = EventViewModel()
     
     @Environment(\.presentationMode) var presentationMode
     
@@ -22,17 +23,15 @@ struct AddTimesView: View {
                 Section(header: Text("Add Times")) {
                     List {
                         ForEach(0..<event.Athletes.count, id: \.self) { n in
+                            
+                            let index = event.Athletes[n].events.firstIndex(of: event.event_name) ?? 0
                             Text(event.Athletes[n].name)
-                            /*TextField("\(event.Athletes[n].name) time: ", text: $event_times[n])*/
+                            textFieldView(athlete: event.Athletes[n], n: n, index: index, viewModel: viewModel, tournamentName: tournamentName, event: event)
                         }
                     }
                 }
             }
-            /*.onAppear {
-                for 0..<event.Athletes.count {
-                    event_times.append(0.00)
-                }
-            }*/
+
             .navigationBarItems(
                 leading: Button(action: {
                     handleCancelTapped()
@@ -61,4 +60,36 @@ struct AddTimesView: View {
         presentationMode.wrappedValue.dismiss()
     }
     
+}
+
+
+struct textFieldView: View {
+    
+    @State var athlete: Athlete
+    @State var n: Int
+    @State var index: Int
+    @StateObject var viewModel: EventViewModel
+    @State var tournamentName: String
+    @State var event: Event
+    
+    @State var time: String = "Time"
+    
+    var body: some View {
+        HStack {
+            TextField("\(athlete.name) time: ", text: $time)
+         
+            Button(action: {
+                
+                let doubleTime: Double = Double(time) ?? 0.0
+                
+                event.Athletes[n].times[index] = doubleTime
+                
+                viewModel.saveEvent(tournamentName: tournamentName, event: event)
+                time = "Time Submitted"
+                
+            }, label: {
+                Text("Submit")
+            })
+        }
+    }
 }

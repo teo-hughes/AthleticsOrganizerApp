@@ -139,7 +139,7 @@ struct EventView: View {
                     .font(.system(size: 25))
             })
             .sheet(isPresented: $presentAddTimesScreen) {
-                AddTimesView(event: event)
+                AddTimesView(event: event, tournamentName: tournamentName)
             }
             
         }
