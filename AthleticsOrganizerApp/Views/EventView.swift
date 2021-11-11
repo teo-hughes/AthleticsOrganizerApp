@@ -132,7 +132,7 @@ struct EventView: View {
                 let index = event.Athletes[n].events.firstIndex(of: event.event_name) ?? 0
                 
                 
-                athleteTimeView(position: "\(event.Athletes[n].positions[index]).", name: event.Athletes[n].name, team: event.Athletes[n].team, time: event.Athletes[n].times[index])
+                AthleteTimeView(position: "\(event.Athletes[n].positions[index]).", name: event.Athletes[n].name, team: event.Athletes[n].team, time: event.Athletes[n].times[index])
                 
                 
             }
@@ -183,22 +183,4 @@ struct EventView: View {
     }
 }
 
-struct athleteTimeView: View {
-    
-    @State var position: String
-    @State var name: String
-    @State var team: String
-    @State var time: Double
-    
-    
-    
-    var body: some View {
-        HStack {
-            Text(position)
-            Text(name)
-            Text(team)
-            Text(time.description)
-        }
-    }
-    
-}
+
