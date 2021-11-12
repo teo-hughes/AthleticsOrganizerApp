@@ -120,7 +120,10 @@
 			isa = PBXGroup;
 			children = (
 				251AF600270872D900C8168E /* LoginView.swift */,
+				25656F98273D7E5F00C47926 /* SignInView.swift */,
+				25656F9B273D7ECC00C47926 /* SignUpView.swift */,
 				257FF04926F602B3006C801D /* MenuView.swift */,
+				25656F95273D7E1600C47926 /* TabBarIcon.swift */,
 				25B96F1726FBA6610076D4E9 /* MainView.swift */,
 				25B96F0F26FBA5190076D4E9 /* AnalysisView.swift */,
 				25ED594D2705BC800057E9F8 /* InfoView.swift */,
@@ -130,13 +133,10 @@
 				4252BD00271D7E1300FAAD9A /* EventCardView.swift */,
 				4252BD02271D7E2000FAAD9A /* EventView.swift */,
 				42249DC227243DB20061BAEE /* AddAthletesView.swift */,
-				4259B8A62726BA9600346280 /* AddTimesView.swift */,
-				42B122EF27284E34003A026C /* SearchAthletesView.swift */,
-				25656F95273D7E1600C47926 /* TabBarIcon.swift */,
-				25656F98273D7E5F00C47926 /* SignInView.swift */,
-				25656F9B273D7ECC00C47926 /* SignUpView.swift */,
 				25656F9E273D7FDF00C47926 /* AthleteTimeView.swift */,
+				4259B8A62726BA9600346280 /* AddTimesView.swift */,
 				25656FA1273D807000C47926 /* TextFieldView.swift */,
+				42B122EF27284E34003A026C /* SearchAthletesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -393,7 +393,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -448,7 +448,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -469,7 +469,7 @@
 				DEVELOPMENT_TEAM = W65T7XHLQZ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AthleticsOrganizerApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -492,7 +492,7 @@
 				DEVELOPMENT_TEAM = W65T7XHLQZ;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AthleticsOrganizerApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
