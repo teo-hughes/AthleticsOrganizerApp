@@ -4,16 +4,16 @@
  //
  //  Created by Teo Hughes on 18/09/2021.
  //
-
-import SwiftUI
-import FirebaseAuth
-
-// This View is what is loaded when the app is launched and allows individuals to log in or not
-struct LoginView: View {
+ 
+ // Importing SwiftUI and FirebaseAuth to allow
+ import SwiftUI
+ import FirebaseAuth
+ 
+ // This View is what is loaded when the app is launched and allows individuals to log in or not
+ struct LoginView: View {
     
     // Accesses the AuthenticationViewModel
     @EnvironmentObject var viewModel: AuthenticationViewModel
-    
     
     
     // The body of the LoginView
@@ -43,6 +43,6 @@ struct LoginView: View {
             viewModel.signedIn = viewModel.isSignedIn
         }
     }
-}
-
-
+ }
+ 
+ 

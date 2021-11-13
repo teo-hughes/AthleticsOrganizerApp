@@ -2,11 +2,12 @@
 //  AuthenticationViewModel.swift
 //  AthleticsOrganizerApp
 //
-//  Created by Hughes, Teo (BJH) on 07/10/2021.
+//  Created by Teo Hughes on 07/10/2021.
 //
 
-import Foundation
+// Importing FirebaseAuth to connect to the Firebase Authentication
 import FirebaseAuth
+
 
 // This view model is used whilst signing in, signing out and creating an account
 class AuthenticationViewModel: ObservableObject {
@@ -21,6 +22,7 @@ class AuthenticationViewModel: ObservableObject {
     var isSignedIn: Bool {
         return auth.currentUser != nil
     }
+    
     
     // Function to sign in which takes parameters email and password, both as strings
     func signIn(email: String, password: String) {
@@ -40,6 +42,7 @@ class AuthenticationViewModel: ObservableObject {
             }
         }
     }
+    
     
     // Function to sign up which takes parameters email and password
     func signUp(email: String, password: String) {
