@@ -5,10 +5,14 @@
 //  Created by Teo Hughes on 18/09/2021.
 //
 
+
+// Importing SwiftUI
 import SwiftUI
+
 
 // This View will show the athlete's personal analysis
 struct AnalysisView: View {
+    
     
     // The body of the AnalysisView
     var body: some View {
@@ -16,4 +20,3 @@ struct AnalysisView: View {
             .padding()
     }
 }
-
