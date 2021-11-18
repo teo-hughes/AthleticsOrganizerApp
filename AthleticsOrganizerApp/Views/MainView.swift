@@ -18,7 +18,7 @@ struct MainView: View {
     // To show the sheet to add a new tournamnet
     @State private var presentAddNewTournamentScreen = false
     
-    // Connect to the tournaments view model to fetch data
+    // Connect to the tournaments view model to fetch data from firestore
     @StateObject var viewModel = TournamentsViewModel()
     
     
