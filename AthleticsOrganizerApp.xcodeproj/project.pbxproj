@@ -130,13 +130,13 @@
 				2539CCE42711AD3C00262387 /* TournamentCardView.swift */,
 				25C15E5A27183908000BD2B6 /* CreateTournamentView.swift */,
 				427EC565271C97E500D26367 /* TournamentView.swift */,
+				42249DC227243DB20061BAEE /* AddAthletesView.swift */,
 				4252BD00271D7E1300FAAD9A /* EventCardView.swift */,
 				4252BD02271D7E2000FAAD9A /* EventView.swift */,
-				42249DC227243DB20061BAEE /* AddAthletesView.swift */,
 				25656F9E273D7FDF00C47926 /* AthleteTimeView.swift */,
+				42B122EF27284E34003A026C /* SearchAthletesView.swift */,
 				4259B8A62726BA9600346280 /* AddTimesView.swift */,
 				25656FA1273D807000C47926 /* TextFieldView.swift */,
-				42B122EF27284E34003A026C /* SearchAthletesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

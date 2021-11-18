@@ -18,7 +18,7 @@ struct TournamentView: View {
     @State var tournament: Tournament
     @StateObject var viewModel: TournamentsViewModel
     
-    // Variable which is the mode of the sheet (allows us to dismiss it)
+    // To show the sheet to add new atheltes/teams
     @State private var presentAddNewAthletesScreen = false
     
     
@@ -51,7 +51,9 @@ struct TournamentView: View {
             Text("Add Teams and Athletes")
             
             // When the button is pressed, it toggles presentAddNewAthletesScreen
-            Button( action: { presentAddNewAthletesScreen.toggle() }, label: {
+            Button( action: {
+                presentAddNewAthletesScreen.toggle()
+            }, label: {
                 
                 // Shows a +
                 Image(systemName: "plus")

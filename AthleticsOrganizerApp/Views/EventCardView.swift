@@ -2,37 +2,44 @@
 //  EventCardView.swift
 //  AthleticsOrganizerApp
 //
-//  Created by Neil Hughes on 18/10/2021.
+//  Created by Teo Hughes on 18/10/2021.
 //
 
+
+// Importing SwiftUI
 import SwiftUI
 
-// This View will show the tournament card
+
+// This View will show the event card
 struct EventCardView: View {
     
     
-    
-    // Calling the viewModel for the tournamentViewModel
+    // Fetching the event as a parameter
     @State var event: Event
     
-    // The body of the TournamentCardView
+    
+    // The body of the EventCardView
     var body: some View {
         
+        
+        // VStack to structure the Card
         VStack {
-            // UI of card
+            
+            // Rounded Rectangle is the shape of the card
             RoundedRectangle(cornerRadius: 10)
                 .fill(Color.red)
                 .frame(height: 150)
                 .overlay(
-                    // Information inside the card
+                    
+                    // Information inside the VStack
                     VStack {
+                        
+                        // Name of the event
                         Text(event.event_name)
                             .foregroundColor(Color.black)
                             .font(.custom("Avenir", size:25))
-                        
                     }.padding()
                 )
         }
-        
     }
 }

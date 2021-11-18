@@ -53,7 +53,9 @@ struct MainView: View {
                 Text("Create Tournament")
                 
                 // When the button is pressed, it toggles presentAddNewTournamentScreen
-                Button( action: { presentAddNewTournamentScreen.toggle() }, label: {
+                Button( action: {
+                    presentAddNewTournamentScreen.toggle()
+                }, label: {
                     
                     // Shows a +
                     Image(systemName: "plus")
