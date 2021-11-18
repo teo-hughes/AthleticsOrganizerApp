@@ -5,17 +5,22 @@
 //  Created by Teo Hughes on 18/09/2021.
 //
 
+
+// Importing SwiftUI
 import SwiftUI
 
-// This View is to host the tab bar and all the views will be shown in here
+
+// This View is to show the tab bar and all the views will be called from this view
 struct MenuView: View {
     
-    // Accessing the data from the ViewOrganizer class
+    
+    // Accessing the data from the ViewOrganizer viewModel
     @StateObject var viewOrganizer = ViewOrganizer()
     
     
     // The body of the MenuView
     var body: some View {
+        
         
         // A Geometry Reader so we can customise the tab bar
         GeometryReader { geometry in
@@ -23,30 +28,30 @@ struct MenuView: View {
             // A VStack allows the tab bar to either be in the top or the bottom
             VStack{
                 
+                
                 // Shows a view depending on which tab is selected
                 switch viewOrganizer.currentView {
-                    
-                    // Shows the MainView if the home icon is selected
+                
+                // Shows the MainView if the home icon is selected
                 case .home:
                     MainView()
                     
-                    // Shows the AnalysisView if the analysis icon is selcted
+                // Shows the AnalysisView if the analysis icon is selcted
                 case .analysis:
                     AnalysisView()
                     
-                    // Shows the InfoView if the info icon is selected
+                // Shows the InfoView if the info icon is selected
                 case .info:
                     InfoView()
                     
-                    // Shows the LoginView if the sign out icon is selected
+                // Shows the LoginView if the sign out icon is selected
                 case .signOut:
                     LoginView()
                 }
                 
-                
-                
                 // Pushes the tab bar to the bottom
                 Spacer()
+                
                 
                 // A HStack allows the tab icons to be displayed horizontally along the bar
                 HStack {
@@ -72,10 +77,3 @@ struct MenuView: View {
         }
     }
 }
-
-
-
-
-
-
-

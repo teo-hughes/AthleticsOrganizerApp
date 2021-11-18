@@ -5,13 +5,15 @@
 //  Created by Teo Hughes on 18/09/2021.
 //
 
+
+// Importing SwiftUI
 import SwiftUI
 import Foundation
+
 
 // This view will be where you can choose a tournament etc.
 struct MainView: View {
     
-    //@ObservedObject var tournamentViewModel: TournamentViewModel
     
     @State private var presentAddNewTournamentScreen = false
     

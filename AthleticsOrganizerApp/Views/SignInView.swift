@@ -2,14 +2,17 @@
 //  SignInView.swift
 //  AthleticsOrganizerApp
 //
-//  Created by Hughes, Teo (BJH) on 11/11/2021.
+//  Created by Teo Hughes on 11/11/2021.
 //
 
+
+// Importing SwiftUI
 import SwiftUI
 
 
 // This is the view which allows users to sign in
 struct SignInView: View {
+    
     
     // Variables to hold the email and password
     @State var email = ""
@@ -18,15 +21,17 @@ struct SignInView: View {
     // Accesses the AuthenticationViewModel
     @EnvironmentObject var viewModel: AuthenticationViewModel
     
+    
     // The body of the SignInView
     var body: some View {
+        
         
         // A VStack allows you to display the image and then the textfields
         VStack {
             
             // Image displayed
             Image("TempLoginImage")
-            // UI of image
+                // UI of image
                 .resizable()
                 .scaledToFit()
                 .frame(width: 150, height: 150)
@@ -36,7 +41,7 @@ struct SignInView: View {
                 
                 // Text field to input your email
                 TextField("Email Address", text: $email)
-                // Disable autocorrect and autocapitalize
+                    // Disable autocorrect and autocapitalize
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
                     .padding()
@@ -44,7 +49,7 @@ struct SignInView: View {
                 
                 // SecureField means the password is not visible when typed in
                 SecureField("Password", text: $password)
-                // Disable autocorrect and autocapitalize
+                    // Disable autocorrect and autocapitalize
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
                     .padding()
@@ -78,7 +83,7 @@ struct SignInView: View {
             }
             .padding()
             
-            // So the sign in part is at the tap
+            // Moves the VStacks to the top
             Spacer()
         }
         .navigationTitle("Sign In")

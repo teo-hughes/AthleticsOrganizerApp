@@ -2,16 +2,17 @@
 //  SignUpView.swift
 //  AthleticsOrganizerApp
 //
-//  Created by Hughes, Teo (BJH) on 11/11/2021.
+//  Created by Teo Hughes on 11/11/2021.
 //
 
+
+// Importing SwiftUI
 import SwiftUI
-
-
 
 
 // This is the view which allows users to create an account
 struct SignUpView: View {
+    
     
     // Variables to hold the email and password
     @State var email = ""
@@ -20,8 +21,10 @@ struct SignUpView: View {
     // Accesses the AuthenticationViewModel
     @EnvironmentObject var viewModel: AuthenticationViewModel
     
+    
     // The body of the SignUpView
     var body: some View {
+        
         
         // A VStack allows you to display the image and then the textfields
         VStack {
@@ -31,12 +34,13 @@ struct SignUpView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 150, height: 150)
+            
             // Seperate VStack for both TextFields
             VStack {
                 
                 // Textfield to input your email
                 TextField("Email Address", text: $email)
-                // Disable autocorrect and autocapitalize
+                    // Disable autocorrect and autocapitalize
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
                     .padding()
@@ -44,7 +48,7 @@ struct SignUpView: View {
                 
                 // SecureField means the password is not visible when typed in
                 SecureField("Password", text: $password)
-                // Disable autocorrect and autocapitalize
+                    // Disable autocorrect and autocapitalize
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
                     .padding()
@@ -74,10 +78,9 @@ struct SignUpView: View {
             }
             .padding()
             
-            // Allows the SignUp part to be at the top
+            // Moves the VStacks to the top
             Spacer()
         }
         .navigationTitle("Create Account")
     }
 }
-

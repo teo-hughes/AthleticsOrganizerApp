@@ -2,13 +2,17 @@
 //  TabBarIcon.swift
 //  AthleticsOrganizerApp
 //
-//  Created by Hughes, Teo (BJH) on 11/11/2021.
+//  Created by Teo Hughes on 11/11/2021.
 //
 
+
+// Importing SwiftUI
 import SwiftUI
 
-// This is the struct of each individual icon
+
+// This is the view of each individual tab icon
 struct TabBarIcon: View {
+    
     
     // Accesses the AuthenticationViewModel
     @EnvironmentObject var viewModel: AuthenticationViewModel
@@ -23,15 +27,17 @@ struct TabBarIcon: View {
     let width, height: CGFloat
     let systemIconName, tabName: String
     
+    
     // The body of the icon
     var body: some View {
+        
         
         // A VStack allows us to put an image on top of text
         VStack{
             
             // The icon image
             Image(systemName: systemIconName)
-            // The UI of the image
+                // The UI of the image
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: width, height: height)
@@ -44,6 +50,7 @@ struct TabBarIcon: View {
         // The UI of the VStack
         .padding(.horizontal, -10)
         .foregroundColor(viewOrganizer.currentView == assignedView ? .blue : .black)
+        
         // When the icon is tapped
         .onTapGesture {
             
