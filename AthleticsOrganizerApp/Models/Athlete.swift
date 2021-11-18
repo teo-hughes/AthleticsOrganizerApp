@@ -13,7 +13,6 @@ import FirebaseFirestoreSwift
 // A model for an athlete which is identifiable and codable
 struct Athlete: Identifiable, Codable {
     
-    
     // The variables which the athlete will have
     @DocumentID var id: String?
     var name: String
@@ -23,7 +22,6 @@ struct Athlete: Identifiable, Codable {
     var positions: [String] = []
     var events: [String] = []
     var times: [Double] = []
-    
     
     // Necessary to allow the athlete to be codable
     enum CodingKeys: String, CodingKey {

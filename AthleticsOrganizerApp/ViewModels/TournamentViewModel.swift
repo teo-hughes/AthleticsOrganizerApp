@@ -5,6 +5,7 @@
 //  Created by Teo Hughes on 08/10/2021.
 //
 
+
 // Importing FirebaseFirestore to connect to Firestore
 import FirebaseFirestore
 
@@ -12,7 +13,8 @@ import FirebaseFirestore
 // The View Model of the TournamentView
 class TournamentViewModel: ObservableObject {
     
-    // Variable which stores a single tournament
+    
+    //Variable which stores a single tournament
     @Published var tournament: Tournament = Tournament(name: "", location: "", date: Date(), Events: [])
     
     // Connecting to the firestore database
@@ -44,6 +46,7 @@ class TournamentViewModel: ObservableObject {
         }
     }
     
+    
     // Function to add the name of the tournament to the current tournament collection
     func addTournamentNames(tournament: Tournament) {
         
@@ -52,6 +55,7 @@ class TournamentViewModel: ObservableObject {
             "tournamentName" : tournament.name
         ])
     }
+    
     
     // Function to add the tournament to firestore and then add the name to Current Tournaments
     func save() {

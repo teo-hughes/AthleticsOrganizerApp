@@ -5,12 +5,14 @@
 //  Created by Teo Hughes on 07/10/2021.
 //
 
+
 // Importing FirebaseAuth to connect to the Firebase Authentication
 import FirebaseAuth
 
 
 // This view model is used whilst signing in, signing out and creating an account
 class AuthenticationViewModel: ObservableObject {
+    
     
     // Use the authentication functions in FirebaseAuth
     let auth = Auth.auth()
@@ -59,6 +61,7 @@ class AuthenticationViewModel: ObservableObject {
             }
         }
     }
+    
     
     // Function to sign out
     func signOut() {
