@@ -17,8 +17,9 @@ class AuthenticationViewModel: ObservableObject {
     // Use the authentication functions in FirebaseAuth
     let auth = Auth.auth()
     
-    // Boolean variable which states whether we are signed in or not
+    // Variables which will store the error and if user is signed in
     @Published var signedIn = false
+    @Published var signUpErrorMessage = ""
     
     // Variable which will be true if the user is signed in and false if not
     var isSignedIn: Bool {
@@ -51,7 +52,12 @@ class AuthenticationViewModel: ObservableObject {
         
         // Signs in using the firebase function
         auth.createUser(withEmail: email, password: password) { [weak self] result, error in
+            
+            // Check if there are no errors and there is a result
             guard result != nil, error == nil else {
+                
+                // Set the error message to the description of the error
+                self?.signUpErrorMessage = "\(error?.localizedDescription ?? "")"
                 return
             }
             
