@@ -28,7 +28,9 @@ class TournamentViewModel: ObservableObject {
         let _ = database.collection(tournament.name).document("Details").setData([
             "tournamentName" : tournament.name,
             "tournamentLocation": tournament.location,
-            "tournamentdate": tournament.date
+            "tournamentdate": tournament.date,
+            "tournamentAgeGroups": tournament.ageGroups,
+            "tournamentGenders": tournament.genders
         ])
         
         // To that tournament collection add a TournamentAthletes document which is empty

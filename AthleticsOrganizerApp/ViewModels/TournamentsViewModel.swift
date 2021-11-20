@@ -52,6 +52,8 @@ class TournamentsViewModel: ObservableObject {
         var name: String = ""
         var location: String = ""
         var date: Date = Date()
+        var ageGroups: [String] = [""]
+        var genders: [Bool] = [false, false]
         
         
         // Open the tournament collection
@@ -75,6 +77,8 @@ class TournamentsViewModel: ObservableObject {
                         name = documentData["tournamentName"] as? String ?? ""
                         location = documentData["tournamentLocation"] as? String ?? ""
                         date = documentData["tournamentdate"] as? Date ?? Date()
+                        ageGroups = documentData["tournamentAgeGroups"] as? [String] ?? [""]
+                        genders = documentData["tournamentGenders"] as? [Bool] ?? [false, false]
                         
                         // If the document contains the athlete
                     } else if document.documentID == "TournamentAthletes" {
@@ -136,7 +140,7 @@ class TournamentsViewModel: ObservableObject {
                 
                 
                 // Create a tournamnet with all the details fetched from firestore
-                let tempTournament = Tournament(name: name, location: location, date: date, Events: events, Athletes: athletes)
+                let tempTournament = Tournament(name: name, location: location, date: date, ageGroups: ageGroups, genders: genders, Events: events, Athletes: athletes)
                 
                 // Check if you have already fetched the tournaments
                 var insideAlready = false
@@ -183,10 +187,5 @@ class TournamentsViewModel: ObservableObject {
                 }
             }
         }
-        
-        
-        
-        
-
     }
 }

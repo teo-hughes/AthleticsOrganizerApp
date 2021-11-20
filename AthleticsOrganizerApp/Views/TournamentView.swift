@@ -43,7 +43,7 @@ struct TournamentView: View {
                     Image(systemName: "pencil.circle")
                 })
                 .sheet(isPresented: $presentEditTournamentScreen) {
-                    EditTournamentView()
+                    EditTournamentView(tournament: tournament)
                 }
                 
                 Spacer()

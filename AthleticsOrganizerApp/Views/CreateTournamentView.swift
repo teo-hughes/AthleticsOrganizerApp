@@ -229,6 +229,9 @@ struct CreateTournamentView: View {
                         }
                     }
                     
+                    viewModel.tournament.ageGroups = ChosenAgeGroups
+                    viewModel.tournament.genders = [male, female]
+                    
                     // Dismiss the view with saving
                     handleDoneTapped()
                 }, label: {
