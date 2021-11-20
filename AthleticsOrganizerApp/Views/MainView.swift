@@ -11,6 +11,48 @@ import SwiftUI
 import Foundation
 
 
+let buttonWidth: CGFloat = 60
+
+enum CardButtons: Identifiable {
+    
+    case edit
+    case delete
+    
+    var id: String {
+        return "\(self)"
+    }
+}
+
+struct CardButtonView: View {
+    
+    let data: CardButtons
+    let cardHeight: CGFloat
+    
+    func getView(for image: String, title: String) -> some View {
+        
+        VStack {
+            Image(systemName: image)
+            Text(title)
+        }
+        .padding(5)
+        .foregroundColor(.primary)
+        .font(.subheadline)
+        .frame(width: buttonWidth, height: cardHeight)
+    }
+    
+    var body: some View {
+        switch data {
+        case .edit:
+            getView(for: "pencil.circle", title: "Edit")
+                .background(Color.pink)
+        case .delete:
+            getView(for: "delete.right", title: "Delete")
+                .background(Color.red)
+        }
+    }
+    
+}
+
 // This view will display the tournaments
 struct MainView: View {
     
@@ -43,6 +85,7 @@ struct MainView: View {
                             // Shown as a tournamentCardView
                             TournamentCardView(tournament: viewModel.tournaments[n])
                         })
+                        
                     }
                 }
                 
@@ -99,3 +142,8 @@ struct MainView: View {
         }
     }
 }
+
+
+
+
+
