@@ -41,9 +41,5 @@
         .edgesIgnoringSafeArea(.top)
         // UI of the NavigationView (allows it to work on an iPad)
         .navigationViewStyle(StackNavigationViewStyle())
-        // When the app is launched the value of signedIn is set to what it last was (false if you launch for first time)
-        .onAppear {
-            viewModel.signedIn = viewModel.isSignedIn
-        }
     }
  }

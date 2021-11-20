@@ -18,6 +18,8 @@ struct SignInView: View {
     @State var email = ""
     @State var password = ""
     
+    @State private var presentAlert = false
+    
     // Accesses the AuthenticationViewModel
     @EnvironmentObject var viewModel: AuthenticationViewModel
     
@@ -66,6 +68,11 @@ struct SignInView: View {
                     // Sign in using the viewModel
                     viewModel.signIn(email: email, password: password)
                     
+                    // If the viewModel failed to sign up show an Alert
+                    if viewModel.signedIn == false && viewModel.signInErrorMessage != "" {
+                        presentAlert = true
+                    }
+                    
                 }, label: {
                     
                     // UI of button
@@ -76,6 +83,11 @@ struct SignInView: View {
                         .background(Color.blue)
                     
                 })
+                // Alert shown with error Message
+                .alert(isPresented: $presentAlert) {
+                    // Error message shown with the error firebase returned
+                    Alert(title: Text("Sign In Failed"), message: Text("\(viewModel.signInErrorMessage)"), dismissButton: .default(Text("OK")))
+                }
                 
                 // Seperate button to send you to the SignUpView
                 NavigationLink("Create Account", destination: SignUpView())

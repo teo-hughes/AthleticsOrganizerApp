@@ -68,7 +68,7 @@ struct SignUpView: View {
                     viewModel.signUp(email: email, password: password)
                     
                     // If the viewModel failed to sign up show an Alert
-                    if viewModel.signedIn == false {
+                    if viewModel.signedIn == false && viewModel.signUpErrorMessage != "" {
                         presentAlert = true
                     }
                 }, label: {

@@ -17,14 +17,10 @@ class AuthenticationViewModel: ObservableObject {
     // Use the authentication functions in FirebaseAuth
     let auth = Auth.auth()
     
-    // Variables which will store the error and if user is signed in
+    // Variables which will store the errors and if user is signed in
     @Published var signedIn = false
+    @Published var signInErrorMessage = ""
     @Published var signUpErrorMessage = ""
-    
-    // Variable which will be true if the user is signed in and false if not
-    var isSignedIn: Bool {
-        return auth.currentUser != nil
-    }
     
     
     // Function to sign in which takes parameters email and password, both as strings
@@ -32,10 +28,13 @@ class AuthenticationViewModel: ObservableObject {
         
         // Signs in using the firebase function
         auth.signIn(withEmail: email, password: password) { [weak self] result, error in
+            
+            // Check if there are no errors and there is a result
             guard result != nil, error == nil else {
-                // error while signing in, e.g. incorrect password
-                // TO DO - link to UI
-                print("Error signing in")
+                
+                // Set the error message to the description of the error and signedIn is still false
+                self?.signInErrorMessage = "\(error?.localizedDescription ?? "")"
+                self?.signedIn = false
                 return
             }
             
@@ -50,14 +49,15 @@ class AuthenticationViewModel: ObservableObject {
     // Function to sign up which takes parameters email and password
     func signUp(email: String, password: String) {
         
-        // Signs in using the firebase function
+        // Signs up using the firebase function
         auth.createUser(withEmail: email, password: password) { [weak self] result, error in
             
             // Check if there are no errors and there is a result
             guard result != nil, error == nil else {
                 
-                // Set the error message to the description of the error
+                // Set the error message to the description of the error and signedIn is still false
                 self?.signUpErrorMessage = "\(error?.localizedDescription ?? "")"
+                self?.signedIn = false
                 return
             }
             
