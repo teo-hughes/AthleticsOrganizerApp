@@ -19,16 +19,50 @@ struct TournamentView: View {
     @StateObject var viewModel: TournamentsViewModel
     
     // To show the sheet to add new atheltes/teams
+    @State private var presentEditTournamentScreen = false
     @State private var presentAddNewAthletesScreen = false
+    
+    
+    @State private var presentAlert = false
     
     
     // The body of the TournamentView
     var body: some View {
         
-        NavigationView {
+        
         
         // VStack to show all the events
         VStack {
+            
+            HStack {
+                
+                Button(action: {
+                    presentEditTournamentScreen.toggle()
+                }, label: {
+                    Text("Edit")
+                    Image(systemName: "pencil.circle")
+                })
+                .sheet(isPresented: $presentEditTournamentScreen) {
+                    EditTournamentView()
+                }
+                
+                Spacer()
+                
+                Button(action: {
+                    
+                    presentAlert.toggle()
+                    
+                }, label: {
+                    Text("Delete")
+                    Image(systemName: "delete.left")
+                })
+                .alert(isPresented: $presentAlert) {
+                    Alert(title: Text("Delete \(tournament.name)"), message: Text("Deleting will permanently remove the tournament"), primaryButton: .destructive(Text("Delete")) {
+                        
+                    }, secondaryButton: .cancel())
+                }
+            }
+            .padding()
             
             // List which will have each event inside
             List {
@@ -60,42 +94,11 @@ struct TournamentView: View {
                 Image(systemName: "plus")
                     .font(.system(size: 25))
             })
-        }
-        // Shows the AddAthletesView if the presentAddNewAthletesScreen is true
-        .sheet(isPresented: $presentAddNewAthletesScreen) {
-            AddAthletesView(tournamentName: tournament.name, events: tournament.Events, athletes: tournament.Athletes)
-        }
-    
-        }
-        .navigationViewStyle(StackNavigationViewStyle())
-        .toolbar {
-            
-            // Add to the toolbar on the top right
-            ToolbarItemGroup(placement: .navigationBarTrailing) {
-                
-                Button( action: {
-
-                }, label: {
-                    
-                    Text("Edit")
-                    // Shows a refresh button
-                    Image(systemName: "pencil.circle")
-                        .font(.system(size: 25))
-                })
-            }
-            // Add to the toolbar on the top left
-            ToolbarItemGroup(placement: .navigationBarLeading) {
-                
-                Button( action: {
-
-                }, label: {
-                    
-                    Text("Delete")
-                    // Shows a refresh button
-                    Image(systemName: "delete.right")
-                        .font(.system(size: 25))
-                })
+            // Shows the AddAthletesView if the presentAddNewAthletesScreen is true
+            .sheet(isPresented: $presentAddNewAthletesScreen) {
+                AddAthletesView(tournamentName: tournament.name, events: tournament.Events, athletes: tournament.Athletes)
             }
         }
+        
     }
 }
