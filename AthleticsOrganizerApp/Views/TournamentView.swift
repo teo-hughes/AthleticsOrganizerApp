@@ -25,6 +25,7 @@ struct TournamentView: View {
     // The body of the TournamentView
     var body: some View {
         
+        NavigationView {
         
         // VStack to show all the events
         VStack {
@@ -63,6 +64,38 @@ struct TournamentView: View {
         // Shows the AddAthletesView if the presentAddNewAthletesScreen is true
         .sheet(isPresented: $presentAddNewAthletesScreen) {
             AddAthletesView(tournamentName: tournament.name, events: tournament.Events, athletes: tournament.Athletes)
+        }
+    
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
+        .toolbar {
+            
+            // Add to the toolbar on the top right
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                
+                Button( action: {
+
+                }, label: {
+                    
+                    Text("Edit")
+                    // Shows a refresh button
+                    Image(systemName: "pencil.circle")
+                        .font(.system(size: 25))
+                })
+            }
+            // Add to the toolbar on the top left
+            ToolbarItemGroup(placement: .navigationBarLeading) {
+                
+                Button( action: {
+
+                }, label: {
+                    
+                    Text("Delete")
+                    // Shows a refresh button
+                    Image(systemName: "delete.right")
+                        .font(.system(size: 25))
+                })
+            }
         }
     }
 }

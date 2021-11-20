@@ -17,19 +17,6 @@ struct TournamentCardView: View {
     // Fetching the tournament as a parameter
     @State var tournament: Tournament
     
-    
-    var body: some View {
-        VStack {
-            HStack {
-                Text(tournament.name)
-                Spacer()
-            }.padding()
-            Divider()
-                .padding(.leading)
-        }
-    }
-
-    /*
     // The body of the TournamentCardView
     var body: some View {
         
@@ -65,5 +52,5 @@ struct TournamentCardView: View {
                     }.padding()
                 )
         }
-    }*/
+    }
 }
