@@ -24,11 +24,15 @@ class TournamentViewModel: ObservableObject {
     // Function to add a tournament to firestore
     func addTournament(tournament: Tournament) {
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm E, d MMM y"
+        
+        
         // To that tournament collection on the details section adds the tournament details
         let _ = database.collection(tournament.name).document("Details").setData([
             "tournamentName" : tournament.name,
             "tournamentLocation": tournament.location,
-            "tournamentdate": tournament.date,
+            "tournamentDate": dateFormatter.string(from: tournament.date),
             "tournamentAgeGroups": tournament.ageGroups,
             "tournamentGenders": tournament.genders
         ])

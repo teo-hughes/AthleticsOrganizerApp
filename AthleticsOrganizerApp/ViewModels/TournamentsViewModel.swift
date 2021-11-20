@@ -51,7 +51,7 @@ class TournamentsViewModel: ObservableObject {
         var athletes: [Athlete] = []
         var name: String = ""
         var location: String = ""
-        var date: Date = Date()
+        var date: String = ""
         var ageGroups: [String] = [""]
         var genders: [Bool] = [false, false]
         
@@ -76,7 +76,7 @@ class TournamentsViewModel: ObservableObject {
                         // Fetch the name, location and date
                         name = documentData["tournamentName"] as? String ?? ""
                         location = documentData["tournamentLocation"] as? String ?? ""
-                        date = documentData["tournamentdate"] as? Date ?? Date()
+                        date = documentData["tournamentDate"] as? String ?? ""
                         ageGroups = documentData["tournamentAgeGroups"] as? [String] ?? [""]
                         genders = documentData["tournamentGenders"] as? [Bool] ?? [false, false]
                         
@@ -139,8 +139,12 @@ class TournamentsViewModel: ObservableObject {
                 }
                 
                 
+                let dateFormatter = DateFormatter()
+                
+                dateFormatter.dateFormat = "HH:mm E, d MMM y"
+                let dateDate = dateFormatter.date(from: date) ?? Date()
                 // Create a tournamnet with all the details fetched from firestore
-                let tempTournament = Tournament(name: name, location: location, date: date, ageGroups: ageGroups, genders: genders, Events: events, Athletes: athletes)
+                let tempTournament = Tournament(name: name, location: location, date: dateDate, ageGroups: ageGroups, genders: genders, Events: events, Athletes: athletes)
                 
                 // Check if you have already fetched the tournaments
                 var insideAlready = false
