@@ -161,4 +161,32 @@ class TournamentsViewModel: ObservableObject {
         // Call the function which fetches all the data
         fetchDataFromTournament(tournamentCollectionName: tournamentCollectionName)
     }
+    
+    func deleteTournament(tournamentName: String) {
+        database.collection("Current Tournaments").document("\(tournamentName)").delete() { err in
+            if let err = err {
+                print("Error!!! \(err)")
+            } else {
+                self.database.collection("\(tournamentName)").getDocuments() { (querySnapshot, err) in
+                        if let err = err {
+                            print("Error!!! \(err)")
+                        } else {
+                            for document in querySnapshot!.documents {
+                                self.database.collection("\(tournamentName)").document(document.documentID).delete() { err in
+                                    if let err = err {
+                                        print("Error!!! \(err)")
+                                    }
+                                    
+                                }
+                            }
+                        }
+                }
+            }
+        }
+        
+        
+        
+        
+
+    }
 }

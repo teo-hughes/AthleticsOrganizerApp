@@ -58,7 +58,7 @@ struct TournamentView: View {
                 })
                 .alert(isPresented: $presentAlert) {
                     Alert(title: Text("Delete \(tournament.name)"), message: Text("Deleting will permanently remove the tournament"), primaryButton: .destructive(Text("Delete")) {
-                        
+                        viewModel.deleteTournament(tournamentName: tournament.name)
                     }, secondaryButton: .cancel())
                 }
             }
