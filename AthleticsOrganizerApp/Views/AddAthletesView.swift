@@ -209,11 +209,42 @@ struct AddAthletesView: View {
                     // List to go through the athletes
                     List {
                         
+                        ForEach(0..<ChosenAthletes.count, id: \.self) { n in
+                            
+                            let name = ChosenAthletes[n].name
+                            
+                            HStack {
+                                Text(name)
+                                    .padding()
+                                Text(ChosenAthletes[n].team)
+                                    .padding()
+                                Spacer()
+                                Button(action: {
+                                    
+                                    ChosenAthletes.remove(at: n)
+                                    
+                                    for i in 0..<viewModel.athletes.count  {
+                                        if viewModel.athletes[i].name == name {
+                                            viewModel.athletes.remove(at: i)
+                                            break
+                                        }
+                                    }
+                                    
+                                    
+                                    
+                                    
+                                }, label: {
+                                    Text("Delete")
+                                })
+                            }
+                        }
+                        
                         // ForEach athlete you already have
-                        ForEach(0..<athletes.count) { n in
+                        ForEach(0..<athletes.count, id: \.self) { n in
                             
                             // UI of athlete
                             Text(athletes[n].name)
+                                .padding()
                         }
                     }
                 }
