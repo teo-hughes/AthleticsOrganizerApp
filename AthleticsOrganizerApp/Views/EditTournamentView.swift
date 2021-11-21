@@ -13,6 +13,8 @@ struct EditTournamentView: View {
     
     // Access the tournament and eventViewModels to send data to firestore
     @StateObject var eventViewModel = EventViewModel()
+    @StateObject var viewModel = TournamentViewModel()
+    @StateObject var deleteViewModel = TournamentsViewModel()
     
     // Variable which is the mode of the sheet (allows us to dismiss it)
     @Environment(\.presentationMode) var presentationMode
@@ -21,6 +23,8 @@ struct EditTournamentView: View {
     
     @State private var ChosenAgeGroup: String = ""
     @State private var expand = false
+    
+    @State private var originalName: String = ""
     
     
     // The body of CreateTournamentView
@@ -154,6 +158,7 @@ struct EditTournamentView: View {
                     // For all of the possible events
                     ForEach(0..<eventViewModel.possibleEvents.count) { n in
                         
+                        
                         // Hstack to show the event
                         HStack {
                             
@@ -222,6 +227,9 @@ struct EditTournamentView: View {
                         }
                     }
                     
+                    viewModel.tournament = tournament
+                    
+                    
                     // Dismiss the view with saving
                     handleDoneTapped()
                 }, label: {
@@ -230,6 +238,18 @@ struct EditTournamentView: View {
                     Text("Done")
                 })
             )
+        }
+        .onAppear {
+            
+            for event in tournament.Events {
+                for n in 0 ..< eventViewModel.possibleEvents.count {
+                    if event.event_name == eventViewModel.possibleEvents[n].event_name {
+                        eventViewModel.possibleEvents[n].checked = true
+                    }
+                }
+            }
+            
+            originalName = tournament.name
         }
     }
     
@@ -241,8 +261,9 @@ struct EditTournamentView: View {
     // Function to save and dismiss when done is pressed
     func handleDoneTapped() {
         
+        deleteViewModel.deleteTournament(tournamentName: originalName)
         // Save the tournament to firestore
-        //viewModel.save()
+        viewModel.save()
         dismiss()
     }
     
