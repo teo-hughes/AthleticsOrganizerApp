@@ -212,6 +212,8 @@ struct EditTournamentView: View {
                 // Trailing button to save
                 trailing: Button(action: {
                     
+                    tournament.Events = []
+                    
                     // For each possible event
                     for n in 0..<eventViewModel.possibleEvents.count {
                         
@@ -229,6 +231,9 @@ struct EditTournamentView: View {
                     
                     viewModel.tournament = tournament
                     
+                    deleteViewModel.deleteTournament(tournamentName: originalName)
+                    
+                    viewModel.save()
                     
                     // Dismiss the view with saving
                     handleDoneTapped()
@@ -261,9 +266,12 @@ struct EditTournamentView: View {
     // Function to save and dismiss when done is pressed
     func handleDoneTapped() {
         
-        deleteViewModel.deleteTournament(tournamentName: originalName)
+        
+        
+        
+       
         // Save the tournament to firestore
-        viewModel.save()
+        
         dismiss()
     }
     
