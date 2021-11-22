@@ -96,7 +96,7 @@ struct TournamentView: View {
             })
             // Shows the AddAthletesView if the presentAddNewAthletesScreen is true
             .sheet(isPresented: $presentAddNewAthletesScreen) {
-                AddAthletesView(tournamentName: tournament.name, events: tournament.Events, athletes: tournament.Athletes)
+                AddAthletesView(tournamentName: tournament.name, tournament: tournament, events: tournament.Events, athletes: tournament.Athletes)
             }
         }
         

@@ -34,7 +34,8 @@ class TournamentViewModel: ObservableObject {
             "tournamentLocation": tournament.location,
             "tournamentDate": dateFormatter.string(from: tournament.date),
             "tournamentAgeGroups": tournament.ageGroups,
-            "tournamentGenders": tournament.genders
+            "tournamentGenders": tournament.genders,
+            "tournamentTeams": tournament.teams
         ])
         
         // To that tournament collection add a TournamentAthletes document which is empty
@@ -71,5 +72,22 @@ class TournamentViewModel: ObservableObject {
         
         // Add tournament name to Current Tournaments
         addTournamentNames(tournament: tournament)
+    }
+    
+    func addDetails(tournament: Tournament) {
+        
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm E, d MMM y"
+        
+        let _ = database.collection("\(tournament.name)").document("Details").setData([
+            "tournamentName" : tournament.name,
+            "tournamentLocation": tournament.location,
+            "tournamentDate": dateFormatter.string(from: tournament.date),
+            "tournamentAgeGroups": tournament.ageGroups,
+            "tournamentGenders": tournament.genders,
+            "tournamentTeams": tournament.teams
+
+        ])
     }
 }

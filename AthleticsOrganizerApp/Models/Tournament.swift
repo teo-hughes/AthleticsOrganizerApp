@@ -20,6 +20,7 @@ struct Tournament: Identifiable, Codable {
     var date: Date
     var ageGroups: [String] = []
     var genders: [Bool] = [false, false]
+    var teams: [String] = []
     var Events: [Event]
     var Athletes: [Athlete] = []
     
@@ -31,6 +32,7 @@ struct Tournament: Identifiable, Codable {
         case date
         case ageGroups
         case genders
+        case teams
         case Events
         case Athletes
     }

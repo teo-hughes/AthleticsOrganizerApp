@@ -16,16 +16,17 @@ struct AddAthletesView: View {
     
     // Fetch the tournamentName, event, athletes and viewModel as parameters
     @State var tournamentName: String
+    @State var tournament: Tournament
     @State var events: [Event]
     @State var athletes: [Athlete]
     @StateObject var viewModel = AthleteViewModel()
+    @StateObject var tournamentViewModel = TournamentViewModel()
     
     // Variable which is the mode of the sheet (allows us to dismiss it)
     @Environment(\.presentationMode) var presentationMode
     
     // Variables which will hold some of the data of the teams
     @State private var ChosenTeam: String = ""
-    @State private var teams: [String] = []
     @State private var teamExpand = false
     
     // Variables which will hold some of the data of the athletes
@@ -62,7 +63,7 @@ struct AddAthletesView: View {
                             
                             // If the team isn't empty add it to the list
                             if ChosenTeam != "" {
-                                teams.append(ChosenTeam)
+                                tournament.teams.append(ChosenTeam)
                                 ChosenTeam = ""
                             }
                         }, label: {
@@ -92,7 +93,7 @@ struct AddAthletesView: View {
                         List {
                             
                             // UI of each team
-                            ForEach(teams, id: \.self) { team in
+                            ForEach(tournament.teams, id: \.self) { team in
                                 Text(team)
                             }
                         }
@@ -107,7 +108,7 @@ struct AddAthletesView: View {
                     Picker("Choose a Team", selection: $AthleteTeam) {
                         
                         // Shows all the teams
-                        ForEach(teams, id: \.self) { team in
+                        ForEach(tournament.teams, id: \.self) { team in
                             Text(team)
                         }
                     }
@@ -266,6 +267,9 @@ struct AddAthletesView: View {
                 
                 // Trailing button to save
                 trailing: Button(action: {
+                    
+                    
+                    tournamentViewModel.addDetails(tournament: tournament)
                     
                     // Dismiss the view with saving
                     handleDoneTapped()
