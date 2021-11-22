@@ -150,7 +150,7 @@ struct EditTournamentView: View {
                         }
                     }
                 }
-                
+          
                 
                 // Section to add events to the tournament
                 Section(header: Text("Events")) {
@@ -193,6 +193,8 @@ struct EditTournamentView: View {
                     }
                 }
                 .padding(.bottom)
+                
+                
             }
             // UI of navigation bar
             .navigationBarTitle("New Tournament", displayMode: .inline)

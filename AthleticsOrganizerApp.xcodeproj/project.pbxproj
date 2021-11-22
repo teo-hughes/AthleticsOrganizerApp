@@ -21,6 +21,7 @@
 		257FF04A26F602B3006C801D /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257FF04926F602B3006C801D /* MenuView.swift */; };
 		258E261327103919006C1D9A /* TournamentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258E261227103919006C1D9A /* TournamentViewModel.swift */; };
 		2598483527498B4E000A7F75 /* EditTournamentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2598483427498B4E000A7F75 /* EditTournamentView.swift */; };
+		25AC0346274BF4C3008EB837 /* TeamsAlreadyAddedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AC0345274BF4C3008EB837 /* TeamsAlreadyAddedView.swift */; };
 		25B96F1026FBA5190076D4E9 /* AnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B96F0F26FBA5190076D4E9 /* AnalysisView.swift */; };
 		25B96F1826FBA6610076D4E9 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B96F1726FBA6610076D4E9 /* MainView.swift */; };
 		25C15E5B27183908000BD2B6 /* CreateTournamentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C15E5A27183908000BD2B6 /* CreateTournamentView.swift */; };
@@ -57,6 +58,7 @@
 		257FF04926F602B3006C801D /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		258E261227103919006C1D9A /* TournamentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentViewModel.swift; sourceTree = "<group>"; };
 		2598483427498B4E000A7F75 /* EditTournamentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTournamentView.swift; sourceTree = "<group>"; };
+		25AC0345274BF4C3008EB837 /* TeamsAlreadyAddedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsAlreadyAddedView.swift; sourceTree = "<group>"; };
 		25B96F0F26FBA5190076D4E9 /* AnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisView.swift; sourceTree = "<group>"; };
 		25B96F1726FBA6610076D4E9 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		25C15E5A27183908000BD2B6 /* CreateTournamentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTournamentView.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				427EC565271C97E500D26367 /* TournamentView.swift */,
 				2598483427498B4E000A7F75 /* EditTournamentView.swift */,
 				42249DC227243DB20061BAEE /* AddAthletesView.swift */,
+				25AC0345274BF4C3008EB837 /* TeamsAlreadyAddedView.swift */,
 				4252BD00271D7E1300FAAD9A /* EventCardView.swift */,
 				4252BD02271D7E2000FAAD9A /* EventView.swift */,
 				25656F9E273D7FDF00C47926 /* AthleteTimeView.swift */,
@@ -312,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				25656F96273D7E1600C47926 /* TabBarIcon.swift in Sources */,
+				25AC0346274BF4C3008EB837 /* TeamsAlreadyAddedView.swift in Sources */,
 				257FF04A26F602B3006C801D /* MenuView.swift in Sources */,
 				4226A5C6271B30A800374406 /* TournamentsViewModel.swift in Sources */,
 				251AF601270872D900C8168E /* LoginView.swift in Sources */,

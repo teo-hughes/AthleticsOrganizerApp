@@ -15,7 +15,8 @@ class AthleteViewModel: ObservableObject {
     
     // List which stores the athletes for the viewModel
     @Published var athletes: [Athlete] = []
-    
+    @Published var teams: [String] = []
+ 
     // My Database
     private var database = Firestore.firestore()
     
