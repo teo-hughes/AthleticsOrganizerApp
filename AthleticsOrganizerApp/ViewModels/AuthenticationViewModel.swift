@@ -22,6 +22,10 @@ class AuthenticationViewModel: ObservableObject {
     @Published var signInErrorMessage = ""
     @Published var signUpErrorMessage = ""
     
+    var isSignedIn: Bool {
+        return auth.currentUser !=  nil
+    }
+    
     
     // Function to sign in which takes parameters email and password, both as strings
     func signIn(email: String, password: String) {

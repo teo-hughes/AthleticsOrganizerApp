@@ -41,5 +41,8 @@
         .edgesIgnoringSafeArea(.top)
         // UI of the NavigationView (allows it to work on an iPad)
         .navigationViewStyle(StackNavigationViewStyle())
+        .onAppear {
+            viewModel.signedIn = viewModel.isSignedIn
+        }
     }
  }

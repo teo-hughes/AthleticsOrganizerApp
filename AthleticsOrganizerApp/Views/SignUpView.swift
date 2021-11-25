@@ -17,6 +17,7 @@ struct SignUpView: View {
     // Variables to hold the email and password
     @State var email = ""
     @State var password = ""
+    @State var confirmPassword = ""
     
     @State private var presentAlert = false
     
@@ -56,6 +57,13 @@ struct SignUpView: View {
                     .padding()
                     .background(Color(.secondarySystemBackground))
                 
+                SecureField("Confirm Password", text: $confirmPassword)
+                    // Disable autocorrect and autocapitalize
+                    .disableAutocorrection(true)
+                    .autocapitalization(.none)
+                    .padding()
+                    .background(Color(.secondarySystemBackground))
+                
                 // The button which will create the account
                 Button(action: {
                     
@@ -64,11 +72,16 @@ struct SignUpView: View {
                         return
                     }
                     
-                    // Sign up using the viewModel
-                    viewModel.signUp(email: email, password: password)
+                    if confirmPassword != password {
+                        viewModel.signUpErrorMessage = "Confirm password is incorrect"
+                        presentAlert = true
+                    } else {
+                        // Sign up using the viewModel
+                        viewModel.signUp(email: email, password: password)
+                    }
                     
                     // If the viewModel failed to sign up show an Alert
-                    if viewModel.signedIn == false && viewModel.signUpErrorMessage != "" {
+                    if viewModel.signedIn == false && viewModel.signUpErrorMessage != "" && viewModel.signUpErrorMessage != "Confirm password is incorrect" {
                         presentAlert = true
                     }
                 }, label: {
