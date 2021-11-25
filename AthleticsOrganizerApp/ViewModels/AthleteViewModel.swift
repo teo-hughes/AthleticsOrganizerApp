@@ -39,11 +39,31 @@ class AthleteViewModel: ObservableObject {
     // Function which saves all the athletes which are already in the viewModel
     func save(tournamentName: String) {
         
+        
+        database.collection("\(tournamentName)").document("TournamentAthletes").delete() { err in
+            if let err = err {
+                print("Error!!! \(err)")
+            } else {
+                print("Success")
+            }
+        }
+        
+        let _ = database.collection(tournamentName).document("TournamentAthletes").setData([:])
+        
         // Going through all the athletes in the viewModel
         for athlete in athletes {
             
             // Calling the above function to add one athlete at a time
             addAthlete(athlete: athlete, tournamentName: tournamentName)
         }
+    }
+    
+    func addTeam(tournamentName: String) {
+        
+        
+        database.collection("\(tournamentName)").document("Details").updateData([
+            
+            "tournamentTeams": teams
+        ])
     }
 }

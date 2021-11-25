@@ -14,6 +14,8 @@ struct TeamsAlreadyAddedView: View {
     @State var viewModel: AthleteViewModel
     @State private var presentAlert = false
     
+    @Binding var presentationMode: PresentationMode
+    
     var body: some View {
         
         HStack {
@@ -29,8 +31,8 @@ struct TeamsAlreadyAddedView: View {
                 Alert(title: Text("Delete \(name)"), message: Text("Deleting will permanently remove the team and all the athletes inside it"), primaryButton: .destructive(Text("Delete")) {
                     var indexes : [Int] = []
                     
-                    for i in 0..<viewModel.athletes.count  {
-                        if viewModel.athletes[i].team == name {
+                    for i in 0..<tournament.Athletes.count  {
+                        if tournament.Athletes[i].team == name {
                             indexes.append(i)
                             
                         }
@@ -38,12 +40,25 @@ struct TeamsAlreadyAddedView: View {
                     
                     var step = 0
                     for i in indexes {
-                        viewModel.athletes.remove(at: i - step)
+                        print(tournament.Athletes)
+                        tournament.Athletes.remove(at: i - step)
                         step += 1
+                        
                     }
                     
-                    let ind = viewModel.teams.firstIndex(of: name) ?? 0
-                    viewModel.teams.remove(at: ind)
+                    let ind = tournament.teams.firstIndex(of: name) ?? 0
+                    print(tournament.teams)
+                    tournament.teams.remove(at: ind)
+                    print(tournament.teams)
+                    
+                    
+                    viewModel.athletes = tournament.Athletes
+                    viewModel.teams = tournament.teams
+                    
+                    viewModel.save(tournamentName: tournament.name)
+                    viewModel.addTeam(tournamentName: tournament.name)
+                    
+                    $presentationMode.wrappedValue.dismiss()
 
                 }, secondaryButton: .cancel())
             }

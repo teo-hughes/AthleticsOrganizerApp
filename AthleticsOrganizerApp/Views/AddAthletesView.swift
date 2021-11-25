@@ -63,8 +63,11 @@ struct AddAthletesView: View {
                             
                             // If the team isn't empty add it to the list
                             if ChosenTeam != "" {
-                                viewModel.teams.append(ChosenTeam)
+                                
+                                tournament.teams.append(ChosenTeam)
+                                //viewModel.teams.append(ChosenTeam)
                                 ChosenTeam = ""
+                                //viewModel.addTeam(tournamentName: tournamentName)
                             }
                         }, label: {
                             
@@ -93,7 +96,7 @@ struct AddAthletesView: View {
                         List {
                             
                             // UI of each team
-                            ForEach(viewModel.teams, id: \.self) { team in
+                            ForEach(tournament.teams, id: \.self) { team in
                                 Text(team)
                             }
                         }
@@ -108,7 +111,7 @@ struct AddAthletesView: View {
                     Picker("Choose a Team", selection: $AthleteTeam) {
                         
                         // Shows all the teams
-                        ForEach(viewModel.teams, id: \.self) { team in
+                        ForEach(tournament.teams, id: \.self) { team in
                             Text(team)
                         }
                     }
@@ -189,8 +192,8 @@ struct AddAthletesView: View {
                     Button(action: {
                         
                         // Save the athlete to the athleteViewModel
-                        viewModel.athletes.append(Athlete(name: AthleteName, age_group: AthleteAgeGroup, gender: AthleteGender, team: AthleteTeam))
-                        
+                        tournament.Athletes.append(Athlete(name: AthleteName, age_group: AthleteAgeGroup, gender: AthleteGender, team: AthleteTeam))
+                        print(tournament.Athletes)
                         // Add the athlete to the ChosenAthletes list
 
                         
@@ -206,8 +209,8 @@ struct AddAthletesView: View {
                 Section(header: Text("Teams Already Added")) {
                         
                     List {
-                        ForEach(0..<viewModel.teams.count, id: \.self) { n in
-                            TeamsAlreadyAddedView(tournament: tournament, name: viewModel.teams[n], viewModel: viewModel)
+                        ForEach(0..<tournament.teams.count, id: \.self) { n in
+                            TeamsAlreadyAddedView(tournament: tournament, name: tournament.teams[n], viewModel: viewModel, presentationMode: presentationMode)
                             
                             
                         }
@@ -222,19 +225,19 @@ struct AddAthletesView: View {
                     // List to go through the athletes
                     List {
                         
-                        ForEach(0..<viewModel.athletes.count, id: \.self) { n in
+                        ForEach(0..<tournament.Athletes.count, id: \.self) { n in
                             
-                            let name = viewModel.athletes[n].name
+                            let name = tournament.Athletes[n].name
                             
                             HStack {
                                 Text(name)
                                     .padding()
-                                Text(viewModel.athletes[n].team)
+                                Text(tournament.Athletes[n].team)
                                     .padding()
                                 Spacer()
                                 Button(action: {
                                     
-                                    viewModel.athletes.remove(at: n)
+                                    tournament.Athletes.remove(at: n)
                                     
                                     
                                     
@@ -250,8 +253,8 @@ struct AddAthletesView: View {
                 }
             }
             .onAppear {
-                viewModel.athletes = athletes
-                viewModel.teams = tournament.teams
+                //viewModel.athletes = athletes
+                //viewModel.teams = tournament.teams
             }
             // UI of navigation bar
             .navigationBarTitle("Add Teams", displayMode: .inline)
@@ -271,8 +274,15 @@ struct AddAthletesView: View {
                 // Trailing button to save
                 trailing: Button(action: {
                     
-                    tournament.teams = viewModel.teams
+                    for team in viewModel.teams {
+                        if tournament.teams.contains(team) == false {
+                            tournament.teams.append(team)
+                        }
+                    }
                     tournamentViewModel.addDetails(tournament: tournament)
+                    
+                    viewModel.athletes = tournament.Athletes
+                    viewModel.save(tournamentName: tournamentName)
                     
                     // Dismiss the view with saving
                     handleDoneTapped()
