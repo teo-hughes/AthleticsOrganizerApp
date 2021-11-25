@@ -21,6 +21,7 @@ struct TournamentView: View {
     // To show the sheet to add new atheltes/teams
     @State private var presentEditTournamentScreen = false
     @State private var presentAddNewAthletesScreen = false
+    @Environment(\.presentationMode) var presentationMode
     
     
     @State private var presentAlert = false
@@ -59,6 +60,7 @@ struct TournamentView: View {
                 .alert(isPresented: $presentAlert) {
                     Alert(title: Text("Delete \(tournament.name)"), message: Text("Deleting will permanently remove the tournament"), primaryButton: .destructive(Text("Delete")) {
                         viewModel.deleteTournament(tournamentName: tournament.name)
+                        self.presentationMode.wrappedValue.dismiss()
                     }, secondaryButton: .cancel())
                 }
             }
