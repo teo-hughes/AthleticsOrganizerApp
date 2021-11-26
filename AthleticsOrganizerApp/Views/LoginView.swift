@@ -22,9 +22,9 @@
     var body: some View {
         
         
-        // A NavigationView allows us to alternate between SignInView and SignUpView
-        NavigationView {
-            
+
+        VStack {
+        
             // If you have successfully signed in
             if viewModel.signedIn {
                 
@@ -38,9 +38,6 @@
                 SignInView()
             }
         }
-        .edgesIgnoringSafeArea(.top)
-        // UI of the NavigationView (allows it to work on an iPad)
-        .navigationViewStyle(StackNavigationViewStyle())
         .onAppear {
             viewModel.signedIn = viewModel.isSignedIn
         }

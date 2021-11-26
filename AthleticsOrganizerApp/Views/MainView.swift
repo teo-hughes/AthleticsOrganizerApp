@@ -33,21 +33,24 @@ struct MainView: View {
             VStack {
                 List {
                     
-                    // For each loop which goes through all the tournaments
-                    ForEach(0..<viewModel.tournaments.count, id: \.self) { n in
-                        
-
-                            // Display a navigation link which will go to the specific tournamentView
-                            NavigationLink(destination: TournamentView(tournament: viewModel.tournaments[n], viewModel: viewModel), label: {
-                                
-                                // Shown as a tournamentCardView
-                                TournamentCardView(tournament: viewModel.tournaments[n])
-                                    
-                            })
+                    if !viewModel.tournaments.isEmpty {
+                        // For each loop which goes through all the tournaments
+                        ForEach(0..<viewModel.tournaments.count, id: \.self) { n in
                             
-                        
+
+                                // Display a navigation link which will go to the specific tournamentView
+                                NavigationLink(destination: TournamentView(tournament: viewModel.tournaments[n], viewModel: viewModel), label: {
+                                    
+                                    // Shown as a tournamentCardView
+                                    TournamentCardView(tournament: viewModel.tournaments[n])
+                                        
+                                })
+                                
+                            
+                        }
                     }
                 }
+                
                 
                 // Spacer to move the tournaments to the top
                 Spacer()
@@ -65,6 +68,8 @@ struct MainView: View {
                         .font(.system(size: 25))
                 })
             }
+            
+            
             .navigationBarTitle("Tournaments")
             // Refresh button to load the tournaments
             .toolbar {
@@ -74,10 +79,7 @@ struct MainView: View {
                     
                     // A button which fetches the tournament names and then all the tournaments from firestore
                     Button( action: {
-                        self.viewModel.fetchTournamentNames()
-                        for name in viewModel.names {
-                            self.viewModel.fetchData(tournamentCollectionName: name)
-                        }
+                        viewModel.fetch()
                     }, label: {
                         
                         // Shows a refresh button
@@ -87,15 +89,13 @@ struct MainView: View {
                 }
             }
         }
+        .onAppear {
+            viewModel.fetch()
+        }
         .edgesIgnoringSafeArea(.all)
         .navigationViewStyle(StackNavigationViewStyle())
         // When it appears fetches the tournament names and then all the tournaments from firestore
-        .onAppear(perform: {
-            self.viewModel.fetchTournamentNames()
-            for name in viewModel.names {
-                self.viewModel.fetchData(tournamentCollectionName: name)
-            }
-        })
+        
         // Shows the CreateTournamentView if the presentAddNewTournamentScreen is true
         .sheet(isPresented: $presentAddNewTournamentScreen) {
             CreateTournamentView()
