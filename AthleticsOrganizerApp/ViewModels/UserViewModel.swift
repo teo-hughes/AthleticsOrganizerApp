@@ -13,4 +13,9 @@ class UserViewModel: ObservableObject {
     @Published var users: [User] = []
     
     private var database = Firestore.firestore()
+    
+    func addUser() {
+        
+        //let _ = database.collection("Users")
+    }
 }
