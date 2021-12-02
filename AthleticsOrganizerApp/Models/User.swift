@@ -11,6 +11,7 @@ struct User: Identifiable, Codable {
     
     @DocumentID var id: String?
     var userName: String
+    var email: String
     var access: String
     var tournamentName: String
     var currentUser: Bool = false
@@ -18,6 +19,7 @@ struct User: Identifiable, Codable {
     enum CodingKeys: String, CodingKey {
         case id
         case userName
+        case email
         case access
         case tournamentName
         case currentUser

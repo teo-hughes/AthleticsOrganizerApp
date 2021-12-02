@@ -23,6 +23,8 @@ struct SignInView: View {
     // Accesses the AuthenticationViewModel
     @EnvironmentObject var viewModel: AuthenticationViewModel
     
+    @StateObject var userViewModel: UserViewModel
+    
     
     // The body of the SignInView
     var body: some View {
@@ -71,7 +73,24 @@ struct SignInView: View {
                         // If the viewModel failed to sign up show an Alert
                         if viewModel.signedIn == false && viewModel.signInErrorMessage != "" {
                             presentAlert = true
+                        } else {
+                            userViewModel.fetchUsers()
+                            print(userViewModel.users)
+                            
+                            for n in 0..<userViewModel.users.count {
+                                
+                                if userViewModel.users[n].email == email {
+                                    print("YES")
+                                    userViewModel.users[n].currentUser = true
+                                    userViewModel.addCurrentUser(user: userViewModel.users[n])
+                                    break
+                                }
+                                
+                            }
+                            
                         }
+                        
+                        
                         
                     }, label: {
                         
@@ -90,7 +109,7 @@ struct SignInView: View {
                     }
                     
                     // Seperate button to send you to the SignUpView
-                    NavigationLink("Create Account", destination: SignUpView())
+                    NavigationLink("Create Account", destination: SignUpView(userViewModel: userViewModel))
                         .padding()
                 }
                 .padding()

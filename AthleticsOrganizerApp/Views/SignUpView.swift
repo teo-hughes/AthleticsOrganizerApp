@@ -26,7 +26,7 @@ struct SignUpView: View {
     @EnvironmentObject var viewModel: AuthenticationViewModel
     
     
-    @StateObject var userViewModel = UserViewModel()
+    @StateObject var userViewModel: UserViewModel
     
     
     // The body of the SignUpView
@@ -96,7 +96,10 @@ struct SignUpView: View {
                     if viewModel.signedIn == false && viewModel.signUpErrorMessage != "" && viewModel.signUpErrorMessage != "Confirm password is incorrect" {
                         presentAlert = true
                     } else {
-                        userViewModel.addUser(user: User(userName: username, access: "Not assigned", tournamentName: "Not assigned", currentUser: true))
+                        let createdUser = User(userName: username, email: email, access: "Not assigned", tournamentName: "Not assigned", currentUser: true)
+                        userViewModel.addUser(user: createdUser)
+                        userViewModel.addCurrentUser(user: createdUser)
+                        
                     }
                 }, label: {
                     

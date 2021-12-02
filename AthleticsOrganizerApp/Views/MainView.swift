@@ -22,6 +22,7 @@ struct MainView: View {
     // Connect to the tournaments view model to fetch data from firestore
     @StateObject var viewModel = TournamentsViewModel()
     
+    @StateObject var userViewModel : UserViewModel
     
     // The body of the MainView
     var body: some View {
@@ -80,6 +81,7 @@ struct MainView: View {
                     // A button which fetches the tournament names and then all the tournaments from firestore
                     Button( action: {
                         viewModel.fetch()
+                        
                     }, label: {
                         
                         // Shows a refresh button
@@ -91,6 +93,7 @@ struct MainView: View {
         }
         .onAppear {
             viewModel.fetch()
+            print(userViewModel.currentUser)
         }
         .edgesIgnoringSafeArea(.all)
         .navigationViewStyle(StackNavigationViewStyle())

@@ -16,6 +16,8 @@ struct MenuView: View {
     
     // Accessing the data from the ViewOrganizer viewModel
     @StateObject var viewOrganizer = ViewOrganizer()
+    @StateObject var userViewModel: UserViewModel
+    
     
     
     // The body of the MenuView
@@ -34,7 +36,7 @@ struct MenuView: View {
                 
                 // Shows the MainView if the home icon is selected
                 case .home:
-                    MainView()
+                    MainView(userViewModel: userViewModel)
                     
                 // Shows the AnalysisView if the analysis icon is selcted
                 case .analysis:

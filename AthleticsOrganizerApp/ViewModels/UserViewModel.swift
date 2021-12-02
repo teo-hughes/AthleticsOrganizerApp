@@ -11,6 +11,7 @@ import FirebaseFirestore
 class UserViewModel: ObservableObject {
     
     @Published var users: [User] = []
+    @Published var currentUser = User(userName: "Default User", email: "Default Email", access: "Default Access", tournamentName: "Default TournamentName")
     
     private var database = Firestore.firestore()
     
@@ -19,6 +20,7 @@ class UserViewModel: ObservableObject {
         let _ = database.collection("Users").document("\(user.userName)").setData([
             
             "UserName" : user.userName,
+            "Email" : user.email,
             "Access" : user.access,
             "Current User" : user.currentUser,
             "User tournament" : user.tournamentName
@@ -26,9 +28,24 @@ class UserViewModel: ObservableObject {
         ])
     }
     
+    func addCurrentUser(user: User) {
+        
+        let _ = database.collection("Users").document("Current User").setData([
+            
+            "UserName" : user.userName,
+            "Email" : user.email,
+            "Access" : user.access,
+            "Current User" : user.currentUser,
+            "User tournament" : user.tournamentName
+            
+        ])
+        
+    }
+    
     func fetchUsers() {
         
         var userName: String = ""
+        var email: String = ""
         var access: String = ""
         var currentUser: Bool = false
         var userTournament: String = ""
@@ -38,24 +55,19 @@ class UserViewModel: ObservableObject {
             if let err = err {
                 print("ERROR \(err)")
             } else {
-                
-                for document in querySnapshot!.documents {
-                    
-                    let documentData = document.data()
-                    
-                    
-                    userName = documentData["UserName"] as? String ?? ""
-                    access = documentData["Access"] as? String ?? ""
-                    currentUser = documentData["Current User"] as? Bool ?? false
-                    userTournament = documentData["User Tournament"] as? String ?? ""
-                    
-                    self.users.append(User(userName: userName, access: access, tournamentName: userTournament, currentUser: currentUser))
-                    
+                DispatchQueue.main.async {
+                    self.users = querySnapshot!.documents.map { document -> User in
+                        userName = document["UserName"] as? String ?? ""
+                        email = document["Email"] as? String ?? ""
+                        access = document["Access"] as? String ?? ""
+                        currentUser = document["Current User"] as? Bool ?? false
+                        userTournament = document["User Tournament"] as? String ?? ""
+                        
+                        return User(userName: userName, email: email, access: access, tournamentName: userTournament, currentUser: currentUser)
+                    }
                 }
             }
         }
-        
-        
     }
     
     func addAllUsers(users: [User]) {
