@@ -25,5 +25,43 @@ class UserViewModel: ObservableObject {
             
         ])
     }
+    
+    func fetchUsers() {
+        
+        var userName: String = ""
+        var access: String = ""
+        var currentUser: Bool = false
+        var userTournament: String = ""
+        
+        database.collection("Users").addSnapshotListener { (querySnapshot, err) in
+            
+            if let err = err {
+                print("ERROR \(err)")
+            } else {
+                
+                for document in querySnapshot!.documents {
+                    
+                    let documentData = document.data()
+                    
+                    
+                    userName = documentData["UserName"] as? String ?? ""
+                    access = documentData["Access"] as? String ?? ""
+                    currentUser = documentData["Current User"] as? Bool ?? false
+                    userTournament = documentData["User Tournament"] as? String ?? ""
+                    
+                    self.users.append(User(userName: userName, access: access, tournamentName: userTournament, currentUser: currentUser))
+                    
+                }
+            }
+        }
+        
+        
+    }
+    
+    func addAllUsers(users: [User]) {
+        for user in users {
+            addUser(user: user)
+        }
+    }
 }
 
