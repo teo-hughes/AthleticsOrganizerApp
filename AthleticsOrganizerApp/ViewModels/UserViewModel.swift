@@ -14,8 +14,16 @@ class UserViewModel: ObservableObject {
     
     private var database = Firestore.firestore()
     
-    func addUser() {
+    func addUser(user: User) {
         
-        //let _ = database.collection("Users")
+        let _ = database.collection("Users").document("\(user.userName)").setData([
+            
+            "UserName" : user.userName,
+            "Access" : user.access,
+            "Current User" : user.currentUser,
+            "User tournament" : user.tournamentName
+            
+        ])
     }
 }
+

@@ -10,17 +10,17 @@ import FirebaseFirestoreSwift
 struct User: Identifiable, Codable {
     
     @DocumentID var id: String?
-    var username: String
+    var userName: String
     var access: String
-    var currentUser: Bool = false
     var tournamentName: String
+    var currentUser: Bool = false
     
     enum CodingKeys: String, CodingKey {
         case id
-        case username
+        case userName
         case access
-        case currentUser
         case tournamentName
+        case currentUser
     }
     
 }

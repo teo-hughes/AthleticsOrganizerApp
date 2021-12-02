@@ -15,6 +15,7 @@ struct SignUpView: View {
     
     
     // Variables to hold the email and password
+    @State var username = ""
     @State var email = ""
     @State var password = ""
     @State var confirmPassword = ""
@@ -23,6 +24,9 @@ struct SignUpView: View {
     
     // Accesses the AuthenticationViewModel
     @EnvironmentObject var viewModel: AuthenticationViewModel
+    
+    
+    @StateObject var userViewModel = UserViewModel()
     
     
     // The body of the SignUpView
@@ -40,6 +44,14 @@ struct SignUpView: View {
             
             // Seperate VStack for both TextFields
             VStack {
+                
+                // Textfield to input your email
+                TextField("Username", text: $username)
+                    // Disable autocorrect and autocapitalize
+                    .disableAutocorrection(true)
+                    .autocapitalization(.none)
+                    .padding()
+                    .background(Color(.secondarySystemBackground))
                 
                 // Textfield to input your email
                 TextField("Email Address", text: $email)
@@ -68,7 +80,7 @@ struct SignUpView: View {
                 Button(action: {
                     
                     // If both textfields aren't empty
-                    guard !email.isEmpty, !password.isEmpty else {
+                    guard !username.isEmpty, !email.isEmpty, !password.isEmpty else {
                         return
                     }
                     
@@ -83,6 +95,8 @@ struct SignUpView: View {
                     // If the viewModel failed to sign up show an Alert
                     if viewModel.signedIn == false && viewModel.signUpErrorMessage != "" && viewModel.signUpErrorMessage != "Confirm password is incorrect" {
                         presentAlert = true
+                    } else {
+                        userViewModel.addUser(user: User(userName: username, access: "Not assigned", tournamentName: "Not assigned", currentUser: true))
                     }
                 }, label: {
                     
