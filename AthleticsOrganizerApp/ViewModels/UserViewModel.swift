@@ -68,6 +68,7 @@ class UserViewModel: ObservableObject {
                 }
             }
         }
+
     }
     
     func addAllUsers(users: [User]) {

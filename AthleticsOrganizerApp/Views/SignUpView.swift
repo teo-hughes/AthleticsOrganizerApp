@@ -99,6 +99,7 @@ struct SignUpView: View {
                         let createdUser = User(userName: username, email: email, access: "Not assigned", tournamentName: "Not assigned", currentUser: true)
                         userViewModel.addUser(user: createdUser)
                         userViewModel.addCurrentUser(user: createdUser)
+                        userViewModel.currentUser = createdUser
                         
                     }
                 }, label: {
@@ -117,10 +118,14 @@ struct SignUpView: View {
                     Alert(title: Text("Sign Up Failed"), message: Text("\(viewModel.signUpErrorMessage)"), dismissButton: .default(Text("OK")))
                 }
             }
+            
             .padding()
             
             // Moves the VStacks to the top
             Spacer()
+        }
+        .onAppear {
+            userViewModel.fetchUsers()
         }
         .navigationTitle("Create Account")
     }

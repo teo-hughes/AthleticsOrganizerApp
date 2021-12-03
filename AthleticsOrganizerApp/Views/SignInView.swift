@@ -62,6 +62,7 @@ struct SignInView: View {
                     // The button which will sign you in
                     Button(action: {
                         
+                        
                         // If both textfields aren't empty
                         guard !email.isEmpty, !password.isEmpty else {
                             return
@@ -74,15 +75,14 @@ struct SignInView: View {
                         if viewModel.signedIn == false && viewModel.signInErrorMessage != "" {
                             presentAlert = true
                         } else {
-                            userViewModel.fetchUsers()
-                            print(userViewModel.users)
-                            
+                                                      
                             for n in 0..<userViewModel.users.count {
                                 
                                 if userViewModel.users[n].email == email {
-                                    print("YES")
+
                                     userViewModel.users[n].currentUser = true
                                     userViewModel.addCurrentUser(user: userViewModel.users[n])
+                                    userViewModel.currentUser = userViewModel.users[n]
                                     break
                                 }
                                 
@@ -120,6 +120,9 @@ struct SignInView: View {
             Spacer()
                 
             }
+        }
+        .onAppear {
+            userViewModel.fetchUsers()
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .navigationTitle("Sign In")

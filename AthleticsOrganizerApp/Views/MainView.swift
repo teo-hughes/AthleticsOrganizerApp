@@ -93,7 +93,7 @@ struct MainView: View {
         }
         .onAppear {
             viewModel.fetch()
-            print(userViewModel.currentUser)
+            userViewModel.fetchUsers()
         }
         .edgesIgnoringSafeArea(.all)
         .navigationViewStyle(StackNavigationViewStyle())
