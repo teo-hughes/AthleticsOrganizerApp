@@ -58,7 +58,7 @@ struct TournamentView: View {
                     Image(systemName: "person.crop.circle.badge.plus")
                 })
                 .sheet(isPresented: $presentAddUsersScreen) {
-                    AddUsersView()
+                    AddUsersView(viewModel: userViewModel)
                 }
                 
                 Spacer()
