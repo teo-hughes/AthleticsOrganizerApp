@@ -40,7 +40,7 @@ struct MainView: View {
                             
 
                                 // Display a navigation link which will go to the specific tournamentView
-                                NavigationLink(destination: TournamentView(tournament: viewModel.tournaments[n], viewModel: viewModel), label: {
+                            NavigationLink(destination: TournamentView(tournament: viewModel.tournaments[n], viewModel: viewModel, userViewModel: userViewModel), label: {
                                     
                                     // Shown as a tournamentCardView
                                     TournamentCardView(tournament: viewModel.tournaments[n])
@@ -81,6 +81,7 @@ struct MainView: View {
                     // A button which fetches the tournament names and then all the tournaments from firestore
                     Button( action: {
                         viewModel.fetch()
+                        userViewModel.fetchUsers()
                         
                     }, label: {
                         
@@ -93,7 +94,7 @@ struct MainView: View {
         }
         .onAppear {
             viewModel.fetch()
-            userViewModel.fetchUsers()
+            
         }
         .edgesIgnoringSafeArea(.all)
         .navigationViewStyle(StackNavigationViewStyle())
@@ -105,6 +106,3 @@ struct MainView: View {
         }
     }
 }
-
-
-

@@ -21,6 +21,7 @@
 		257FF04A26F602B3006C801D /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257FF04926F602B3006C801D /* MenuView.swift */; };
 		258408CC275255A600E29B92 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258408CB275255A600E29B92 /* User.swift */; };
 		258408CF275256B400E29B92 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258408CE275256B400E29B92 /* UserViewModel.swift */; };
+		258B2F43275A1C3C00926C9F /* AddUsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258B2F42275A1C3C00926C9F /* AddUsersView.swift */; };
 		258E261327103919006C1D9A /* TournamentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258E261227103919006C1D9A /* TournamentViewModel.swift */; };
 		2598483527498B4E000A7F75 /* EditTournamentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2598483427498B4E000A7F75 /* EditTournamentView.swift */; };
 		25AC0346274BF4C3008EB837 /* TeamsAlreadyAddedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AC0345274BF4C3008EB837 /* TeamsAlreadyAddedView.swift */; };
@@ -60,6 +61,7 @@
 		257FF04926F602B3006C801D /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		258408CB275255A600E29B92 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = AthleticsOrganizerApp/Models/User.swift; sourceTree = SOURCE_ROOT; };
 		258408CE275256B400E29B92 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		258B2F42275A1C3C00926C9F /* AddUsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUsersView.swift; sourceTree = "<group>"; };
 		258E261227103919006C1D9A /* TournamentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentViewModel.swift; sourceTree = "<group>"; };
 		2598483427498B4E000A7F75 /* EditTournamentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTournamentView.swift; sourceTree = "<group>"; };
 		25AC0345274BF4C3008EB837 /* TeamsAlreadyAddedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsAlreadyAddedView.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				25C15E5A27183908000BD2B6 /* CreateTournamentView.swift */,
 				427EC565271C97E500D26367 /* TournamentView.swift */,
 				2598483427498B4E000A7F75 /* EditTournamentView.swift */,
+				258B2F42275A1C3C00926C9F /* AddUsersView.swift */,
 				42249DC227243DB20061BAEE /* AddAthletesView.swift */,
 				25AC0345274BF4C3008EB837 /* TeamsAlreadyAddedView.swift */,
 				4252BD00271D7E1300FAAD9A /* EventCardView.swift */,
@@ -351,6 +354,7 @@
 				257FF00B26F5FF33006C801D /* AthleticsOrganizerAppApp.swift in Sources */,
 				4226A5C0271B223800374406 /* Event.swift in Sources */,
 				4226A5C4271B2E4100374406 /* EventViewModel.swift in Sources */,
+				258B2F43275A1C3C00926C9F /* AddUsersView.swift in Sources */,
 				4226A5C2271B26F300374406 /* Athlete.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
