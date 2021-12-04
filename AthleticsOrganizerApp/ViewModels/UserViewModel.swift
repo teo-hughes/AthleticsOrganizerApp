@@ -11,7 +11,7 @@ import FirebaseFirestore
 class UserViewModel: ObservableObject {
     
     @Published var users: [User] = []
-    @Published var currentUser = User(userName: "Default User", email: "Default Email", access: "Default Access", tournamentName: "Default TournamentName")
+    @Published var currentUser = User(userName: "", email: "", access: "", tournamentName: "")
     
     private var database = Firestore.firestore()
     
@@ -57,18 +57,55 @@ class UserViewModel: ObservableObject {
             } else {
                 DispatchQueue.main.async {
                     self.users = querySnapshot!.documents.map { document -> User in
-                        userName = document["UserName"] as? String ?? ""
-                        email = document["Email"] as? String ?? ""
-                        access = document["Access"] as? String ?? ""
-                        currentUser = document["Current User"] as? Bool ?? false
-                        userTournament = document["User Tournament"] as? String ?? ""
                         
-                        return User(userName: userName, email: email, access: access, tournamentName: userTournament, currentUser: currentUser)
+                        
+                            userName = document["UserName"] as? String ?? ""
+                            email = document["Email"] as? String ?? ""
+                            access = document["Access"] as? String ?? ""
+                            currentUser = document["Current User"] as? Bool ?? false
+                            userTournament = document["User Tournament"] as? String ?? ""
+                            
+                            return User(userName: userName, email: email, access: access, tournamentName: userTournament, currentUser: currentUser)
+                        
                     }
+                    self.users.removeAll(where: { $0.userName == "REMOVE CURRENT USER" })
                 }
             }
         }
+        
 
+    }
+    
+    func fetchCurrentUser() {
+        
+        var userName: String = ""
+        var email: String = ""
+        var access: String = ""
+        var currentUser: Bool = false
+        var userTournament: String = ""
+        
+        database.collection("Users").document("Current User").addSnapshotListener { documentSnapshot, err in
+            guard let document = documentSnapshot else {
+                print("Error \(err!)")
+                return
+            }
+            guard let data = document.data() else {
+                print("Document was empty")
+                return
+            }
+            
+            userName = data["UserName"] as? String ?? ""
+            email = document["Email"] as? String ?? ""
+            access = document["Access"] as? String ?? ""
+            currentUser = document["Current User"] as? Bool ?? false
+            userTournament = document["User Tournament"] as? String ?? ""
+            
+            self.currentUser = User(userName: userName, email: email, access: access, tournamentName: userTournament, currentUser: currentUser)
+            
+            
+        }
+        
+        
     }
     
     func addAllUsers(users: [User]) {

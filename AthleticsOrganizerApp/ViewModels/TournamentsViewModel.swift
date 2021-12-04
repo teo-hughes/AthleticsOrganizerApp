@@ -55,6 +55,8 @@ class TournamentsViewModel: ObservableObject {
         var ageGroups: [String] = [""]
         var genders: [Bool] = [false, false]
         var teams: [String] = [""]
+        var accessCode: String = ""
+        var organizer: User = User(userName: "", email: "", access: "", tournamentName: "")
         
         
         // Open the tournament collection
@@ -81,8 +83,17 @@ class TournamentsViewModel: ObservableObject {
                         ageGroups = documentData["tournamentAgeGroups"] as? [String] ?? [""]
                         genders = documentData["tournamentGenders"] as? [Bool] ?? [false, false]
                         teams = documentData["tournamentTeams"] as? [String] ?? [""]
+                        accessCode = documentData["tournamentAccessCode"] as? String ?? ""
                         
                         // If the document contains the athlete
+                    } else if document.documentID == "Organizer" {
+                        
+                        organizer.userName = documentData["OrganizerUserName"] as? String ?? ""
+                        organizer.email = documentData["OrganizerEmail"] as? String ?? ""
+                        organizer.access = documentData["OrganizerAccess"] as? String ?? ""
+                        organizer.currentUser = documentData["OrganizerCurrentUser"] as? Bool ?? true
+                        organizer.tournamentName = documentData["OrganizerTournament"] as? String ?? ""
+                        
                     } else if document.documentID == "TournamentAthletes" {
                         
                         // Go through the keys of the document (in this case the names of the athletes)
@@ -146,7 +157,7 @@ class TournamentsViewModel: ObservableObject {
                 dateFormatter.dateFormat = "HH:mm E, d MMM y"
                 let dateDate = dateFormatter.date(from: date) ?? Date()
                 // Create a tournamnet with all the details fetched from firestore
-                let tempTournament = Tournament(name: name, location: location, date: dateDate, ageGroups: ageGroups, genders: genders, teams: teams, Events: events, Athletes: athletes)
+                let tempTournament = Tournament(name: name, location: location, date: dateDate, ageGroups: ageGroups, genders: genders, teams: teams, accessCode: accessCode, organizer: organizer, Events: events, Athletes: athletes)
                 
                 // Check if you have already fetched the tournaments
                 var insideAlready = false

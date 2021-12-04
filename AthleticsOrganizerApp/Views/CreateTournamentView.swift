@@ -13,6 +13,7 @@ import SwiftUI
 // This View will allow users to create a tournament
 struct CreateTournamentView: View {
     
+    @State var currentUser: User
     
     // Access the tournament and eventViewModels to send data to firestore
     @StateObject var viewModel = TournamentViewModel()
@@ -231,6 +232,7 @@ struct CreateTournamentView: View {
                     
                     viewModel.tournament.ageGroups = ChosenAgeGroups
                     viewModel.tournament.genders = [male, female]
+                    viewModel.tournament.organizer = currentUser
                     
                     // Dismiss the view with saving
                     handleDoneTapped()

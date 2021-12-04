@@ -82,6 +82,7 @@ struct MainView: View {
                     Button( action: {
                         viewModel.fetch()
                         userViewModel.fetchUsers()
+                        userViewModel.fetchCurrentUser()
                         
                     }, label: {
                         
@@ -102,7 +103,7 @@ struct MainView: View {
         
         // Shows the CreateTournamentView if the presentAddNewTournamentScreen is true
         .sheet(isPresented: $presentAddNewTournamentScreen) {
-            CreateTournamentView()
+            CreateTournamentView(currentUser: userViewModel.currentUser)
         }
     }
 }

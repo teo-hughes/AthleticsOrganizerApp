@@ -15,7 +15,7 @@ class TournamentViewModel: ObservableObject {
     
     
     //Variable which stores a single tournament
-    @Published var tournament: Tournament = Tournament(name: "", location: "", date: Date(), Events: [])
+    @Published var tournament: Tournament = Tournament(name: "", location: "", date: Date(), organizer: User(userName: "", email: "", access: "", tournamentName: ""),Events: [])
     
     // Connecting to the firestore database
     private var database = Firestore.firestore()
@@ -35,7 +35,17 @@ class TournamentViewModel: ObservableObject {
             "tournamentDate": dateFormatter.string(from: tournament.date),
             "tournamentAgeGroups": tournament.ageGroups,
             "tournamentGenders": tournament.genders,
-            "tournamentTeams": tournament.teams
+            "tournamentTeams": tournament.teams,
+            "tournamentAccessCode": tournament.accessCode
+        ])
+        
+        
+        let _ = database.collection(tournament.name).document("Organizer").setData([
+            "OrganizerUserName": tournament.organizer.userName,
+            "OrganizerEmail" : tournament.organizer.email,
+            "OrganizerAccess" : tournament.organizer.access,
+            "OrganizerCurrentUser" : tournament.organizer.currentUser,
+            "OrganizerTournament" : tournament.organizer.tournamentName
         ])
         
         // To that tournament collection add a TournamentAthletes document which is empty
@@ -86,7 +96,8 @@ class TournamentViewModel: ObservableObject {
             "tournamentDate": dateFormatter.string(from: tournament.date),
             "tournamentAgeGroups": tournament.ageGroups,
             "tournamentGenders": tournament.genders,
-            "tournamentTeams": tournament.teams
+            "tournamentTeams": tournament.teams,
+            "tournamentAccessCode": tournament.accessCode
 
         ])
     }

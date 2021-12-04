@@ -19,8 +19,13 @@ struct AddUsersView: View {
     var body: some View {
         NavigationView {
             Form {
-                Text("Add Users View")
-                    .padding()
+                Section(header: Text("Organizers")) {
+                    
+                }
+                
+                Section(header: Text("Access")) {
+                    
+                }
             }
             // UI of navigation bar
             .navigationBarTitle("Add Users", displayMode: .inline)
@@ -48,6 +53,7 @@ struct AddUsersView: View {
                     Text("Done")
                 })
             )
+            
         }
         
         
