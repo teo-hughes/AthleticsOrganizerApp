@@ -96,7 +96,7 @@ struct SignUpView: View {
                     if viewModel.signedIn == false && viewModel.signUpErrorMessage != "" && viewModel.signUpErrorMessage != "Confirm password is incorrect" {
                         presentAlert = true
                     } else {
-                        let createdUser = User(userName: username, email: email, access: "Not assigned", tournamentName: "Not assigned", currentUser: true)
+                        let createdUser = User(userName: username, email: email, access: "Not assigned", tournamentName: "Not assigned", eventNames: ["None"], currentUser: true)
                         userViewModel.addUser(user: createdUser)
                         userViewModel.addCurrentUser(user: createdUser)
                         userViewModel.currentUser = createdUser

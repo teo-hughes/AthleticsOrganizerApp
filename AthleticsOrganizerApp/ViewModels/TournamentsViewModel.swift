@@ -56,7 +56,7 @@ class TournamentsViewModel: ObservableObject {
         var genders: [Bool] = [false, false]
         var teams: [String] = [""]
         var accessCode: String = ""
-        var organizer: User = User(userName: "", email: "", access: "", tournamentName: "")
+        var organizer: User = User(userName: "", email: "", access: "", tournamentName: "", eventNames: [])
         
         
         // Open the tournament collection
@@ -91,8 +91,9 @@ class TournamentsViewModel: ObservableObject {
                         organizer.userName = documentData["OrganizerUserName"] as? String ?? ""
                         organizer.email = documentData["OrganizerEmail"] as? String ?? ""
                         organizer.access = documentData["OrganizerAccess"] as? String ?? ""
-                        organizer.currentUser = documentData["OrganizerCurrentUser"] as? Bool ?? true
+                        organizer.eventNames = documentData["OrganizerEvents"] as? [String] ?? []
                         organizer.tournamentName = documentData["OrganizerTournament"] as? String ?? ""
+                        organizer.currentUser = documentData["OrganizerCurrentUser"] as? Bool ?? true
                         
                     } else if document.documentID == "TournamentAthletes" {
                         

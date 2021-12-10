@@ -12,8 +12,11 @@ import SwiftUI
 // This view will provide info surrounding the app's functions
 struct AddUsersView: View {
     
-    @StateObject var viewModel: UserViewModel
+    @StateObject var userViewModel: UserViewModel
+    @State var tournament: Tournament
     @Environment(\.presentationMode) var presentationMode
+    
+    @State private var accessCode: String = ""
     
     // The body of the InfoView
     var body: some View {
@@ -21,10 +24,16 @@ struct AddUsersView: View {
             Form {
                 Section(header: Text("Organizers")) {
                     
+                    Text("Organizer")
+                    
+                    
                 }
                 
                 Section(header: Text("Access")) {
                     
+                    TextField("Create access code", text: $accessCode)
+                        .disableAutocorrection(true)
+                        .autocapitalization(.none)
                 }
             }
             // UI of navigation bar

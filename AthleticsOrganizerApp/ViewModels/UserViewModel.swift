@@ -11,9 +11,10 @@ import FirebaseFirestore
 class UserViewModel: ObservableObject {
     
     @Published var users: [User] = []
-    @Published var currentUser = User(userName: "", email: "", access: "", tournamentName: "")
+    @Published var currentUser = User(userName: "", email: "", access: "", tournamentName: "", eventNames: [])
     
     private var database = Firestore.firestore()
+    
     
     func addUser(user: User) {
         
@@ -22,11 +23,13 @@ class UserViewModel: ObservableObject {
             "UserName" : user.userName,
             "Email" : user.email,
             "Access" : user.access,
-            "Current User" : user.currentUser,
-            "User tournament" : user.tournamentName
+            "User Tournament" : user.tournamentName,
+            "User Events" : user.eventNames,
+            "Current User" : user.currentUser
             
         ])
     }
+    
     
     func addCurrentUser(user: User) {
         
@@ -35,20 +38,22 @@ class UserViewModel: ObservableObject {
             "UserName" : user.userName,
             "Email" : user.email,
             "Access" : user.access,
-            "Current User" : user.currentUser,
-            "User tournament" : user.tournamentName
+            "User Tournament" : user.tournamentName,
+            "User Events" : user.eventNames,
+            "Current User" : user.currentUser
             
         ])
-        
     }
+    
     
     func fetchUsers() {
         
         var userName: String = ""
         var email: String = ""
         var access: String = ""
-        var currentUser: Bool = false
         var userTournament: String = ""
+        var userEvents: [String] = []
+        var currentUser: Bool = false
         
         database.collection("Users").addSnapshotListener { (querySnapshot, err) in
             
@@ -62,27 +67,29 @@ class UserViewModel: ObservableObject {
                             userName = document["UserName"] as? String ?? ""
                             email = document["Email"] as? String ?? ""
                             access = document["Access"] as? String ?? ""
-                            currentUser = document["Current User"] as? Bool ?? false
                             userTournament = document["User Tournament"] as? String ?? ""
+                            userEvents = document["User Events"] as? [String] ?? []
+                            currentUser = document["Current User"] as? Bool ?? false
                             
-                            return User(userName: userName, email: email, access: access, tournamentName: userTournament, currentUser: currentUser)
+                            
+                        return User(userName: userName, email: email, access: access, tournamentName: userTournament, eventNames: userEvents, currentUser: currentUser)
                         
                     }
                     self.users.removeAll(where: { $0.userName == "REMOVE CURRENT USER" })
                 }
             }
         }
-        
-
     }
+    
     
     func fetchCurrentUser() {
         
         var userName: String = ""
         var email: String = ""
         var access: String = ""
-        var currentUser: Bool = false
         var userTournament: String = ""
+        var userEvents: [String] = []
+        var currentUser: Bool = false
         
         database.collection("Users").document("Current User").addSnapshotListener { documentSnapshot, err in
             guard let document = documentSnapshot else {
@@ -97,15 +104,13 @@ class UserViewModel: ObservableObject {
             userName = data["UserName"] as? String ?? ""
             email = document["Email"] as? String ?? ""
             access = document["Access"] as? String ?? ""
-            currentUser = document["Current User"] as? Bool ?? false
             userTournament = document["User Tournament"] as? String ?? ""
+            userEvents = document["User Events"] as? [String] ?? []
+            currentUser = document["Current User"] as? Bool ?? false
             
-            self.currentUser = User(userName: userName, email: email, access: access, tournamentName: userTournament, currentUser: currentUser)
-            
+            self.currentUser = User(userName: userName, email: email, access: access, tournamentName: userTournament, eventNames: userEvents, currentUser: currentUser)
             
         }
-        
-        
     }
     
     func addAllUsers(users: [User]) {

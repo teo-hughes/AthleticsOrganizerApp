@@ -44,8 +44,9 @@ class TournamentViewModel: ObservableObject {
             "OrganizerUserName": tournament.organizer.userName,
             "OrganizerEmail" : tournament.organizer.email,
             "OrganizerAccess" : tournament.organizer.access,
-            "OrganizerCurrentUser" : tournament.organizer.currentUser,
-            "OrganizerTournament" : tournament.organizer.tournamentName
+            "OrganizerTournament" : tournament.organizer.tournamentName,
+            "OrganizerEvents" : tournament.organizer.eventNames,
+            "OrganizerCurrentUser" : tournament.organizer.currentUser
         ])
         
         // To that tournament collection add a TournamentAthletes document which is empty

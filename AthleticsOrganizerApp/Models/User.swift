@@ -14,6 +14,7 @@ struct User: Identifiable, Codable {
     var email: String
     var access: String
     var tournamentName: String
+    var eventNames: [String]
     var currentUser: Bool = false
     
     enum CodingKeys: String, CodingKey {
@@ -22,6 +23,7 @@ struct User: Identifiable, Codable {
         case email
         case access
         case tournamentName
+        case eventNames
         case currentUser
     }
     
