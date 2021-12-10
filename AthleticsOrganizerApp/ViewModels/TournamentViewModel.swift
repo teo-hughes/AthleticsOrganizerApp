@@ -15,7 +15,7 @@ class TournamentViewModel: ObservableObject {
     
     
     //Variable which stores a single tournament
-    @Published var tournament: Tournament = Tournament(name: "", location: "", date: Date(), organizer: User(userName: "", email: "", access: "", tournamentName: ""),Events: [])
+    @Published var tournament: Tournament = Tournament(name: "", location: "", date: Date(), organizer: User(userName: "", email: "", access: "", tournamentName: "", eventNames: []),Events: [])
     
     // Connecting to the firestore database
     private var database = Firestore.firestore()
