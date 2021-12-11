@@ -21,6 +21,9 @@ struct AddUsersView: View {
     @State private var newOrganizerName: String = ""
     @State private var newOrganizerEmail: String = ""
     
+    @State private var userSearch: String = ""
+    @State private var userSearchExpand: Bool = false
+    
     // The body of the InfoView
     var body: some View {
         NavigationView {
@@ -45,8 +48,11 @@ struct AddUsersView: View {
                         
                         Button(action: {
                             // Find user and if there isn't a user with this name then retry
+                            
+                            organizerExpand = false
                         }, label: {
                             Text("Done")
+                            
                         })
                     }
                     
@@ -54,6 +60,31 @@ struct AddUsersView: View {
                 
                 Section(header: Text("Adjudicators")) {
                     
+                    // Search through users
+                    // on a user, add an event
+                    HStack {
+                        TextField("Search for a user", text: $userSearch)
+                        Button(action: {
+                            
+                        }, label: {
+                            Text("Search")
+                        })
+                    }
+                    
+                    HStack {
+                        Text("Show Adjudicators")
+                        Spacer()
+                        Button(action: {
+                            
+                            userSearchExpand.toggle()
+                        }, label: {
+                            Image(systemName: userSearchExpand ? "chevron.up" : "chevron.down")
+                        })
+                    }
+                    
+                    if userSearchExpand {
+                        Text("Current Adjudicators")
+                    }
                     
                 }
                 
