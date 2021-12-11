@@ -106,6 +106,7 @@ struct SearchAthletesView: View {
                             tournamentAthletes[AthleteIndexes[n]].events.append(event.event_name)
                             tournamentAthletes[AthleteIndexes[n]].positions.append("N/A")
                             tournamentAthletes[AthleteIndexes[n]].times.append(0.0)
+                            tournamentAthletes[AthleteIndexes[n]].scores.append(0.0)
                             
                             // Add the athlete to the event
                             event.Athletes.append(tournamentAthletes[AthleteIndexes[n]])

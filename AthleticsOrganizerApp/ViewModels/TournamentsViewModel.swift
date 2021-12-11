@@ -108,9 +108,13 @@ class TournamentsViewModel: ObservableObject {
                                 let athleteTeam = idData["Team"] as? String ?? ""
                                 let athleteAgeGroup = idData["Age Group"] as? String ?? ""
                                 let athleteGender = idData["Gender"] as? String ?? ""
+                                let athletePositions = idData["Positions"] as? [String] ?? []
+                                let athleteEvents = idData["Events"] as? [String] ?? []
+                                let athleteTimes = idData["Times"] as? [Double] ?? []
+                                let athleteScores = idData["Scores"] as? [Double] ?? []
                                 
                                 // Add an Athlete created with the athlete details to athletes
-                                athletes.append(Athlete(name: athleteName, age_group: athleteAgeGroup, gender: athleteGender, team: athleteTeam))
+                                athletes.append(Athlete(name: athleteName, age_group: athleteAgeGroup, gender: athleteGender, team: athleteTeam, positions: athletePositions, events: athleteEvents, times: athleteTimes, scores: athleteScores))
                             }
                         }
                         
@@ -146,7 +150,7 @@ class TournamentsViewModel: ObservableObject {
                         }
                         
                         // Create an Event with all the data you have collected
-                        let tempEvent = Event(event_name: documentData["Name"] as? String ?? "", age_groups: documentData["Age Groups"] as? [String] ?? [""], genders: documentData["Genders"] as? [Bool] ?? [true, true], Athletes: eventAthletes)
+                        let tempEvent = Event(event_name: documentData["Name"] as? String ?? "", age_groups: documentData["Age Groups"] as? [String] ?? [""], genders: documentData["Genders"] as? [Bool] ?? [true, true], Athletes: eventAthletes, adjudicator: documentData["Adjudicator"] as? String ?? "", checked: documentData["Checked"] as? Bool ?? false)
                         
                         // Add the tempEvent to events
                         events.append(tempEvent)
