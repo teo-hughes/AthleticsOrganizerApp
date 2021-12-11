@@ -59,7 +59,8 @@ class TournamentViewModel: ObservableObject {
                 "Name" : event.event_name,
                 "Age Groups": event.age_groups,
                 "Genders": event.genders,
-                "checked": event.checked,
+                "Adjudicator": event.adjudicator,
+                "Checked": event.checked
             ])
         }
     }

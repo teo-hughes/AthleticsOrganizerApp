@@ -31,7 +31,12 @@ class AthleteViewModel: ObservableObject {
             athlete.name: ["Name": athlete.name,
                            "Team": athlete.team,
                            "Age Group": athlete.age_group,
-                           "Gender": athlete.gender]
+                           "Gender": athlete.gender,
+                           "Positions": athlete.positions,
+                           "Events": athlete.events,
+                           "Times": athlete.times,
+                           "Scores": athlete.scores
+                            ]
         ])
     }
     
