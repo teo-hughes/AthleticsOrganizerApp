@@ -190,6 +190,7 @@ struct EventView: View {
                 Text("Name")
                 Text("Team")
                 Text("Time")
+                Text("Performance")
             }
             
             // For each of the positions

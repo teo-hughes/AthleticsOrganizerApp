@@ -22,7 +22,6 @@ class EventViewModel: ObservableObject {
     
     // All the possible events
     private var EventNames : [String] = [
-        "60 metres",
         "100 metres",
         "200 metres",
         "400 metres",
@@ -31,32 +30,26 @@ class EventViewModel: ObservableObject {
         "3000 metres",
         "5000 metres",
         "10,000 metres",
-        "60 metres hurdles",
-        "100 metres hurdles",
         "110 metres hurdles",
         "400 metres hurdles",
+        "2000 metres steeplechase",
         "3000 metres steeplechase",
-        "Half marathon (road)",
-        "Marathon (road)",
-        "20 kilometres race walk (road)",
-        "50 kilometres race walk (road)",
-        "Cross country running",
         "4x100 metres relay",
         "4x400 metres relay",
-        "Mixed 4x400 metres relay",
-        "Pole vault",
         "High jump",
+        "Pole Vault",
         "Long jump",
         "Triple jump",
         "Shot put",
         "Discus throw",
         "Hammer throw",
         "Javelin throw",
-        "Pentathlon",
-        "Heptathlon",
         "Decathlon"
     ]
     
+    private var NationalRecords : [Float] = [10.21, 20.54, 45.36, 105.64, 216.6, 468.28, 807.04, 1761.9, 13.44, 50.22, 329.61, 509.85, 39.21, 183.8, 2.37, 5.5, 7.98, 16.58, 18.11, 55.1, 67.48, 79.5, 8082]
+    
+    private var NationalStandards : [Float] = [10.9, 22.0, 48.8, 113.0, 235.0, 513.0, 890.0, 1920.0, 14.7, 55.0, 364.0, 587.0, 2, 4.4, 6.9, 14.4, 14.1, 46.0, 52.0, 57.0, 6000]
     
     // Function to update an Event in firestore
     func saveEvent(tournamentName: String, event: Event) {
@@ -92,8 +85,8 @@ class EventViewModel: ObservableObject {
     init() {
         
         // Add the possibleEvents to the list
-        for eventName in EventNames {
-            possibleEvents.append(Event(event_name: eventName, age_groups: [], genders: []))
+        for n in 0..<EventNames.count {
+            possibleEvents.append(Event(event_name: EventNames[n], age_groups: [], genders: [], NR: NationalRecords[n], NS: NationalStandards[n], ES: 1.0, CS: 1.0))
         }
     }
 }
