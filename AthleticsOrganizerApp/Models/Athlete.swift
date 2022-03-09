@@ -22,6 +22,8 @@ struct Athlete: Identifiable, Codable {
     var positions: [String] = []
     var events: [String] = []
     var times: [Double] = []
+    var performances: [Double] = []
+    var scores: [Int] = []
     
     // Necessary to allow the athlete to be codable
     enum CodingKeys: String, CodingKey {
@@ -33,5 +35,7 @@ struct Athlete: Identifiable, Codable {
         case positions
         case events
         case times
+        case performances
+        case scores
     }
 }

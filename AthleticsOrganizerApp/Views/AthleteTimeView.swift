@@ -19,6 +19,8 @@ struct AthleteTimeView: View {
     @State var name: String
     @State var team: String
     @State var time: Double
+    @State var performance: Double
+    @State var score: Int
     
     
     // The body of AthleteTimeView
@@ -32,6 +34,8 @@ struct AthleteTimeView: View {
             Text(name)
             Text(team)
             Text(time.description)
+            Text(performance.description)
+            Text(score.description)
         }
     }
 }

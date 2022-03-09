@@ -191,6 +191,7 @@ struct EventView: View {
                 Text("Team")
                 Text("Time")
                 Text("Performance")
+                Text("Score")
             }
             
             // For each of the positions
@@ -200,12 +201,11 @@ struct EventView: View {
                 let index = event.Athletes[n].events.firstIndex(of: event.event_name) ?? 0
                 
                 // Show an AthleteTimeView of the athlete with the parameters
-                AthleteTimeView(position: "\(event.Athletes[n].positions[index]).", name: event.Athletes[n].name, team: event.Athletes[n].team, time: event.Athletes[n].times[index])
+                AthleteTimeView(position: "\(event.Athletes[n].positions[index]).", name: event.Athletes[n].name, team: event.Athletes[n].team, time: event.Athletes[n].times[index], performance: event.Athletes[n].performances[index], score: event.Athletes[n].scores[index])
             }
             
             // Spacer to push the add times button to the bottom
             Spacer()
-            
             
             // Button to add times for the event
             Text("Add Times")
@@ -281,6 +281,9 @@ struct EventView: View {
                 
                 // Set the athletes position to n + 1
                 event.Athletes[athleteInd].positions[ind] = "\(n + 1)"
+                
+                // Set score
+                event.Athletes[athleteInd].scores[ind] = positions.count - n + 1
             }
         })
     }

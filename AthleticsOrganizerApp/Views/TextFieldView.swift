@@ -44,6 +44,28 @@ struct TextFieldView: View {
                 // Adds the time to the athlete
                 event.Athletes[n].times[index] = doubleTime
                 
+                // Calculate performance
+                let NR = event.NR
+                let NS = event.NS
+                let ES = event.ES
+                let CS = event.CS
+                
+                let xMean = (NR + NS + ES + CS) / 4
+                
+                let yMean = 2.5
+                
+                let numerator = (NR * 1 + NS * 2 + ES * 3 + CS * 4) - 4 * xMean * yMean
+                
+                let denominator = ((NR ^ 2) + (NS ^ 2) + (ES ^ 2) + (CS ^ 2)) - 4 * (xMean ^ 2)
+                
+                let gradient = numerator / denominator
+                
+                let y_intercept = yMean - gradient * xMean
+                
+                let performance = y_intercept + gradient * doubleTime
+                
+                event.Athletes[n].performances[index] = performance
+                
                 // Saves the athlete to firestore
                 viewModel.saveAthlete(tournamentName: tournamentName, event: event, athlete: event.Athletes[n])
                 

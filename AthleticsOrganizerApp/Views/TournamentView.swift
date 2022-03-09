@@ -66,6 +66,19 @@ struct TournamentView: View {
             }
             .padding()
             
+            /* Last
+            VStack {
+                List {
+                    ForEach(0..<tournament.Athletes.count) { n in
+                        HStack {
+                            Text(tournament.Athletes[n].name)
+                            Text(tournament.Athletes[n].team)
+                            Text(tournament.Athletes[n].performances[0])
+                        }
+                    }
+                }
+            }
+            */
             // List which will have each event inside
             List {
                 

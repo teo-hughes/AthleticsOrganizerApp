@@ -124,16 +124,18 @@ class TournamentsViewModel: ObservableObject {
                                     let eventAthleteGender = idData["Gender"] as? String ?? ""
                                     let eventAthleteTime = idData["Time"] as? Double ?? 0.0
                                     let eventAthletePosition = idData["Position"] as? String ?? ""
+                                    let eventAthletePerformance = idData["Performance"] as? Double ?? 1.0
+                                    let eventAthleteScore = idData["Score"] as? Int ?? 100
                                     let eventAthleteEvent = idData["Event"] as? String ?? ""
                                     
                                     // Add an Athlete created with the athlete details to eventAthletes
-                                    eventAthletes.append(Athlete(name: eventAthleteName, age_group: eventAthleteAgeGroup, gender: eventAthleteGender, team: eventAthleteTeam, positions: [eventAthletePosition], events: [eventAthleteEvent], times: [eventAthleteTime]))
+                                    eventAthletes.append(Athlete(name: eventAthleteName, age_group: eventAthleteAgeGroup, gender: eventAthleteGender, team: eventAthleteTeam, positions: [eventAthletePosition], events: [eventAthleteEvent], times: [eventAthleteTime], performances: [eventAthletePerformance], scores: [eventAthleteScore]))
                                 }
                             }
                         }
                         
                         // Create an Event with all the data you have collected
-                        let tempEvent = Event(event_name: documentData["Name"] as? String ?? "", age_groups: documentData["Age Groups"] as? [String] ?? [""], genders: documentData["Genders"] as? [Bool] ?? [true, true], Athletes: eventAthletes)
+                        let tempEvent = Event(event_name: documentData["Name"] as? String ?? "", age_groups: documentData["Age Groups"] as? [String] ?? [""], genders: documentData["Genders"] as? [Bool] ?? [true, true], Athletes: eventAthletes, NR: documentData["National Record"] as? Double ?? 1.0, NS: documentData["National Standard"] as? Double ?? 1.0, ES: documentData["Entry Standard"] as? Double ?? 1.0, CS: documentData["County Standard"] as? Double ?? 1.0)
                         
                         // Add the tempEvent to events
                         events.append(tempEvent)

@@ -19,10 +19,10 @@ struct Event: Identifiable, Codable {
     var age_groups: [String]
     var genders: [Bool]
     var Athletes: [Athlete] = []
-    var NR: Float
-    var NS: Float
-    var ES: Float
-    var CS: Float
+    var NR: Double
+    var NS: Double
+    var ES: Double
+    var CS: Double
     var checked: Bool = false
     
     // Necessary to allow the event to be codable
