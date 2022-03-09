@@ -55,8 +55,6 @@ class TournamentsViewModel: ObservableObject {
         var ageGroups: [String] = [""]
         var genders: [Bool] = [false, false]
         var teams: [String] = [""]
-        var accessCode: String = ""
-        var organizer: User = User(userName: "", email: "", access: "", tournamentName: "", eventNames: [])
         
         
         // Open the tournament collection
@@ -83,18 +81,8 @@ class TournamentsViewModel: ObservableObject {
                         ageGroups = documentData["tournamentAgeGroups"] as? [String] ?? [""]
                         genders = documentData["tournamentGenders"] as? [Bool] ?? [false, false]
                         teams = documentData["tournamentTeams"] as? [String] ?? [""]
-                        accessCode = documentData["tournamentAccessCode"] as? String ?? ""
                         
                         // If the document contains the athlete
-                    } else if document.documentID == "Organizer" {
-                        
-                        organizer.userName = documentData["OrganizerUserName"] as? String ?? ""
-                        organizer.email = documentData["OrganizerEmail"] as? String ?? ""
-                        organizer.access = documentData["OrganizerAccess"] as? String ?? ""
-                        organizer.eventNames = documentData["OrganizerEvents"] as? [String] ?? []
-                        organizer.tournamentName = documentData["OrganizerTournament"] as? String ?? ""
-                        organizer.currentUser = documentData["OrganizerCurrentUser"] as? Bool ?? true
-                        
                     } else if document.documentID == "TournamentAthletes" {
                         
                         // Go through the keys of the document (in this case the names of the athletes)
@@ -108,13 +96,9 @@ class TournamentsViewModel: ObservableObject {
                                 let athleteTeam = idData["Team"] as? String ?? ""
                                 let athleteAgeGroup = idData["Age Group"] as? String ?? ""
                                 let athleteGender = idData["Gender"] as? String ?? ""
-                                let athletePositions = idData["Positions"] as? [String] ?? []
-                                let athleteEvents = idData["Events"] as? [String] ?? []
-                                let athleteTimes = idData["Times"] as? [Double] ?? []
-                                let athleteScores = idData["Scores"] as? [Double] ?? []
                                 
                                 // Add an Athlete created with the athlete details to athletes
-                                athletes.append(Athlete(name: athleteName, age_group: athleteAgeGroup, gender: athleteGender, team: athleteTeam, positions: athletePositions, events: athleteEvents, times: athleteTimes, scores: athleteScores))
+                                athletes.append(Athlete(name: athleteName, age_group: athleteAgeGroup, gender: athleteGender, team: athleteTeam))
                             }
                         }
                         
@@ -141,16 +125,15 @@ class TournamentsViewModel: ObservableObject {
                                     let eventAthleteTime = idData["Time"] as? Double ?? 0.0
                                     let eventAthletePosition = idData["Position"] as? String ?? ""
                                     let eventAthleteEvent = idData["Event"] as? String ?? ""
-                                    let eventAthleteScore = idData["Score"] as? Double ?? 0.0
                                     
                                     // Add an Athlete created with the athlete details to eventAthletes
-                                    eventAthletes.append(Athlete(name: eventAthleteName, age_group: eventAthleteAgeGroup, gender: eventAthleteGender, team: eventAthleteTeam, positions: [eventAthletePosition], events: [eventAthleteEvent], times: [eventAthleteTime], scores: [eventAthleteScore]))
+                                    eventAthletes.append(Athlete(name: eventAthleteName, age_group: eventAthleteAgeGroup, gender: eventAthleteGender, team: eventAthleteTeam, positions: [eventAthletePosition], events: [eventAthleteEvent], times: [eventAthleteTime]))
                                 }
                             }
                         }
                         
                         // Create an Event with all the data you have collected
-                        let tempEvent = Event(event_name: documentData["Name"] as? String ?? "", age_groups: documentData["Age Groups"] as? [String] ?? [""], genders: documentData["Genders"] as? [Bool] ?? [true, true], Athletes: eventAthletes, adjudicator: documentData["Adjudicator"] as? String ?? "", checked: documentData["Checked"] as? Bool ?? false)
+                        let tempEvent = Event(event_name: documentData["Name"] as? String ?? "", age_groups: documentData["Age Groups"] as? [String] ?? [""], genders: documentData["Genders"] as? [Bool] ?? [true, true], Athletes: eventAthletes)
                         
                         // Add the tempEvent to events
                         events.append(tempEvent)
@@ -163,7 +146,7 @@ class TournamentsViewModel: ObservableObject {
                 dateFormatter.dateFormat = "HH:mm E, d MMM y"
                 let dateDate = dateFormatter.date(from: date) ?? Date()
                 // Create a tournamnet with all the details fetched from firestore
-                let tempTournament = Tournament(name: name, location: location, date: dateDate, ageGroups: ageGroups, genders: genders, teams: teams, accessCode: accessCode, organizer: organizer, Events: events, Athletes: athletes)
+                let tempTournament = Tournament(name: name, location: location, date: dateDate, ageGroups: ageGroups, genders: genders, teams: teams, Events: events, Athletes: athletes)
                 
                 // Check if you have already fetched the tournaments
                 var insideAlready = false

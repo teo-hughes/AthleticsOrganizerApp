@@ -69,7 +69,7 @@ class EventViewModel: ObservableObject {
             
             // Add the athlete to the event in the specific tournament
             let _ = database.collection(tournamentName).document("\(event.event_name)").updateData([
-                athlete.name: ["Name": athlete.name, "Age Group": athlete.age_group, "Gender": athlete.gender, "Team": athlete.team, "Event": athlete.events[index], "Position": athlete.positions[index], "Time": athlete.times[index], "Score": athlete.scores[index]]
+                athlete.name: ["Name": athlete.name, "Age Group": athlete.age_group, "Gender": athlete.gender, "Team": athlete.team, "Event": athlete.events[index], "Position": athlete.positions[index], "Time": athlete.times[index]]
             ])
         }
     }
@@ -83,7 +83,7 @@ class EventViewModel: ObservableObject {
         
         // Add the athlete to the event in the specific tournament
         let _ = database.collection(tournamentName).document("\(event.event_name)").updateData([
-            athlete.name: ["Name": athlete.name, "Age Group": athlete.age_group, "Gender": athlete.gender, "Team": athlete.team, "Event": athlete.events[index], "Position": athlete.positions[index], "Time": athlete.times[index], "Score": athlete.scores[index]]
+            athlete.name: ["Name": athlete.name, "Age Group": athlete.age_group, "Gender": athlete.gender, "Team": athlete.team, "Event": athlete.events[index], "Position": athlete.positions[index], "Time": athlete.times[index]]
         ])
     }
     

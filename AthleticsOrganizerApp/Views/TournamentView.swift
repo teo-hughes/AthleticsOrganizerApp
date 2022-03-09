@@ -17,12 +17,10 @@ struct TournamentView: View {
     // Fetch the tournament and viewModel as parameters
     @State var tournament: Tournament
     @StateObject var viewModel: TournamentsViewModel
-    @StateObject var userViewModel: UserViewModel
     
     // To show the sheet to add new atheltes/teams
     @State private var presentEditTournamentScreen = false
     @State private var presentAddNewAthletesScreen = false
-    @State private var presentAddUsersScreen = false
     @Environment(\.presentationMode) var presentationMode
     
     
@@ -47,18 +45,6 @@ struct TournamentView: View {
                 })
                 .sheet(isPresented: $presentEditTournamentScreen) {
                     EditTournamentView(tournament: tournament)
-                }
-                
-                Spacer()
-                
-                Button(action: {
-                    presentAddUsersScreen.toggle()
-                }, label: {
-                    Text("Add Users")
-                    Image(systemName: "person.crop.circle.badge.plus")
-                })
-                .sheet(isPresented: $presentAddUsersScreen) {
-                    AddUsersView(userViewModel: userViewModel, tournament: tournament)
                 }
                 
                 Spacer()

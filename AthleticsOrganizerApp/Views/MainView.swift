@@ -22,7 +22,6 @@ struct MainView: View {
     // Connect to the tournaments view model to fetch data from firestore
     @StateObject var viewModel = TournamentsViewModel()
     
-    @StateObject var userViewModel : UserViewModel
     
     // The body of the MainView
     var body: some View {
@@ -40,7 +39,7 @@ struct MainView: View {
                             
 
                                 // Display a navigation link which will go to the specific tournamentView
-                            NavigationLink(destination: TournamentView(tournament: viewModel.tournaments[n], viewModel: viewModel, userViewModel: userViewModel), label: {
+                                NavigationLink(destination: TournamentView(tournament: viewModel.tournaments[n], viewModel: viewModel), label: {
                                     
                                     // Shown as a tournamentCardView
                                     TournamentCardView(tournament: viewModel.tournaments[n])
@@ -81,9 +80,6 @@ struct MainView: View {
                     // A button which fetches the tournament names and then all the tournaments from firestore
                     Button( action: {
                         viewModel.fetch()
-                        userViewModel.fetchUsers()
-                        userViewModel.fetchCurrentUser()
-                        
                     }, label: {
                         
                         // Shows a refresh button
@@ -95,7 +91,6 @@ struct MainView: View {
         }
         .onAppear {
             viewModel.fetch()
-            
         }
         .edgesIgnoringSafeArea(.all)
         .navigationViewStyle(StackNavigationViewStyle())
@@ -103,7 +98,10 @@ struct MainView: View {
         
         // Shows the CreateTournamentView if the presentAddNewTournamentScreen is true
         .sheet(isPresented: $presentAddNewTournamentScreen) {
-            CreateTournamentView(currentUser: userViewModel.currentUser)
+            CreateTournamentView()
         }
     }
 }
+
+
+

@@ -19,7 +19,6 @@ struct Event: Identifiable, Codable {
     var age_groups: [String]
     var genders: [Bool]
     var Athletes: [Athlete] = []
-    var adjudicator: String = ""
     var checked: Bool = false
     
     // Necessary to allow the event to be codable
@@ -29,7 +28,6 @@ struct Event: Identifiable, Codable {
         case age_groups
         case genders
         case Athletes
-        case adjudicator
         case checked
     }
 }

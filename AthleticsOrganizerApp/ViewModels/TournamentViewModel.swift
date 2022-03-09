@@ -15,7 +15,7 @@ class TournamentViewModel: ObservableObject {
     
     
     //Variable which stores a single tournament
-    @Published var tournament: Tournament = Tournament(name: "", location: "", date: Date(), organizer: User(userName: "", email: "", access: "", tournamentName: "", eventNames: []),Events: [])
+    @Published var tournament: Tournament = Tournament(name: "", location: "", date: Date(), Events: [])
     
     // Connecting to the firestore database
     private var database = Firestore.firestore()
@@ -35,18 +35,7 @@ class TournamentViewModel: ObservableObject {
             "tournamentDate": dateFormatter.string(from: tournament.date),
             "tournamentAgeGroups": tournament.ageGroups,
             "tournamentGenders": tournament.genders,
-            "tournamentTeams": tournament.teams,
-            "tournamentAccessCode": tournament.accessCode
-        ])
-        
-        
-        let _ = database.collection(tournament.name).document("Organizer").setData([
-            "OrganizerUserName": tournament.organizer.userName,
-            "OrganizerEmail" : tournament.organizer.email,
-            "OrganizerAccess" : tournament.organizer.access,
-            "OrganizerTournament" : tournament.organizer.tournamentName,
-            "OrganizerEvents" : tournament.organizer.eventNames,
-            "OrganizerCurrentUser" : tournament.organizer.currentUser
+            "tournamentTeams": tournament.teams
         ])
         
         // To that tournament collection add a TournamentAthletes document which is empty
@@ -59,8 +48,7 @@ class TournamentViewModel: ObservableObject {
                 "Name" : event.event_name,
                 "Age Groups": event.age_groups,
                 "Genders": event.genders,
-                "Adjudicator": event.adjudicator,
-                "Checked": event.checked
+                "checked": event.checked,
             ])
         }
     }
@@ -98,8 +86,7 @@ class TournamentViewModel: ObservableObject {
             "tournamentDate": dateFormatter.string(from: tournament.date),
             "tournamentAgeGroups": tournament.ageGroups,
             "tournamentGenders": tournament.genders,
-            "tournamentTeams": tournament.teams,
-            "tournamentAccessCode": tournament.accessCode
+            "tournamentTeams": tournament.teams
 
         ])
     }

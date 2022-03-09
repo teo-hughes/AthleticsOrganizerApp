@@ -16,7 +16,7 @@
     
     // Accesses the AuthenticationViewModel
     @EnvironmentObject var viewModel: AuthenticationViewModel
-    @StateObject var userViewModel = UserViewModel()
+    
     
     // The body of the LoginView
     var body: some View {
@@ -29,13 +29,13 @@
             if viewModel.signedIn {
                 
                 // Display the MenuView
-                MenuView(userViewModel: userViewModel)
+                MenuView()
                 
                 // If you still have to sign in
             } else {
                 
                 // Display the SignInView
-                SignInView(userViewModel: userViewModel)
+                SignInView()
             }
         }
         .onAppear {
