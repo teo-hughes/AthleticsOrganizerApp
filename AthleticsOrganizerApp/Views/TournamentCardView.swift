@@ -9,7 +9,7 @@
 // Importing SwiftUI
 import SwiftUI
 
-// Test
+
 // This View will show the tournament card
 struct TournamentCardView: View {
     

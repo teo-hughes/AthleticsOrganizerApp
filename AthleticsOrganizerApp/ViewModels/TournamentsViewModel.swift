@@ -26,7 +26,7 @@ class TournamentsViewModel: ObservableObject {
     func fetchTournamentNames() {
         
         // Collect the names from current Tournaments
-        database.collection("Current Tournaments").addSnapshotListener { (querySnapshot, err) in
+        database.collection("Current Tournaments").getDocuments() { (querySnapshot, err) in
             
             // Guard against errors
             if let err = err {
@@ -58,7 +58,7 @@ class TournamentsViewModel: ObservableObject {
         
         
         // Open the tournament collection
-        database.collection(tournamentCollectionName).addSnapshotListener { (querySnapshot, err) in
+        database.collection(tournamentCollectionName).getDocuments() { (querySnapshot, err) in
             
             // Guard against errors
             if let err = err {
