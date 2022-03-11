@@ -283,7 +283,7 @@ struct EventView: View {
                 event.Athletes[athleteInd].positions[ind] = "\(n + 1)"
                 
                 // Set score
-                event.Athletes[athleteInd].scores[ind] = positions.count - n + 1
+                event.Athletes[athleteInd].scores[ind] = positions.count - n
             }
         })
     }

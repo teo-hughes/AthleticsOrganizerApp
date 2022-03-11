@@ -45,24 +45,24 @@ struct TextFieldView: View {
                 event.Athletes[n].times[index] = doubleTime
                 
                 // Calculate performance
-                let NR = event.NR
-                let NS = event.NS
-                let ES = event.ES
-                let CS = event.CS
+                let NR : Double = event.NR
+                let NS : Double = event.NS
+                let ES : Double = event.ES
+                let CS : Double = event.CS
                 
-                let xMean = (NR + NS + ES + CS) / 4
+                let xMean : Double = (NR + NS + ES + CS) / 4
                 
-                let yMean = 2.5
+                let yMean : Double = 2.5
                 
-                let numerator = (NR * 1 + NS * 2 + ES * 3 + CS * 4) - 4 * xMean * yMean
+                let numerator : Double = (NR * 1 + NS * 2 + ES * 3 + CS * 4) - 4 * xMean * yMean
                 
-                let denominator = ((NR ^ 2) + (NS ^ 2) + (ES ^ 2) + (CS ^ 2)) - 4 * (xMean ^ 2)
+                let denominator : Double = (pow(NR, 2) + pow(NS, 2) + pow(ES, 2) + pow(CS, 2)) - 4 * pow(xMean, 2)
                 
-                let gradient = numerator / denominator
+                let gradient : Double = numerator / denominator
                 
-                let y_intercept = yMean - gradient * xMean
+                let y_intercept : Double = yMean - gradient * xMean
                 
-                let performance = y_intercept + gradient * doubleTime
+                let performance : Double = y_intercept + gradient * doubleTime
                 
                 event.Athletes[n].performances[index] = performance
                 

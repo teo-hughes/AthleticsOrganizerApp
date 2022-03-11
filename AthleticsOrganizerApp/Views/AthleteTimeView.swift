@@ -34,7 +34,7 @@ struct AthleteTimeView: View {
             Text(name)
             Text(team)
             Text(time.description)
-            Text(performance.description)
+            Text((round(performance * 1000) / 1000).description)
             Text(score.description)
         }
     }

@@ -9,7 +9,7 @@
 // Importing SwiftUI
 import SwiftUI
 
-// import AVKit
+import AVKit
 
 
 // This view will provide info surrounding the app's functions
@@ -18,8 +18,12 @@ struct InfoView: View {
     
     // The body of the InfoView
     var body: some View {
-        Text("Info View")
-        //VideoPlayer(player: AVPlayer(url: URL(string: "https://www.youtube.com/watch?v=W9nZ6u15yis")!))
         
+        VideoPlayer(player: AVPlayer(url: URL(string: "https://www.youtube.com/watch?v=W9nZ6u15yis")!))
+        VStack {
+            Text("Info View")
+                .font(.custom("Avenir", size: 50))
+                .foregroundColor(.black)
+        }
     }
 }
