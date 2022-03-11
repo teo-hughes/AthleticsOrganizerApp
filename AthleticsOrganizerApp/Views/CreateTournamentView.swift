@@ -49,7 +49,7 @@ struct CreateTournamentView: View {
                     TextField("Location", text: $viewModel.tournament.location)
                     
                     // DatePicker to allow the user to select a date
-                    DatePicker("Date", selection: $viewModel.tournament.date, displayedComponents: .date)
+                    DatePicker("Date", selection: $viewModel.tournament.date, in: Date()..., displayedComponents: .date)
                     
                     // HStack to add age groups to the tournament
                     HStack {
