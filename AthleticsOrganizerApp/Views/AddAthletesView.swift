@@ -194,7 +194,6 @@ struct AddAthletesView: View {
                         // Save the athlete to the athleteViewModel
                         tournament.Athletes.append(Athlete(name: AthleteName, age_group: AthleteAgeGroup, gender: AthleteGender, team: AthleteTeam))
                         print(tournament.Athletes)
-                        // Add the athlete to the ChosenAthletes list
 
                         
                         // Reset the athleteName
@@ -206,6 +205,7 @@ struct AddAthletesView: View {
                     })
                 }
                 
+                /*
                 Section(header: Text("Teams Already Added")) {
                         
                     List {
@@ -250,7 +250,7 @@ struct AddAthletesView: View {
                         
                         
                     }
-                }
+                }*/
             }
             .onAppear {
                 //viewModel.athletes = athletes

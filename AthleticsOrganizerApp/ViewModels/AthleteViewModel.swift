@@ -40,6 +40,7 @@ class AthleteViewModel: ObservableObject {
     func save(tournamentName: String) {
         
         
+        // Delete all the athletes in tournament athletes
         database.collection("\(tournamentName)").document("TournamentAthletes").delete() { err in
             if let err = err {
                 print("Error!!! \(err)")
@@ -48,6 +49,7 @@ class AthleteViewModel: ObservableObject {
             }
         }
         
+        // Set the data in the TournamentAthletes document to nothing
         let _ = database.collection(tournamentName).document("TournamentAthletes").setData([:])
         
         // Going through all the athletes in the viewModel
@@ -58,6 +60,7 @@ class AthleteViewModel: ObservableObject {
         }
     }
     
+    // Function which adds the teams to the view model
     func addTeam(tournamentName: String) {
         
         
