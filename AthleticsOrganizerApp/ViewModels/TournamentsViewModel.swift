@@ -200,8 +200,13 @@ class TournamentsViewModel: ObservableObject {
         }
     }
     
+    // Function to fetch the tournaments from the database
     func fetch() {
+        
+        // Fetch all the names of the tournaments
         fetchTournamentNames()
+        
+        // Fetch the data from each of those tournaments
         for name in self.names {
             fetchData(tournamentCollectionName: name)
         }
