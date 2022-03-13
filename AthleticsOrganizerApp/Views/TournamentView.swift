@@ -48,9 +48,14 @@ struct TournamentView: View {
             
             HStack {
                 
+                // Button to edit a tournament
                 Button(action: {
+                    
+                    // Presents the edit tournament view
                     presentEditTournamentScreen.toggle()
                 }, label: {
+                    
+                    // Shows the user it is an edit button
                     Text("Edit")
                     Image(systemName: "pencil.circle")
                 })
@@ -60,13 +65,17 @@ struct TournamentView: View {
                 
                 Spacer()
                 
+                // Button to load and sort the scores
                 Button( action: {
+                    
+                    // Fetch the data and create variables
                     viewModel.fetch()
                     athleteNames = []
                     athleteTeams = []
                     athleteScores = []
                     athletePerformances = []
                     
+                    // Process the data into those variables
                     for event in tournament.Events {
                         for athlete in event.Athletes {
                             athleteNames.append(athlete.name)
@@ -76,29 +85,36 @@ struct TournamentView: View {
                         }
                     }
                     
+                    // Insertion sort to sort the scores
                     for i in 1..<athleteNames.count {
+                        
+                        // Variables that I will be "inserting"
                         athleteToInsert = athleteScores[i]
                         nameToInsert = athleteNames[i]
                         teamToInsert = athleteTeams[i]
                         performanceToInsert = athletePerformances[i]
                         
+                        // Used to find the previous variable
                         previous = i - 1
                         
-                        while previous >= 0 && athleteScores[previous] > athleteToInsert {
+                        // While loop which will find the correct position of the variable
+                        while previous >= 0 && athleteScores[previous] < athleteToInsert {
                             
+                            // Swap the variables
                             athleteScores[previous + 1] = athleteScores[previous]
                             athleteNames[previous + 1] = athleteNames[previous]
                             athleteTeams[previous + 1] = athleteTeams[previous]
                             athletePerformances[previous + 1] = athletePerformances[previous]
                             
+                            // Decrease previous by 1
                             previous = previous - 1
                         }
                         
+                        // Storing the variable in the correct position
                         athleteScores[previous + 1] = athleteToInsert
                         athleteNames[previous + 1] = nameToInsert
                         athleteTeams[previous + 1] = teamToInsert
                         athletePerformances[previous + 1] = performanceToInsert
-                        
                     }
                     
                 }, label: {
@@ -128,22 +144,28 @@ struct TournamentView: View {
             }
             .padding()
             
+            // VStack which will show the sorted athletes
             VStack {
+                
+                // Check if I have loaded the athletes
                 if !athleteNames.isEmpty {
+                    
+                    // Go through the athletes
                     ForEach(0..<athleteNames.count) { n in
-                                
+                        
+                        // Display the key details
                         HStack {
                             Text(athleteNames[n])
                             Text(athleteTeams[n])
+                            
+                            // Rounds the performance to 3 decimal places
                             Text((round(athletePerformances[n] * 1000) / 1000).description)
                             Text(athleteScores[n].description)
                         }
                     }
-                            
                 }
-                
-                
             }
+            
             VStack {
                 // List which will have each event inside
                 List {

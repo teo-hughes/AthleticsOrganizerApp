@@ -19,7 +19,10 @@ struct InfoView: View {
     // The body of the InfoView
     var body: some View {
         
+        // The video player which will show the video
         VideoPlayer(player: AVPlayer(url: URL(string: "https://www.youtube.com/watch?v=W9nZ6u15yis")!))
+        
+        // A VStack which will show some corresponding text
         VStack {
             Text("Info View")
                 .font(.custom("Avenir", size: 50))

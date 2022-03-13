@@ -205,16 +205,16 @@ struct AddAthletesView: View {
                     })
                 }
                 
-                /*
+                // Section to show the teams already added
                 Section(header: Text("Teams Already Added")) {
-                        
+                    
+                    // List to go through the teams
                     List {
+                        
+                        // For each team display the view
                         ForEach(0..<tournament.teams.count, id: \.self) { n in
                             TeamsAlreadyAddedView(tournament: tournament, name: tournament.teams[n], viewModel: viewModel, presentationMode: presentationMode)
-                            
-                            
                         }
-                    
                     }
                 }
                 
@@ -227,30 +227,29 @@ struct AddAthletesView: View {
                         
                         ForEach(0..<tournament.Athletes.count, id: \.self) { n in
                             
+                            // Get the name of the athlete
                             let name = tournament.Athletes[n].name
                             
+                            // HStack to show details of the athlete
                             HStack {
                                 Text(name)
                                     .padding()
                                 Text(tournament.Athletes[n].team)
                                     .padding()
                                 Spacer()
+                                
+                                // Button to delete the athlete
                                 Button(action: {
                                     
+                                    // Remove the athlete from the tournament
                                     tournament.Athletes.remove(at: n)
-                                    
-                                    
-                                    
-                                    
                                 }, label: {
                                     Text("Delete")
                                 })
                             }
                         }
-                        
-                        
                     }
-                }*/
+                }
             }
             .onAppear {
                 //viewModel.athletes = athletes

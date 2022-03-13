@@ -42,11 +42,11 @@ struct TournamentCardView: View {
                         HStack {
                             Text("Location: \(tournament.location)")
                                 .foregroundColor(Color.black)
-                                .font(.custom("Avenir", size:15))
+                                .font(.custom("Avenir", size:16))
                                 .padding()
                             Text("Date: \(tournament.date)")
                                 .foregroundColor(Color.black)
-                                .font(.custom("Avenir", size:15))
+                                .font(.custom("Avenir", size:16))
                                 .padding()
                         }
                     }.padding()

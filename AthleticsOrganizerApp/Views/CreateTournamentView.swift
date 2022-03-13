@@ -29,6 +29,8 @@ struct CreateTournamentView: View {
     @State private var male = false
     @State private var female = false
     
+    @State private var presentErrorAlert = false
+    
     
     // The body of CreateTournamentView
     var body: some View {
@@ -214,31 +216,40 @@ struct CreateTournamentView: View {
                 // Trailing button to save
                 trailing: Button(action: {
                     
-                    // For each possible event
-                    for n in 0..<eventViewModel.possibleEvents.count {
+                    // Validation to check if all key values are inputted
+                    if ChosenAgeGroups != [] && (male == true || female == true) && viewModel.tournament.name != "" {
                         
-                        // If the event has been checked
-                        if eventViewModel.possibleEvents[n].checked == true {
+                        // For each possible event
+                        for n in 0..<eventViewModel.possibleEvents.count {
                             
-                            // Add the age groups and genders to the event
-                            eventViewModel.possibleEvents[n].age_groups = ChosenAgeGroups
-                            eventViewModel.possibleEvents[n].genders = [male, female]
-                            
-                            // Add the event to the tournament
-                            viewModel.tournament.Events.append(eventViewModel.possibleEvents[n])
+                            // If the event has been checked
+                            if eventViewModel.possibleEvents[n].checked == true {
+                                
+                                // Add the age groups and genders to the event
+                                eventViewModel.possibleEvents[n].age_groups = ChosenAgeGroups
+                                eventViewModel.possibleEvents[n].genders = [male, female]
+                                
+                                // Add the event to the tournament
+                                viewModel.tournament.Events.append(eventViewModel.possibleEvents[n])
+                            }
                         }
+                        
+                        viewModel.tournament.ageGroups = ChosenAgeGroups
+                        viewModel.tournament.genders = [male, female]
+                        
+                        // Dismiss the view with saving
+                        handleDoneTapped()
+                    } else {
+                        presentErrorAlert.toggle()
                     }
-                    
-                    viewModel.tournament.ageGroups = ChosenAgeGroups
-                    viewModel.tournament.genders = [male, female]
-                    
-                    // Dismiss the view with saving
-                    handleDoneTapped()
                 }, label: {
                     
                     // UI of button
                     Text("Done")
                 })
+                .alert(isPresented: $presentErrorAlert) {
+                    Alert(title: Text("Key information is missing"), message: Text("Check that you have inputted information for all variables, including age groups, genders and name"), dismissButton: .default(Text("OK")))
+                }
             )
         }
     }

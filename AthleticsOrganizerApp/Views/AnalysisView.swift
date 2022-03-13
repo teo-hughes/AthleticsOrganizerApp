@@ -28,32 +28,49 @@ struct AnalysisView: View {
     
     // The body of the AnalysisView
     var body: some View {
+        
+        // Vstack for the text fields
         VStack {
+            
+            // Spacer to push the UI to the bottom
             Spacer()
+            
+            // Text to show it is a performance calculator
             Text("Performance Calculator")
                 .foregroundColor(Color.black)
                 .font(.custom("Avenir", size:25))
                 .padding()
+                .keyboardType(.decimalPad)
             
+            // Textfield for the score
             TextField("Your Score: ", text: $score)
                 .padding()
                 .background(Color(.secondarySystemBackground))
+                .keyboardType(.decimalPad)
             
+            // Textfield for the national record
             TextField("National Record: ", text: $NRText)
                 .padding()
                 .background(Color(.secondarySystemBackground))
+                .keyboardType(.decimalPad)
             
+            // Textfield for the national standard
             TextField("National Standard: ", text: $NSText)
                 .padding()
                 .background(Color(.secondarySystemBackground))
+                .keyboardType(.decimalPad)
             
+            // Textfield for the entry standard
             TextField("Entry Standard: ", text: $ESText)
                 .padding()
                 .background(Color(.secondarySystemBackground))
+                .keyboardType(.decimalPad)
             
+            // Textfield for the county standard
             TextField("County Standard: ", text: $CSText)
                 .padding()
                 .background(Color(.secondarySystemBackground))
+                .keyboardType(.decimalPad)
             
             Button(action: {
                 
@@ -92,6 +109,7 @@ struct AnalysisView: View {
             })
             Spacer()
             
+            // Show the user their performance to 3 decimal places
             Text("Your Performance is " + (round(performance * 1000) / 1000).description)
                 .foregroundColor(Color.black)
                 .font(.custom("Avenir", size:25))

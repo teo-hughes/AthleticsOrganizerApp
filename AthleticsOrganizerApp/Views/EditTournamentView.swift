@@ -26,6 +26,7 @@ struct EditTournamentView: View {
     
     @State private var originalName: String = ""
     
+    @State private var presentErrorAlert = false
     
     // The body of CreateTournamentView
     var body: some View {
@@ -214,48 +215,64 @@ struct EditTournamentView: View {
                 // Trailing button to save
                 trailing: Button(action: {
                     
-                    tournament.Events = []
-                    
-                    // For each possible event
-                    for n in 0..<eventViewModel.possibleEvents.count {
+                    // Validation to check if all key values are inputted
+                    if tournament.ageGroups != [] && (tournament.genders[0] == true || tournament.genders[1] == true) && tournament.name != "" {
+
+                        tournament.Events = []
                         
-                        // If the event has been checked
-                        if eventViewModel.possibleEvents[n].checked == true {
+                        // For each possible event
+                        for n in 0..<eventViewModel.possibleEvents.count {
                             
-                            // Add the age groups and genders to the event
-                            eventViewModel.possibleEvents[n].age_groups = tournament.ageGroups
-                            eventViewModel.possibleEvents[n].genders = [tournament.genders[0], tournament.genders[1]]
-                            
-                            // Add the event to the tournament
-                            tournament.Events.append(eventViewModel.possibleEvents[n])
+                            // If the event has been checked
+                            if eventViewModel.possibleEvents[n].checked == true {
+                                
+                                // Add the age groups and genders to the event
+                                eventViewModel.possibleEvents[n].age_groups = tournament.ageGroups
+                                eventViewModel.possibleEvents[n].genders = [tournament.genders[0], tournament.genders[1]]
+                                
+                                // Add the event to the tournament
+                                tournament.Events.append(eventViewModel.possibleEvents[n])
+                            }
                         }
+                        
+                        // Store the new tournament in a view model variable
+                        viewModel.tournament = tournament
+                        
+                        // Delete the old tournament
+                        deleteViewModel.deleteTournament(tournamentName: originalName)
+                        
+                        // Save the new tournament
+                        viewModel.save()
+                        
+                        // Dismiss the view with saving
+                        handleDoneTapped()
+                    } else {
+                        presentErrorAlert.toggle()
                     }
-                    
-                    viewModel.tournament = tournament
-                    
-                    deleteViewModel.deleteTournament(tournamentName: originalName)
-                    
-                    viewModel.save()
-                    
-                    // Dismiss the view with saving
-                    handleDoneTapped()
                 }, label: {
                     
                     // UI of button
                     Text("Done")
                 })
+                .alert(isPresented: $presentErrorAlert) {
+                    Alert(title: Text("Key information is missing"), message: Text("Check that you have inputted information for all variables, including age groups, genders and name"), dismissButton: .default(Text("OK")))
+                }
             )
         }
         .onAppear {
             
+            // Go through the events to see if they are in the tournament
             for event in tournament.Events {
                 for n in 0 ..< eventViewModel.possibleEvents.count {
+                    
+                    // If they are in the tournament set checked = true
                     if event.event_name == eventViewModel.possibleEvents[n].event_name {
                         eventViewModel.possibleEvents[n].checked = true
                     }
                 }
             }
             
+            // Set the name to the original tournament name
             originalName = tournament.name
         }
     }

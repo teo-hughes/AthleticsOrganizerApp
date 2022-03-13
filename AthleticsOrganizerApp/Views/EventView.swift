@@ -18,6 +18,8 @@ struct EventView: View {
     @State var tournamentAthletes: [Athlete]
     @State var tournamentName: String
     
+    @StateObject var viewModel = EventViewModel()
+    
     // To show the sheets to add athletes to the event or add times to the event
     @State private var presentAddAthletesScreen = false
     @State private var presentAddTimesScreen = false
@@ -270,6 +272,14 @@ struct EventView: View {
                 }
             }
             
+            // Check if the scores are sorted incorrectly
+            if event.NR > event.CS {
+                
+                // Reverse the scores
+                times.reverse()
+                positions.reverse()
+            }
+            
             // Go through the positions
             for n in 0..<positions.count {
                 
@@ -285,6 +295,9 @@ struct EventView: View {
                 // Set score
                 event.Athletes[athleteInd].scores[ind] = positions.count - n
             }
+            
+            viewModel.saveEvent(tournamentName: tournamentName, event: event)
+            
         })
     }
 }
