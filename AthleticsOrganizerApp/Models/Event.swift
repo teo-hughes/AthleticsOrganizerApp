@@ -13,6 +13,7 @@ import FirebaseFirestoreSwift
 // A model for an event which is identifiable and codable
 struct Event: Identifiable, Codable {
     
+    
     // The variables which the event will have
     @DocumentID var id: String?
     var event_name: String
@@ -24,6 +25,7 @@ struct Event: Identifiable, Codable {
     var ES: Double
     var CS: Double
     var checked: Bool = false
+    
     
     // Necessary to allow the event to be codable
     enum CodingKeys: String, CodingKey {

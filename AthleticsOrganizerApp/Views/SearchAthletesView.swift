@@ -102,7 +102,7 @@ struct SearchAthletesView: View {
                         // If the athlete was checked
                         if AthletesChecked[n] {
                             
-                            // Add the event, position and time to the athlete
+                            // Add the default values to the athlete as well as the event name
                             tournamentAthletes[AthleteIndexes[n]].events.append(event.event_name)
                             tournamentAthletes[AthleteIndexes[n]].positions.append("N/A")
                             tournamentAthletes[AthleteIndexes[n]].times.append(0.0)
@@ -149,7 +149,7 @@ struct SearchAthletesView: View {
     // Function to save and dismiss when done is pressed
     func handleDoneTapped() {
         
-        // Save the event to firestore
+        // Save the event to firebase
         viewModel.saveEvent(tournamentName: tournamentName, event: event)
         dismiss()
     }

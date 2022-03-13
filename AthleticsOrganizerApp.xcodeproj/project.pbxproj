@@ -139,8 +139,8 @@
 				25AC0345274BF4C3008EB837 /* TeamsAlreadyAddedView.swift */,
 				4252BD00271D7E1300FAAD9A /* EventCardView.swift */,
 				4252BD02271D7E2000FAAD9A /* EventView.swift */,
-				25656F9E273D7FDF00C47926 /* AthleteTimeView.swift */,
 				42B122EF27284E34003A026C /* SearchAthletesView.swift */,
+				25656F9E273D7FDF00C47926 /* AthleteTimeView.swift */,
 				4259B8A62726BA9600346280 /* AddTimesView.swift */,
 				25656FA1273D807000C47926 /* TextFieldView.swift */,
 			);

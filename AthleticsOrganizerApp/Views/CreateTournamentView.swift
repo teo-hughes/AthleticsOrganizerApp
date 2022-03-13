@@ -29,6 +29,7 @@ struct CreateTournamentView: View {
     @State private var male = false
     @State private var female = false
     
+    // Variable which will show an alert if there is an error
     @State private var presentErrorAlert = false
     
     
@@ -41,7 +42,6 @@ struct CreateTournamentView: View {
             
             // Form to structure the view
             Form {
-                
                 
                 // Section for the tournament details
                 Section(header: Text("Tournament Details")) {
@@ -82,7 +82,7 @@ struct CreateTournamentView: View {
                         Spacer()
                         Image(systemName:  expand ? "chevron.up" : "chevron.down")
                         
-                        // When tapped toggle expand
+                    // When tapped toggle expand
                     }.onTapGesture {
                         self.expand.toggle()
                     }
@@ -163,7 +163,7 @@ struct CreateTournamentView: View {
                     // For all of the possible events
                     ForEach(0..<eventViewModel.possibleEvents.count) { n in
                         
-                        // Hstack to show the event
+                        // HStack to show the event
                         HStack {
                             
                             // UI of event (name)
@@ -180,7 +180,7 @@ struct CreateTournamentView: View {
                                 // If event.checked is true
                                 if eventViewModel.possibleEvents[n].checked {
                                     
-                                    // Overlap unchecked image with cheked image
+                                    // Overlap unchecked image with checked image
                                     Image(systemName: "checkmark.circle.fill")
                                         .font(.system(size: 25))
                                         .foregroundColor(Color.green)
@@ -234,12 +234,17 @@ struct CreateTournamentView: View {
                             }
                         }
                         
+                        // Adds the age groups and genders to the tournament
                         viewModel.tournament.ageGroups = ChosenAgeGroups
                         viewModel.tournament.genders = [male, female]
                         
                         // Dismiss the view with saving
                         handleDoneTapped()
+                    
+                    // If the key inputs weren't filled
                     } else {
+                        
+                        // Present the error alert
                         presentErrorAlert.toggle()
                     }
                 }, label: {
@@ -247,7 +252,10 @@ struct CreateTournamentView: View {
                     // UI of button
                     Text("Done")
                 })
+                // Alert shown when the key inputs aren't filled
                 .alert(isPresented: $presentErrorAlert) {
+                    
+                    // Message shown to the user notifying them of their error
                     Alert(title: Text("Key information is missing"), message: Text("Check that you have inputted information for all variables, including age groups, genders and name"), dismissButton: .default(Text("OK")))
                 }
             )

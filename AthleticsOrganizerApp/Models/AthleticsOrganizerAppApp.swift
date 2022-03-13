@@ -23,11 +23,12 @@ struct AthleticsOrganizerAppApp: App {
     // The body of the app
     var body: some Scene {
         
+        
+        // Allows multiple instances of the window to be created
         WindowGroup {
             
             // I will have to pass this into the LoginView
             let viewModel = AuthenticationViewModel()
-            
             
             // The LoginView will be the view which is opened when the app is launched
             LoginView()

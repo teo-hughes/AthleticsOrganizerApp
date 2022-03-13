@@ -47,13 +47,18 @@ class EventViewModel: ObservableObject {
         "Decathlon"
     ]
     
+    // The national records for each event
     private var NationalRecords : [Double] = [10.21, 20.54, 45.36, 105.64, 216.6, 468.28, 807.04, 1761.9, 13.44, 50.22, 329.61, 509.85, 39.21, 183.8, 2.37, 5.5, 7.98, 16.58, 18.11, 55.1, 67.48, 79.5, 8082]
     
+    // The national standards for each event
     private var NationalStandards : [Double] = [10.9, 22.0, 48.8, 113.0, 235.0, 513.0, 890.0, 1920.0, 14.7, 55.0, 364.0, 587.0, 43.5, 196.0, 2.0, 4.4, 6.9, 14.4, 14.1, 46.0, 52.0, 57.0, 6000]
     
+    // The entry standards for each event
     private var EntryStandards : [Double] = [11.1, 22.3, 49.3, 115.0, 238.0, 516.0, 904.0, 1960.0, 15.2, 56.5, 370.0, 601.0, 44.5, 203.0, 1.94, 4.1, 6.8, 13.9, 13.0, 40.0, 46.0, 53.0, 5500]
     
+    // The county standards for each event
     private var CountyStandards : [Double] = [11.5, 23.3, 52.5, 162.0, 255.0, 560.0, 932.0, 2003.0, 16.2, 59.5, 390.0, 662.0, 45.3, 220.0, 1.83, 3.3, 6.25, 12.85, 11.5, 34.0, 39.0, 46.0, 5000]
+    
     
     // Function to update an Event in firestore
     func saveEvent(tournamentName: String, event: Event) {
@@ -88,7 +93,7 @@ class EventViewModel: ObservableObject {
     // What happens when you initialize the viewModel
     init() {
         
-        // Add the possibleEvents to the list
+        // Add the EventNames to the possibleEvents list
         for n in 0..<EventNames.count {
             possibleEvents.append(Event(event_name: EventNames[n], age_groups: [], genders: [], NR: NationalRecords[n], NS: NationalStandards[n], ES: EntryStandards[n], CS: CountyStandards[n]))
         }

@@ -17,6 +17,7 @@ struct TournamentCardView: View {
     // Fetching the tournament as a parameter
     @State var tournament: Tournament
     
+    
     // The body of the TournamentCardView
     var body: some View {
         

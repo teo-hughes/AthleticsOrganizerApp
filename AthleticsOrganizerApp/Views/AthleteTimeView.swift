@@ -34,6 +34,8 @@ struct AthleteTimeView: View {
             Text(name)
             Text(team)
             Text(time.description)
+            
+            // The performance is rounded to 3 decimal places
             Text((round(performance * 1000) / 1000).description)
             Text(score.description)
         }

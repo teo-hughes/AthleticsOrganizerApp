@@ -18,12 +18,12 @@ struct TournamentView: View {
     @State var tournament: Tournament
     @StateObject var viewModel: TournamentsViewModel
     
-    // To show the sheet to add new atheltes/teams
+    // To show sheets to edit the tournament and add new athletes as well as a presentationMode
     @State private var presentEditTournamentScreen = false
     @State private var presentAddNewAthletesScreen = false
     @Environment(\.presentationMode) var presentationMode
     
-    
+    // Variables which will be used in the insertion sort
     @State private var athleteNames: [String] = []
     @State private var athleteTeams: [String] = []
     @State private var athleteScores: [Int] = []
@@ -34,7 +34,7 @@ struct TournamentView: View {
     @State private var teamToInsert: String = "Insert team"
     @State private var previous: Int = 0
     
-    
+    // Presents an alert when you want to delete a tournament
     @State private var presentAlert = false
     
     
@@ -42,16 +42,16 @@ struct TournamentView: View {
     var body: some View {
         
         
-        
         // VStack to show all the events
         VStack {
             
+            // HStack for the buttons at the top
             HStack {
                 
                 // Button to edit a tournament
                 Button(action: {
                     
-                    // Presents the edit tournament view
+                    // Presents the Edit Tournament View
                     presentEditTournamentScreen.toggle()
                 }, label: {
                     
@@ -60,9 +60,12 @@ struct TournamentView: View {
                     Image(systemName: "pencil.circle")
                 })
                 .sheet(isPresented: $presentEditTournamentScreen) {
+                    
+                    // Present EditTournamentView
                     EditTournamentView(tournament: tournament)
                 }
                 
+                // Spacer to move the edit button to the left
                 Spacer()
                 
                 // Button to load and sort the scores
@@ -116,8 +119,9 @@ struct TournamentView: View {
                         athleteTeams[previous + 1] = teamToInsert
                         athletePerformances[previous + 1] = performanceToInsert
                     }
-                    
                 }, label: {
+                    
+                    // UI of button
                     HStack {
                         Text("Load Scores")
                         // Shows a refresh button
@@ -126,23 +130,34 @@ struct TournamentView: View {
                     }
                 })
                 
+                // Spacer to move the delete button to the right
                 Spacer()
+                
+                // The button to delete a tournament
                 Button(action: {
                     
+                    // Presents the delete alert
                     presentAlert.toggle()
-                    
                 }, label: {
+                    
+                    // UI of button
                     Text("Delete")
                     Image(systemName: "delete.left")
                 })
+                // Alert shown when button is pressed
                 .alert(isPresented: $presentAlert) {
+                    
+                    // Show a warning to the user
                     Alert(title: Text("Delete \(tournament.name)"), message: Text("Deleting will permanently remove the tournament"), primaryButton: .destructive(Text("Delete")) {
+                        
+                        // Delete the tournament and dismiss the alert
                         viewModel.deleteTournament(tournamentName: tournament.name)
                         self.presentationMode.wrappedValue.dismiss()
                     }, secondaryButton: .cancel())
                 }
             }
             .padding()
+            
             
             // VStack which will show the sorted athletes
             VStack {
@@ -166,14 +181,17 @@ struct TournamentView: View {
                 }
             }
             
+            
+            // VStack which will have all the events inside
             VStack {
-                // List which will have each event inside
+                
+                // List which will display each event separately
                 List {
                     
                     // For each loop which goes through all the events in the tournamnet
                     ForEach(0..<tournament.Events.count) { n in
                         
-                        // Display a navigation olink which will go to the specific EventView
+                        // Display a navigation link which will go to the specific EventView
                         NavigationLink(destination: EventView(event: tournament.Events[n], tournamentAthletes: tournament.Athletes, tournamentName: tournament.name), label: {
                             
                             // Shown as an EventCardView
@@ -186,11 +204,13 @@ struct TournamentView: View {
             // Spacer to move the events to the top
             Spacer()
             
-            // Button to add teams and athletes
+            // Text that precedes the button to add teams and athletes
             Text("Add Teams and Athletes")
             
-            // When the button is pressed, it toggles presentAddNewAthletesScreen
+            // Button to add teams and athletes
             Button( action: {
+                
+                // When pressed shows the AddAthletesView
                 presentAddNewAthletesScreen.toggle()
             }, label: {
                 
@@ -203,7 +223,5 @@ struct TournamentView: View {
                 AddAthletesView(tournamentName: tournament.name, tournament: tournament, events: tournament.Events, athletes: tournament.Athletes)
             }
         }
-        
     }
 }
-

@@ -22,6 +22,7 @@ class AuthenticationViewModel: ObservableObject {
     @Published var signInErrorMessage = ""
     @Published var signUpErrorMessage = ""
     
+    // Variable which finds out if the user was signed in
     var isSignedIn: Bool {
         return auth.currentUser !=  nil
     }

@@ -18,7 +18,8 @@ struct SignUpView: View {
     @State var email = ""
     @State var password = ""
     @State var confirmPassword = ""
-    
+
+    // Variable to hold the value of whether or not to show the alert
     @State private var presentAlert = false
     
     // Accesses the AuthenticationViewModel
@@ -57,6 +58,7 @@ struct SignUpView: View {
                     .padding()
                     .background(Color(.secondarySystemBackground))
                 
+                // Confirm password textfield to make sure the user correctly typed the password
                 SecureField("Confirm Password", text: $confirmPassword)
                     // Disable autocorrect and autocapitalize
                     .disableAutocorrection(true)
@@ -72,10 +74,15 @@ struct SignUpView: View {
                         return
                     }
                     
+                    // If the confirm password is different from the password
                     if confirmPassword != password {
+                        
+                        // Create a relevant error message and then present the alert
                         viewModel.signUpErrorMessage = "Confirm password is incorrect"
                         presentAlert = true
+                        
                     } else {
+                        
                         // Sign up using the viewModel
                         viewModel.signUp(email: email, password: password)
                     }
@@ -102,7 +109,7 @@ struct SignUpView: View {
             }
             .padding()
             
-            // Moves the VStacks to the top
+            // Moves the content to the top
             Spacer()
         }
         .navigationTitle("Create Account")

@@ -37,17 +37,19 @@ struct AddAthletesView: View {
     @State private var AthleteGender: String = "Male"
     @State private var AthleteAgeGroup: String = ""
     
+    // Alert which will be shown when someone tries to delete a team
     @State private var presentAlert = false
+    
     
     // The body of AddAthletesView
     var body: some View {
+    
         
         // NavigationView allows us to have a navigation bar
         NavigationView {
             
             // Form to structure the view
             Form {
-                
                 
                 // Section for the teams
                 Section(header: Text("Teams (Do This First!)")) {
@@ -61,13 +63,14 @@ struct AddAthletesView: View {
                         // Button to submit the team
                         Button(action: {
                             
-                            // If the team isn't empty add it to the list
+                            // If the team isn't empty
                             if ChosenTeam != "" {
                                 
+                                // Add the team to the list
                                 tournament.teams.append(ChosenTeam)
-                                //viewModel.teams.append(ChosenTeam)
+                                
+                                // Reset the text field
                                 ChosenTeam = ""
-                                //viewModel.addTeam(tournamentName: tournamentName)
                             }
                         }, label: {
                             
@@ -84,7 +87,7 @@ struct AddAthletesView: View {
                         Spacer()
                         Image(systemName:  teamExpand ? "chevron.up" : "chevron.down")
                         
-                        // When tapped toggle teamExpand
+                    // When tapped toggle teamExpand
                     }.onTapGesture {
                         self.teamExpand.toggle()
                     }
@@ -184,26 +187,24 @@ struct AddAthletesView: View {
                         }
                     }
                     
-                    
                     // Textfield for the athlete's name
                     TextField("Athlete's Name", text: $AthleteName)
                     
                     // Button to submit the athlete
                     Button(action: {
                         
-                        // Save the athlete to the athleteViewModel
+                        // Add the athlete to the tournament
                         tournament.Athletes.append(Athlete(name: AthleteName, age_group: AthleteAgeGroup, gender: AthleteGender, team: AthleteTeam))
-                        print(tournament.Athletes)
 
-                        
                         // Reset the athleteName
                         AthleteName = ""
                     }, label: {
-                        
+                            
                         // UI of button
                         Text("Add Athlete")
                     })
                 }
+                
                 
                 // Section to show the teams already added
                 Section(header: Text("Teams Already Added")) {
@@ -211,13 +212,14 @@ struct AddAthletesView: View {
                     // List to go through the teams
                     List {
                         
-                        // For each team display the view
+                        // For each team
                         ForEach(0..<tournament.teams.count, id: \.self) { n in
+                            
+                            // Display the TeamsAlreadyAddedView
                             TeamsAlreadyAddedView(tournament: tournament, name: tournament.teams[n], viewModel: viewModel, presentationMode: presentationMode)
                         }
                     }
                 }
-                
                 
                 // Section to show the athletes already added
                 Section(header: Text("Athletes Already Added")) {
@@ -225,6 +227,7 @@ struct AddAthletesView: View {
                     // List to go through the athletes
                     List {
                         
+                        // For each athlete in the tournament
                         ForEach(0..<tournament.Athletes.count, id: \.self) { n in
                             
                             // Get the name of the athlete
@@ -232,6 +235,8 @@ struct AddAthletesView: View {
                             
                             // HStack to show details of the athlete
                             HStack {
+                                
+                                // Key details of the athlete
                                 Text(name)
                                     .padding()
                                 Text(tournament.Athletes[n].team)
@@ -244,6 +249,8 @@ struct AddAthletesView: View {
                                     // Remove the athlete from the tournament
                                     tournament.Athletes.remove(at: n)
                                 }, label: {
+                                    
+                                    // UI of button
                                     Text("Delete")
                                 })
                             }
@@ -251,11 +258,7 @@ struct AddAthletesView: View {
                     }
                 }
             }
-            .onAppear {
-                //viewModel.athletes = athletes
-                //viewModel.teams = tournament.teams
-            }
-            // UI of navigation bar
+             // UI of navigation bar
             .navigationBarTitle("Add Teams", displayMode: .inline)
             .navigationBarItems(
                 
@@ -273,13 +276,19 @@ struct AddAthletesView: View {
                 // Trailing button to save
                 trailing: Button(action: {
                     
+                    // Go through all the teams in the view model
                     for team in viewModel.teams {
+                        
+                        // If the team is not in the tournament, add it to the tournament
                         if tournament.teams.contains(team) == false {
                             tournament.teams.append(team)
                         }
                     }
+                    
+                    // Save the details of the tournament to firebase
                     tournamentViewModel.addDetails(tournament: tournament)
                     
+                    // Save the athletes to the view model which will save it to firebase
                     viewModel.athletes = tournament.Athletes
                     viewModel.save(tournamentName: tournamentName)
                     
@@ -302,7 +311,7 @@ struct AddAthletesView: View {
     // Function to save and dismiss when done is pressed
     func handleDoneTapped() {
         
-        // Save the athlete to firestore
+        // Save the tournament to firebase
         viewModel.save(tournamentName: tournamentName)
         dismiss()
     }

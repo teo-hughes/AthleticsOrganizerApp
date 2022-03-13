@@ -17,6 +17,8 @@ struct AddTimesView: View {
     // Fetch the data from EventView
     @State var event: Event
     @State var tournamentName: String
+    
+    // Access the event view model
     @StateObject var viewModel = EventViewModel()
     
     // Variable which is the mode of the sheet (allows us to dismiss it)
@@ -93,5 +95,4 @@ struct AddTimesView: View {
     func dismiss() {
         presentationMode.wrappedValue.dismiss()
     }
-    
 }

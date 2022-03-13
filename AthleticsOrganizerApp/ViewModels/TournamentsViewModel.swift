@@ -43,7 +43,7 @@ class TournamentsViewModel: ObservableObject {
     }
     
     
-    // Function to fetch all the data from a specific tournament and add to tournaments
+    // Function to fetch all the data from a specific tournament and add to the tournaments variable
     func fetchDataFromTournament(tournamentCollectionName: String) {
         
         // Initial variables to store the data
@@ -55,7 +55,6 @@ class TournamentsViewModel: ObservableObject {
         var ageGroups: [String] = [""]
         var genders: [Bool] = [false, false]
         var teams: [String] = [""]
-        
         
         // Open the tournament collection
         database.collection(tournamentCollectionName).getDocuments() { (querySnapshot, err) in
@@ -74,7 +73,7 @@ class TournamentsViewModel: ObservableObject {
                     // If the document contains the details of the tournament
                     if document.documentID == "Details" {
                         
-                        // Fetch the name, location and date
+                        // Fetch the name, location, date, ageGroups, genders and teams
                         name = documentData["tournamentName"] as? String ?? ""
                         location = documentData["tournamentLocation"] as? String ?? ""
                         date = documentData["tournamentDate"] as? String ?? ""
@@ -82,7 +81,7 @@ class TournamentsViewModel: ObservableObject {
                         genders = documentData["tournamentGenders"] as? [Bool] ?? [false, false]
                         teams = documentData["tournamentTeams"] as? [String] ?? [""]
                         
-                        // If the document contains the athlete
+                    // If the document contains the tournament athletes
                     } else if document.documentID == "TournamentAthletes" {
                         
                         // Go through the keys of the document (in this case the names of the athletes)
@@ -102,7 +101,7 @@ class TournamentsViewModel: ObservableObject {
                             }
                         }
                         
-                        // If the document is an event
+                    // If the document is an event
                     } else {
                         
                         // Create a variable to store the eventAthletes
@@ -142,12 +141,14 @@ class TournamentsViewModel: ObservableObject {
                     }
                 }
                 
-                
+                // Create a formatter to transform the date back into the date type
                 let dateFormatter = DateFormatter()
-                
                 dateFormatter.dateFormat = "HH:mm E, d MMM y"
+                
+                // Transform the date into the date type
                 let dateDate = dateFormatter.date(from: date) ?? Date()
-                // Create a tournamnet with all the details fetched from firestore
+                
+                // Create a tournament with all the details fetched from firebase
                 let tempTournament = Tournament(name: name, location: location, date: dateDate, ageGroups: ageGroups, genders: genders, teams: teams, Events: events, Athletes: athletes)
                 
                 // Check if you have already fetched the tournaments
@@ -162,47 +163,54 @@ class TournamentsViewModel: ObservableObject {
                 if insideAlready == false {
                     self.tournaments.append(tempTournament)
                 }
-                
             }
-        
-            
         }
     }
     
     
-    // Function which will be called to fetch the data from a tournamnet
+    // Function which will be called to fetch the data from a tournament
     func fetchData(tournamentCollectionName: String) {
         
         // Call the function which fetches all the data
         fetchDataFromTournament(tournamentCollectionName: tournamentCollectionName)
     }
     
+    
     // Function to delete a tournament from the database
     func deleteTournament(tournamentName: String) {
         
         // Delete the name from the current tournaments collection
         database.collection("Current Tournaments").document("\(tournamentName)").delete() { err in
+            
+            // Check for errors
             if let err = err {
                 print("Error!!! \(err)")
             } else {
-                // Access the collection
+                
+                // Access the collection of the tournament
                 self.database.collection("\(tournamentName)").getDocuments() { (querySnapshot, err) in
-                        if let err = err {
-                            print("Error!!! \(err)")
-                        } else {
-                            // Delete all the documents in the collection
-                            for document in querySnapshot!.documents {
-                                self.database.collection("\(tournamentName)").document(document.documentID).delete() { err in
-                                    if let err = err {
-                                        print("Error!!! \(err)")
-                                    }
+                    
+                    // Check for errors
+                    if let err = err {
+                        print("Error!!! \(err)")
+                    } else {
+                        
+                        // Delete all the documents in the collection
+                        for document in querySnapshot!.documents {
+                            self.database.collection("\(tournamentName)").document(document.documentID).delete() { err in
+                                
+                                // Check for errors
+                                if let err = err {
+                                    print("Error!!! \(err)")
                                 }
                             }
                         }
+                    }
                 }
             }
         }
     }
+    
     
     // Function to fetch the tournaments from the database
     func fetch() {

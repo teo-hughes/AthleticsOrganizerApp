@@ -5,36 +5,54 @@
 //  Created by Hughes, Teo (BJH) on 22/11/2021.
 //
 
+
+// Importing SwiftUI
 import SwiftUI
 
+
+// This view will show a team and allow you to delete it
 struct TeamsAlreadyAddedView: View {
     
+    // Fetch the tournament, name and athlete view model as parameters
     @State var tournament: Tournament
     @State var name: String
     @State var viewModel: AthleteViewModel
+    
+    // Alert which will be shown if you want to delete a team
     @State private var presentAlert = false
     
+    // Variable which is the mode of the alert allowing us to dismiss it
     @Binding var presentationMode: PresentationMode
+    
     
     // Body of the teams already added view
     var body: some View {
+    
         
-        // UI of teams already added view
+        // HStack to display the UI of teams already added view
         HStack {
             
             // Show the name of the team
             Text(name)
                 .padding()
+            
+            // Spacer to push the button to the right
             Spacer()
             
-            // A button which when pressed would delete the team
+            // A button which deletes the team
             Button(action: {
+                
+                // Show the alert warning the user
                 presentAlert.toggle()
             }, label: {
+                
+                // UI of button
                 Text("Delete")
             })
+            // Alert shown when the button is pressed
             .alert(isPresented: $presentAlert) {
-                // Alert to warn the user
+                
+                // Shows a message to warn the user
                 Alert(title: Text("Delete \(name)"), message: Text("Deleting will permanently remove the team and all the athletes inside it"), primaryButton: .destructive(Text("Delete")) {
                     
                     // Get all the indexes of all the athletes which are in that team

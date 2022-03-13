@@ -18,7 +18,7 @@ class ViewOrganizer: ObservableObject {
 }
 
 
-// These are the different tabs that could be opened
+// These are the different tabs that could be selected
 enum WhichView {
     case home
     case analysis

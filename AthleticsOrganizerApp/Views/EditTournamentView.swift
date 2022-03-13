@@ -5,28 +5,36 @@
 //  Created by Hughes, Teo (BJH) on 20/11/2021.
 //
 
+
+// Importing SwiftUI
 import SwiftUI
 
+
+// This view is what is shown when you want to edit a tournament
 struct EditTournamentView: View {
     
+    
+    // Access the tournament as a parameter
     @State var tournament: Tournament
     
     // Access the tournament and eventViewModels to send data to firestore
     @StateObject var eventViewModel = EventViewModel()
     @StateObject var viewModel = TournamentViewModel()
+    
+    // Access the tournamentsViewModel to be able to delete a tournament
     @StateObject var deleteViewModel = TournamentsViewModel()
     
     // Variable which is the mode of the sheet (allows us to dismiss it)
     @Environment(\.presentationMode) var presentationMode
     
     // Variables which will hold some of the data of the tournament
-    
     @State private var ChosenAgeGroup: String = ""
     @State private var expand = false
-    
     @State private var originalName: String = ""
     
+    // Variable which will present an alert when there is an error
     @State private var presentErrorAlert = false
+    
     
     // The body of CreateTournamentView
     var body: some View {
@@ -38,7 +46,6 @@ struct EditTournamentView: View {
             // Form to structure the view
             Form {
                 
-                
                 // Section for the tournament details
                 Section(header: Text("Tournament Details")) {
                     
@@ -47,7 +54,7 @@ struct EditTournamentView: View {
                     TextField("Location", text: $tournament.location)
                     
                     // DatePicker to allow the user to select a date
-                    DatePicker("Date", selection: $tournament.date, displayedComponents: .date)
+                    DatePicker("Date", selection: $tournament.date, in: Date()..., displayedComponents: .date)
                     
                     // HStack to add age groups to the tournament
                     HStack {
@@ -78,7 +85,7 @@ struct EditTournamentView: View {
                         Spacer()
                         Image(systemName:  expand ? "chevron.up" : "chevron.down")
                         
-                        // When tapped toggle expand
+                    // When tapped toggle expand
                     }.onTapGesture {
                         self.expand.toggle()
                     }
@@ -159,8 +166,7 @@ struct EditTournamentView: View {
                     // For all of the possible events
                     ForEach(0..<eventViewModel.possibleEvents.count) { n in
                         
-                        
-                        // Hstack to show the event
+                        // HStack to show the event
                         HStack {
                             
                             // UI of event (name)
@@ -194,8 +200,6 @@ struct EditTournamentView: View {
                     }
                 }
                 .padding(.bottom)
-                
-                
             }
             // UI of navigation bar
             .navigationBarTitle("New Tournament", displayMode: .inline)
@@ -217,7 +221,8 @@ struct EditTournamentView: View {
                     
                     // Validation to check if all key values are inputted
                     if tournament.ageGroups != [] && (tournament.genders[0] == true || tournament.genders[1] == true) && tournament.name != "" {
-
+                        
+                        // Make the tournament.events empty so you can add to it
                         tournament.Events = []
                         
                         // For each possible event
@@ -246,7 +251,11 @@ struct EditTournamentView: View {
                         
                         // Dismiss the view with saving
                         handleDoneTapped()
+                    
+                    // If the key inputs weren't filled
                     } else {
+                        
+                        // Present the error alert
                         presentErrorAlert.toggle()
                     }
                 }, label: {
@@ -254,7 +263,10 @@ struct EditTournamentView: View {
                     // UI of button
                     Text("Done")
                 })
+                // Alert shown when the key inputs aren't filled
                 .alert(isPresented: $presentErrorAlert) {
+                    
+                    // Message shown to the user notifying them of their error
                     Alert(title: Text("Key information is missing"), message: Text("Check that you have inputted information for all variables, including age groups, genders and name"), dismissButton: .default(Text("OK")))
                 }
             )
@@ -263,6 +275,8 @@ struct EditTournamentView: View {
             
             // Go through the events to see if they are in the tournament
             for event in tournament.Events {
+                
+                // Go through all the possible events
                 for n in 0 ..< eventViewModel.possibleEvents.count {
                     
                     // If they are in the tournament set checked = true
@@ -282,15 +296,8 @@ struct EditTournamentView: View {
         dismiss()
     }
     
-    // Function to save and dismiss when done is pressed
+    // Function to dismiss when done is pressed
     func handleDoneTapped() {
-        
-        
-        
-        
-       
-        // Save the tournament to firestore
-        
         dismiss()
     }
     

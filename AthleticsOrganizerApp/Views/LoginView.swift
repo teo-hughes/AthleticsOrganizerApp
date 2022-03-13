@@ -22,7 +22,7 @@
     var body: some View {
         
         
-
+        // VStack which will house the view
         VStack {
         
             // If you have successfully signed in
@@ -31,7 +31,7 @@
                 // Display the MenuView
                 MenuView()
                 
-                // If you still have to sign in
+            // If you still have to sign in
             } else {
                 
                 // Display the SignInView
@@ -39,6 +39,8 @@
             }
         }
         .onAppear {
+            
+            // When appearing, check if the user was signed in beforehand
             viewModel.signedIn = viewModel.isSignedIn
         }
     }

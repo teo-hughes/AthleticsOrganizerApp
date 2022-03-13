@@ -13,11 +13,12 @@ import FirebaseFirestore
 // The class for the viewModel
 class AthleteViewModel: ObservableObject {
     
+    
     // List which stores the athletes for the viewModel
     @Published var athletes: [Athlete] = []
     @Published var teams: [String] = []
  
-    // My Database
+    // Accessing the database
     private var database = Firestore.firestore()
     
     
@@ -39,9 +40,10 @@ class AthleteViewModel: ObservableObject {
     // Function which saves all the athletes which are already in the viewModel
     func save(tournamentName: String) {
         
-        
         // Delete all the athletes in tournament athletes
         database.collection("\(tournamentName)").document("TournamentAthletes").delete() { err in
+            
+            // Checks for errors
             if let err = err {
                 print("Error!!! \(err)")
             } else {
@@ -60,12 +62,12 @@ class AthleteViewModel: ObservableObject {
         }
     }
     
+    
     // Function which adds the teams to the view model
     func addTeam(tournamentName: String) {
         
-        
+        // Access the details document in the tournament and update the teams field
         database.collection("\(tournamentName)").document("Details").updateData([
-            
             "tournamentTeams": teams
         ])
     }

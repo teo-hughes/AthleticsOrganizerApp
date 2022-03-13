@@ -18,6 +18,7 @@ struct SignInView: View {
     @State var email = ""
     @State var password = ""
     
+    // Variable to hold the state of whether you want an alert or not
     @State private var presentAlert = false
     
     // Accesses the AuthenticationViewModel
@@ -27,7 +28,10 @@ struct SignInView: View {
     // The body of the SignInView
     var body: some View {
         
+        
+        // Navigation view to easily navigate between sign in and sign up views
         NavigationView {
+            
             // A VStack allows you to display the image and then the textfields
             VStack {
                 
@@ -72,7 +76,6 @@ struct SignInView: View {
                         if viewModel.signedIn == false && viewModel.signInErrorMessage != "" {
                             presentAlert = true
                         }
-                        
                     }, label: {
                         
                         // UI of button
@@ -95,15 +98,12 @@ struct SignInView: View {
                 }
                 .padding()
             
-            
-            
-            // Moves the VStacks to the top
+            // Moves the content to the top
             Spacer()
-                
             }
         }
+        // View style so that it works on an iPad
         .navigationViewStyle(StackNavigationViewStyle())
         .navigationTitle("Sign In")
     }
 }
-

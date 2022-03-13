@@ -12,12 +12,14 @@ import SwiftUI
 
 // This view is what is shown when an event is pressed
 struct EventView: View {
+
     
     // Fetch the event, athletes and name as parameters
     @State var event: Event
     @State var tournamentAthletes: [Athlete]
     @State var tournamentName: String
     
+    // Access the event view model
     @StateObject var viewModel = EventViewModel()
     
     // To show the sheets to add athletes to the event or add times to the event
@@ -45,7 +47,6 @@ struct EventView: View {
             // HStack for the top to show the age group and gender
             HStack {
                 
-                
                 // VStack for the gender
                 VStack(spacing: 10) {
                     
@@ -62,7 +63,7 @@ struct EventView: View {
                             .resizable().frame(width: 13, height: 6)
                             .foregroundColor(.black)
                         
-                        // When the HStack is tapped
+                    // When the HStack is tapped
                     }.onTapGesture {
                         
                         // Toggle the genderExpand
@@ -114,7 +115,6 @@ struct EventView: View {
                 // Spacer to move the gender VStack as far left as possible
                 Spacer()
                 
-                
                 // VStack for the age group
                 VStack(spacing: 10) {
                     
@@ -131,7 +131,7 @@ struct EventView: View {
                             .resizable().frame(width: 13, height: 6)
                             .foregroundColor(.black)
                         
-                        // When the HStack is tapped
+                    // When the HStack is tapped
                     }.onTapGesture {
                         
                         // Toggle the ageGroupExpand
@@ -164,11 +164,13 @@ struct EventView: View {
             .padding()
             
             
-            // Button to add athletes for the event
+            // Text which precedes the button to add athletes for the event
             Text("Add Athletes For Event")
             
-            // When the button is pressed it toggles presentAddAthletesScreen
+            // The button which adds athletes to the event
             Button(action: {
+                
+                // Show the SearchAthletesView
                 presentAddAthletesScreen.toggle()
             }, label: {
                 
@@ -209,11 +211,13 @@ struct EventView: View {
             // Spacer to push the add times button to the bottom
             Spacer()
             
-            // Button to add times for the event
+            // Text that precedes the button to add times for the event
             Text("Add Times")
             
-            // When the button is pressed it toggles presentAddTimesScreen
+            // Button to add times to the event
             Button(action: {
+                
+                // Shows the AddTimesView
                 presentAddTimesScreen.toggle()
             }, label: {
                 
@@ -296,8 +300,8 @@ struct EventView: View {
                 event.Athletes[athleteInd].scores[ind] = positions.count - n
             }
             
+            // Save the event once you have sorted and assigned all the variables
             viewModel.saveEvent(tournamentName: tournamentName, event: event)
-            
         })
     }
 }

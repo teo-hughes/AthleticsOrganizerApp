@@ -24,11 +24,11 @@ class TournamentViewModel: ObservableObject {
     // Function to add a tournament to firestore
     func addTournament(tournament: Tournament) {
         
+        // Create a date formatter to turn the date into a string
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm E, d MMM y"
         
-        
-        // To that tournament collection on the details section adds the tournament details
+        // Adds the details of the tournament into firebase
         let _ = database.collection(tournament.name).document("Details").setData([
             "tournamentName" : tournament.name,
             "tournamentLocation": tournament.location,
@@ -38,12 +38,13 @@ class TournamentViewModel: ObservableObject {
             "tournamentTeams": tournament.teams
         ])
         
-        // To that tournament collection add a TournamentAthletes document which is empty
+        // Creates an empty tournament athletes document
         let _ = database.collection(tournament.name).document("TournamentAthletes").setData([:])
         
-        
-        // Add a document for each event with the event details
+        // Go through all the events in the tournament
         for event in tournament.Events {
+            
+            // Add the attributes of the event into firebase
             let _ = database.collection(tournament.name).document("\(event.event_name)").setData([
                 "Name" : event.event_name,
                 "Age Groups": event.age_groups,
@@ -61,7 +62,7 @@ class TournamentViewModel: ObservableObject {
     // Function to add the name of the tournament to the current tournament collection
     func addTournamentNames(tournament: Tournament) {
         
-        // Adds the tournament.name to the Current Tournaments
+        // Adds the tournament.name to the Current Tournaments collection
         let _ = database.collection("Current Tournaments").document("\(tournament.name)").setData([
             "tournamentName" : tournament.name
         ])
@@ -78,12 +79,14 @@ class TournamentViewModel: ObservableObject {
         addTournamentNames(tournament: tournament)
     }
     
+    // Function to add the details of the tournament to firebase
     func addDetails(tournament: Tournament) {
         
-        
+        // Create a date formatter to turn the date into a string
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm E, d MMM y"
         
+        // Store the details of the tournament into firebase
         let _ = database.collection("\(tournament.name)").document("Details").setData([
             "tournamentName" : tournament.name,
             "tournamentLocation": tournament.location,
@@ -91,7 +94,6 @@ class TournamentViewModel: ObservableObject {
             "tournamentAgeGroups": tournament.ageGroups,
             "tournamentGenders": tournament.genders,
             "tournamentTeams": tournament.teams
-
         ])
     }
 }
